@@ -1,0 +1,42 @@
+.navbar.navbar-fixed-top
+	.navbar-inner
+		.row.banner
+			= render "shared/banner"
+		.container
+			%a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			%a.brand{:href => root_path} Awards
+			.nav-collapse
+				%ul.nav
+					%li= link_to "Home", root_path
+					%li.dropdown
+						%a.dropdown-toggle{:href=>"#", :role=>"button", :"data-toggle"=>"dropdown"} Submit
+						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
+							%li
+								%a{:href=>"#"} Product
+							%li
+								%a{:href=>"#"} Project
+					%li= link_to "Vote"
+					%li= link_to "Event"
+					%li= link_to "FAQ"
+					%li= link_to "Previos Honorees"
+					%li= link_to "About"
+					%li= link_to "My Account"
+				.span2.search-box
+					.row
+						.span2
+							%form.navbar-search{"accept-charset" => "UTF-8", :action => "search_job", :method => "get", :style => "margin-top:0px;"}
+								%div{:style => "margin:0;padding:0;display:inline"}
+									%input{:name => "utf8", :type => "hidden", :value => "✓"}/
+								%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:150px;padding-left:26px;border-radius:15px;", :type => "text"}/
+								.icon-search{:style => "position:absolute;top:7px;left:11px;cursor:pointer;"}
+					.row
+						.span1
+							- if current_user
+								= link_to "Sign out", :logout
+							- else
+								= link_to "Sign in", :new_user_session
+						.span1
+							= link_to "Register", :new_user

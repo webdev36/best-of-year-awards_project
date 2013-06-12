@@ -1,0 +1,21 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar-inner{
+	.banner-box{
+		height: 100px; 
+		margin-left: 0px;
+		border: solid 1px;
+		margin-bottom: 5px;
+	}
+	.nav-collapse{
+		ul.nav{
+			padding-top: 10px;
+			margin-bottom: 10px;
+		}
+		.search-box{
+			max-width: 200px;
+			min-width: 200px;
+		}
+	}
+}

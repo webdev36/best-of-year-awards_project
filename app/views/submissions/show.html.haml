@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @submission.title
+%p
+  %b Description:
+  = @submission.description
+%p
+  %b Status:
+  = @submission.status
+%p
+  %b Active:
+  = @submission.active
+
+= link_to 'Edit', edit_submission_path(@submission)
+\|
+= link_to 'Back', submissions_path
