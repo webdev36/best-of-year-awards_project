@@ -1,7 +1,0 @@
-Welcome to Best of Year Awards
-
-bundle install
-rake db:migrate
-rake db:seed
-
-
