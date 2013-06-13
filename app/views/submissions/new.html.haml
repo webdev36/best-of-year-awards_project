@@ -1,5 +1,7 @@
-%h1 New submission
+.row.new-submission-page
+	.container
+		%h1 New submission
+		
+		= render 'form'
 
-= render 'form'
-
-= link_to 'Back', submissions_path
+		= link_to 'Back', submissions_path

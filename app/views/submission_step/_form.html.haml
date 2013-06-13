@@ -1,0 +1,24 @@
+= form_for @submission, url: wizard_path, :html=>{:class=>"form-horizontal edit_submission"} do |f|
+	- if @submission.errors.any?
+		.error_messages
+			%h2
+				= pluralize(@submission.errors.count, "error")
+				prohibited this user from being saved:
+			%ul
+				- @submission.errors.full_messages.each do |msg|
+					%li= msg
+	.row.first-row
+		%h3 #{session[:type].to_s.humanize} Design Submission
+	= yield f
+	.actions
+		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
+		= link_to "Save and Resume Later", next_wizard_path, :class=>"btn btn-primary"
+
+:javascript
+	$("input.accept-agree").click(function(){
+		if($(this).is(':checked')){
+			$(".btn-continue").removeAttr("disabled");
+		}else{
+			$(".btn-continue").attr("disabled","disabled");
+		}
+	});		

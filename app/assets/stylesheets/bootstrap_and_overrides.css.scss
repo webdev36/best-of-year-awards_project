@@ -2,6 +2,17 @@
 body { padding-top: 160px; }
 @import "bootstrap-responsive";
 
+.nav-collapse{
+  ul.nav{
+    li.dropdown{
+      &:hover{
+        .dropdown-menu{
+          display: block;
+        }
+      }
+    }
+  }
+}
  
 /*  wrapper divs */
   .custom-checkbox, .custom-radio { position: relative; }

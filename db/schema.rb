@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612094736) do
+ActiveRecord::Schema.define(:version => 20130613045349) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "kind"
     t.integer  "sort_id"
+    t.integer  "parent_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -59,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20130612094736) do
   end
 
   add_index "contacts", ["submission_id"], :name => "index_contacts_on_submission_id"
+
+  create_table "options", :force => true do |t|
+    t.string   "option_name"
+    t.text     "option_value"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "pictures", :force => true do |t|
     t.string   "caption"

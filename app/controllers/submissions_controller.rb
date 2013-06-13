@@ -1,4 +1,6 @@
 class SubmissionsController < ApplicationController
+  before_filter :require_user
+
   # GET /submissions
   # GET /submissions.json
   def index

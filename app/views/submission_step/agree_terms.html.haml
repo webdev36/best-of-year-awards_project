@@ -1,0 +1,14 @@
+.row.agree-terms-page
+	.container
+		.row
+			= render layout: 'form' do |f|
+				.row
+					.span10= raw get_option(:project_submission_agree_terms)	
+				.row
+					.span4
+						%label I have read and agree to the terms of this competition.
+					.span1
+						%label.checkbox
+							%input.accept-agree{:type=>"checkbox"} Yes
+:javascript
+	$(".btn-continue").attr("disabled","disabled");

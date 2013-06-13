@@ -1,8 +1,18 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
-	helper_method :current_user_session, :current_user
+	helper_method :current_user_session, :current_user, :get_option, :current_submission
  
+
 	private
+		
+		def current_submission
+			@current_submission ||= Submission.find_by_id(session[:submission_id]) unless session[:submission_id].nil?
+		end
+
+		def get_option(opt_name)
+			option = Option.find_by_option_name opt_name
+			return option.option_value unless option.nil?
+		end
 		def current_user_session
 			logger.debug "ApplicationController::current_user_session"
 		 	return @current_user_session if defined?(@current_user_session)

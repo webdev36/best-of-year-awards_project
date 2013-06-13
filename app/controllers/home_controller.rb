@@ -1,6 +1,8 @@
-class HomeController < ApplicationController
-	before_filter :require_user
-  
+class HomeController < ApplicationController  
   def index
   end
+
+  def submission_landing  
+  end
+
 end

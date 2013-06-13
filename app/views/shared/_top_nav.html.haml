@@ -11,8 +11,11 @@
 			.nav-collapse
 				%ul.nav
 					%li= link_to "Home", root_path
-					%li.dropdown
-						%a.dropdown-toggle{:href=>"#", :role=>"button", :"data-toggle"=>"dropdown"} Submit
+					%li.dropdown					
+						%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
+							Submit
+							%b.caret
+
 						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 							%li
 								%a{:href=>"#"} Product

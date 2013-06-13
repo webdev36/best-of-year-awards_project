@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :draft_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'draft']
   has_many :completed_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'draft']
+
+  def fullname
+  	# "#{self.last_name} #{self.first_name}"
+  	[self.first_name, self.last_name].reject(&:blank?).join(" ")
+  end
 end

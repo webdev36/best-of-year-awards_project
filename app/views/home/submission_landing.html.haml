@@ -1,0 +1,35 @@
+.row.submission-landing-page
+	.container
+		.row.first-row
+			.span4
+				%h3 Hi #{current_user.fullname}
+		.row.second-row
+			.span4.left-box
+				%h4 Start a new submission:
+				%p
+					= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"btn btn-primary"
+				%p
+					%a.btn.btn-primary{:href => "#"} Submit Product
+			.span4.center-box
+				%h4 Resume an active submission:
+				%p
+					%a{:href=>"#"} Submission Name1
+				%p
+					%a{:href=>"#"} Submission Name1
+				%p
+					%a{:href=>"#"} Submission Name1					
+				%p
+					%a{:href=>"#"} Submission Name1
+				%p
+					%a{:href=>"#"} Submission Name1					
+				%p
+					%a{:href=>"#"} Submission Name1
+				%p
+					%a{:href=>"#"} Submission Name1										
+			.span4.right-box
+				%h4 Your account:
+				%p
+					%a.btn.btn-primary{:href => "#"} Edit Information
+				%p
+					%a.btn.btn-primary{:href => "#"} View Finished Submissions
+

@@ -1,11 +1,36 @@
-= simple_form_for(@submission) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :title
-    = f.input :description
-    = f.input :status
-    = f.input :active
-
-  .form-actions
-    = f.button :submit
+.row.first-row
+	.row
+		%h3 #{params[:type].humanize} Design Submission
+	.row
+		.span10= raw get_option(:project_submission_agree_terms)	
+	.row
+		.span4
+			%label I have read and agree to the terms of this competition.
+		.span1
+			%label.checkbox
+				%input{:type=>"checkbox"} Yes
+	.row
+		.span2
+			%a.btn.btn-primary Continue
+		.span4
+			%a.btn.btn-primary Save and Resume Later
+.row.second-row
+	= form_for(@submission, :html => { :class => 'form-horizontal'}) do |f|	
+		.row.first-row.form-inputs
+			.control-group
+				= f.label :title, "Submission Name(for your own reference):",:class => 'control-label', :style=>"width: 300px;"
+				.controls
+					= f.text_field :title, :class => 'text_field'
+		.row.second-row
+			%p Project Category:
+			%label You can select multiple categories for a project if applicable. There is a $300 fee per entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)
+			.span5
+				- Category::project_categories.each do |cat|
+					%label.checkbox
+						%input{:type=>"checkbox"}
+							= cat.name 
+		.row.last-row
+			.span2
+				%a.btn.btn-primary Continue
+			.span4
+				%a.btn.btn-primary Save and Resume Later

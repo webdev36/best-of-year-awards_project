@@ -1,8 +1,11 @@
 BestOfYearAwards::Application.routes.draw do
+  
   resources :submissions
-
+  resources :submission_step
 
   get "home/index"
+  get "home/submission_landing"
+  
 
   resources :users
 
@@ -13,4 +16,5 @@ BestOfYearAwards::Application.routes.draw do
   
 
   root :to => 'home#index'
+
 end
