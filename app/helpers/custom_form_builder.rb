@@ -12,7 +12,7 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
 
     if args[0][:saved_values][0]
       args[0][:saved_values][0].each do |sv|
-       args[0][:checked]=true and break if sv.send(_id) == id
+       args[0][:checked]=true and break if sv.send('category_id') == id
       end
     end
 

@@ -1,1 +1,26 @@
-confirm_submissions
+.row.confirm-submission-info-page
+	.container	
+		.row.first-row
+			%h3.offset1 #{params[:type].humanize unless params[:type].nil? } Design Submission
+			%fieldset.offset-by-one
+				%h4.offset1 Project Infomation	
+				%h5 Project name: #{@submission.title}
+				%h5 Project Description:
+				%label= raw @submission.description
+			%fieldset.offset-by-one
+				%h4.offset1 Company Infomation
+				%h5 Company Name: #{@submission.company.name}
+				%h5 Company Address: #{@submission.company.country} #{@submission.company.address1} #{@submission.company.address2} #{@submission.company.city}
+				%h5 Company state: #{@submission.company.state} Zipcode: #{@submission.company.zip}
+				%h5 Company Phone number: #{@submission.company.phone}
+				%h5 Company Website: #{@submission.company.website}
+			%fieldset.offset-by-one
+				%h4.offset1 Project Document Infomation
+				.span2
+					%h5 Project Image
+				.span5
+					=image_tag @submission.last_image_url(:large)
+		.row.last-row
+			= link_to "Go Back", previous_wizard_path, :class=>"btn btn-primary"
+			
+			= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :submissions
   has_many :draft_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'draft']
-  has_many :completed_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'draft']
+  has_many :completed_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'complete']
 
   def fullname
   	# "#{self.last_name} #{self.first_name}"

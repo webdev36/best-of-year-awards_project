@@ -8,11 +8,12 @@
 				- @submission.errors.full_messages.each do |msg|
 					%li= msg
 	.row.first-row
-		%h3 #{session[:type].to_s.humanize} Design Submission
+		%h3.offset1 #{session[:submission_type].to_s.humanize unless session[:submission_type].nil?} Design Submission
 	= yield f
 	.row.actions{:style=>"text-align: center;"}
+		= link_to "Go Back", previous_wizard_path, :class=>"btn btn-primary"
 		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
-		= link_to "Save and Resume Later", next_wizard_path, :class=>"btn btn-primary"
+		= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"
 
 :javascript
 	$("input.accept-agree").click(function(){

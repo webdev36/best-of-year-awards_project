@@ -1,10 +1,10 @@
 .row.input-submission-info-page
 	.container
-		= render layout: 'form' do |f|			
+		= render layout: 'form' do |f|
 			.row.first-row.company-input-box			
 				%fieldset.offset-by-one				
 					%h4.offset1 Firm Information:
-					=f.fields_for :company do |cm|
+					= f.fields_for :company do |cm|
 						.span4
 							.control-group
 								= cm.label :name, "Firm Name *",:class => 'control-label'
@@ -45,8 +45,8 @@
 									= cm.text_field :zip, :class => 'text_field'
 			.row.second-row.project-spec-input-box
 				%fieldset.offset-by-one
-					%h4.offset1 Project Information:
-					=f.fields_for :project_spec do |project|
+					%h4.offset1 #{session[:submission_type].to_s.humanize} Information:
+					= f.fields_for :project_spec do |project|
 						.row
 							.span4
 								.control-group
@@ -78,12 +78,18 @@
 						.row
 							.span10
 								.control-group
-									%label.control-label Project Description *
+									%label.control-label #{session[:submission_type].to_s.humanize} Description *
 									.controls
-										= f.text_area :description, :"data-required"=>"true"						
+										= f.text_area :description, :"data-required"=>"true"	
+								=f.hidden_field :status, :value=>'finished'
 			.row.third-row.submission-imput-box
 				%fieldset.offset-by-one
-					%h4.offset1 Project Documentation:
-					
+					%h4.offset1 #{session[:submission_type].to_s.humanize} Documentation:
+					= f.fields_for :pictures do |picture|
+						.row
+							.control-group
+								= picture.label :image, "#{session[:submission_type].to_s.humanize} Images *",:class => 'control-label'
+								.controls
+									= picture.file_field :image, :class => 'text_field', :"data-required"=>"true"
 
 						

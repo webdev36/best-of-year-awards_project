@@ -18,9 +18,9 @@
 
 						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 							%li
-								%a{:href=>"#"} Product
+								= link_to "Product", submission_step_index_path.to_s+'?type=product'
 							%li
-								%a{:href=>"#"} Project
+								= link_to "Project", submission_step_index_path.to_s+'?type=project'
 					%li= link_to "Vote"
 					%li= link_to "Event"
 					%li= link_to "FAQ"
@@ -30,7 +30,7 @@
 				.span2.search-box
 					.row
 						.span2
-							%form.navbar-search{"accept-charset" => "UTF-8", :action => "search_job", :method => "get", :style => "margin-top:0px;"}
+							%form.navbar-search{"accept-charset" => "UTF-8", :action => "/home/search_submissions", :method => "get", :style => "margin-top:0px;"}
 								%div{:style => "margin:0;padding:0;display:inline"}
 									%input{:name => "utf8", :type => "hidden", :value => "✓"}/
 								%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:150px;padding-left:26px;border-radius:15px;", :type => "text"}/

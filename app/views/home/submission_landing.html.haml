@@ -9,7 +9,7 @@
 				%p
 					= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"btn btn-primary"
 				%p
-					%a.btn.btn-primary{:href => "#"} Submit Product
+					= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"btn btn-primary"
 			.span4.center-box
 				%h4 Resume an active submission:
 				%p

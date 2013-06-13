@@ -25,4 +25,13 @@ class Submission < ActiveRecord::Base
   
   #validates_associated :company, :contact
   validates :title, :length =>{:maximum =>50}, :presence => true
+
+
+  def last_image_url(type)
+    self.pictures.last.image.url(type) unless self.pictures.last.nil?
+  end
+
+  def type
+    self.categories.first.kind == 0 ? "product" : "project"
+  end
 end
