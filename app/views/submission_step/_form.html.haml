@@ -1,4 +1,4 @@
-= form_for @submission, url: wizard_path, :html=>{:class=>"form-horizontal edit_submission"} do |f|
+= form_for @submission, url: wizard_path, :html=>{:class=>"form-horizontal edit_submission", :"data-validate" => "parsley"} do |f|
 	- if @submission.errors.any?
 		.error_messages
 			%h2
@@ -10,7 +10,7 @@
 	.row.first-row
 		%h3 #{session[:type].to_s.humanize} Design Submission
 	= yield f
-	.actions
+	.row.actions{:style=>"text-align: center;"}
 		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
 		= link_to "Save and Resume Later", next_wizard_path, :class=>"btn btn-primary"
 

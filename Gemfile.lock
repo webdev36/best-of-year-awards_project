@@ -116,6 +116,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    parsley-rails (1.1.16.0)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paperclip (~> 3.0)
+  parsley-rails
   quiet_assets
   rails (= 3.2.13)
   rails3-generators

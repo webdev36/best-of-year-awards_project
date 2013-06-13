@@ -27,14 +27,26 @@ class SubmissionStepController < ApplicationController
 		when :select_categories
 			@submission = current_submission
 			@submission.submission_categories.build if @submission.submission_categories.nil?
+		when :input_submissions
+			@submission ||= current_submission
+			@submission.build_company if @submission.company.nil?
+			@submission.pictures.build
+			if session[:submission_type] == "product"				
+				@submission.build_product_spec if @submission.product_spec.nil?				
+			elsif session[:submission_type] == "project"				
+				@submission.build_project_spec if @submission.project_spec.nil?			
+			end				
 		end
 		render_wizard
 	end
 
 	def update
+		#render :text => params.inspect and return
 		@submission = current_submission		
 		case step		
 		when :select_categories
+			@submission.attributes = params[:submission]
+		when :input_submissions
 			@submission.attributes = params[:submission]
 		end	
 		

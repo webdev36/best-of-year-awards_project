@@ -26,8 +26,10 @@ gem 'simple_form'
 
 gem 'jquery-rails'
 gem 'colorbox-rails'
-gem "country_select"
-gem "haml-rails"
+gem 'country_select'
+gem 'haml-rails'
+gem 'parsley-rails'
+
 
 gem "rmagick"
 gem "paperclip", "~> 3.0"

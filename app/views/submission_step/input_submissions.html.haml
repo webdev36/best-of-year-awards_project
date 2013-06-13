@@ -1,1 +1,89 @@
-input_submissions
+.row.input-submission-info-page
+	.container
+		= render layout: 'form' do |f|			
+			.row.first-row.company-input-box			
+				%fieldset.offset-by-one				
+					%h4.offset1 Firm Information:
+					=f.fields_for :company do |cm|
+						.span4
+							.control-group
+								= cm.label :name, "Firm Name *",:class => 'control-label'
+								.controls
+									= cm.text_field :name, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= cm.label :country, "Country",:class => 'control-label'
+								.controls
+									= cm.country_select :country, ["#{cm.object.country}"]
+							.control-group
+								= cm.label :phone, "Phone Number",:class => 'control-label'
+								.controls
+									= cm.text_field :phone, :class => 'text_field'
+							.control-group
+								= cm.label :website, "Website",:class => 'control-label'
+								.controls
+									= cm.text_field :website, :class => 'text_field'		
+						.span4
+							.control-group
+								= cm.label :address1, "Address1 *",:class => 'control-label'
+								.controls
+									= cm.text_field :address1, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= cm.label :address2, "Address2",:class => 'control-label'
+								.controls
+									= cm.text_field :address2, :class => 'text_field'
+							.control-group
+								= cm.label :city, "City *",:class => 'control-label'
+								.controls
+									= cm.text_field :city, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= cm.label :state, "State",:class => 'control-label'
+								.controls
+									= cm.text_field :state, :class => 'text_field'
+							.control-group
+								= cm.label :zip, "Zip Code",:class => 'control-label'
+								.controls
+									= cm.text_field :zip, :class => 'text_field'
+			.row.second-row.project-spec-input-box
+				%fieldset.offset-by-one
+					%h4.offset1 Project Information:
+					=f.fields_for :project_spec do |project|
+						.row
+							.span4
+								.control-group
+									= project.label :lead_designer, "Lead Designer *",:class => 'control-label'
+									.controls
+										= project.text_field :lead_designer, :class => 'text_field', :"data-required"=>"true"
+								.control-group
+									= project.label :architect, "Architect",:class => 'control-label'
+									.controls
+										= project.text_field :architect, :class => 'text_field'
+								.control-group
+									= project.label :additional_designers, "Additional Designers",:class => 'control-label'
+									.controls
+										= project.text_field :additional_designers, :class => 'text_field'
+								
+							.span4
+								.control-group
+									= project.label :other_resources, "Other Resources",:class => 'control-label'
+									.controls
+										= project.text_field :other_resources, :class => 'text_field'
+								.control-group
+									= project.label :othere_resources_title, "Other Resources Title",:class => 'control-label'
+									.controls
+										= project.text_field :othere_resources_title, :class => 'text_field'
+								.control-group
+									= project.label :square_footage, "SQuare footage of project*",:class => 'control-label'
+									.controls
+										= project.text_field :square_footage, :class => 'text_field', :"data-required"=>"true"
+						.row
+							.span10
+								.control-group
+									%label.control-label Project Description *
+									.controls
+										= f.text_area :description, :"data-required"=>"true"						
+			.row.third-row.submission-imput-box
+				%fieldset.offset-by-one
+					%h4.offset1 Project Documentation:
+					
+
+						

@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require parsley
+//= require parsley.extend
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
