@@ -1,0 +1,17 @@
+.row.select-submission-page
+	.container
+		.row{:style=>"margin-left:0px;"}
+			.span8.offset2
+				= render layout: 'form' do |f|
+					.row
+						.span5.submission-box.offset2
+							=f.fields_for :order_submissions, @submissions, :builder => CustomFormBuilder do |o_sub|
+								%label.checkbox
+									= o_sub.check_box :submission_id, {:saved_values => [f.object.order_submissions, ["id", "title"]]}, o_sub.object.id, '-1'
+									= o_sub.object.title
+:javascript
+	$('div.submission-box input[type="hidden"]').each(function(){
+		if($(this).val()!=-1){
+			 $(this).remove();
+		}
+	})

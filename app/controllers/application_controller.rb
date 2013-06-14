@@ -84,6 +84,10 @@ class ApplicationController < ActionController::Base
 		def current_submission
 			@current_submission ||= Submission.find_by_id(session[:submission_id]) unless session[:submission_id].nil?
 		end
+    
+    def current_order
+      @current_order ||= Order.find_by_id(session[:order_id]) unless session[:order_id].nil?
+    end
 
 		def get_option(opt_name)
 			option = Option.find_by_option_name opt_name

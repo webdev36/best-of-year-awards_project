@@ -8,29 +8,30 @@
 
 
 puts ">>>>>>>>>>> Create categories"
-pj = Category.find_or_create_by_name(:name=>"Product", :description=>"Start a Product", :kind=>0, :sort_id=>0)
-pd = Category.find_or_create_by_name(:name=>"Project", :description=>"Start a Project", :kind=>1, :sort_id=>1)
-
-puts "create project categories"
-Category.find_or_create_by_name(:name=>"Project1", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>1)
-Category.find_or_create_by_name(:name=>"Project2", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>2)
-Category.find_or_create_by_name(:name=>"Project3", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>3)
-Category.find_or_create_by_name(:name=>"Project4", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>4)
-Category.find_or_create_by_name(:name=>"Project5", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>5)
-Category.find_or_create_by_name(:name=>"Project6", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>6)
-Category.find_or_create_by_name(:name=>"Project7", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>7)
-Category.find_or_create_by_name(:name=>"Project8", :description=>"Start a Project", :parent_id=>pj.id, :kind=>0, :sort_id=>8)
-
-
+pd = Category.find_or_create_by_name(:name=>"Product", :description=>"Start a Product", :kind=>0, :sort_id=>0)
 puts "create product categories"
-Category.find_or_create_by_name(:name=>"Product1", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>1)
-Category.find_or_create_by_name(:name=>"Product2", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>2)
-Category.find_or_create_by_name(:name=>"Product3", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>3)
-Category.find_or_create_by_name(:name=>"Product4", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>4)
-Category.find_or_create_by_name(:name=>"Product5", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>5)
-Category.find_or_create_by_name(:name=>"Product6", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>6)
-Category.find_or_create_by_name(:name=>"Product7", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>7)
-Category.find_or_create_by_name(:name=>"Product8", :description=>"Start a Product", :parent_id=>pd.id, :kind=>1, :sort_id=>8)
+Category.find_or_create_by_name(:name=>"Product1", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>1)
+Category.find_or_create_by_name(:name=>"Product2", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>2)
+Category.find_or_create_by_name(:name=>"Product3", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>3)
+Category.find_or_create_by_name(:name=>"Product4", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>4)
+Category.find_or_create_by_name(:name=>"Product5", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>5)
+Category.find_or_create_by_name(:name=>"Product6", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>6)
+Category.find_or_create_by_name(:name=>"Product7", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>7)
+Category.find_or_create_by_name(:name=>"Product8", :description=>"Start a Product", :parent_id=>pd.id, :kind=>0, :sort_id=>8)
+
+
+pj = Category.find_or_create_by_name(:name=>"Project", :description=>"Start a Project", :kind=>1, :sort_id=>1)
+puts "create project categories"
+Category.find_or_create_by_name(:name=>"Project1", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>1)
+Category.find_or_create_by_name(:name=>"Project2", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>2)
+Category.find_or_create_by_name(:name=>"Project3", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>3)
+Category.find_or_create_by_name(:name=>"Project4", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>4)
+Category.find_or_create_by_name(:name=>"Project5", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>5)
+Category.find_or_create_by_name(:name=>"Project6", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>6)
+Category.find_or_create_by_name(:name=>"Project7", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>7)
+Category.find_or_create_by_name(:name=>"Project8", :description=>"Start a Project", :parent_id=>pj.id, :kind=>1, :sort_id=>8)
+
+
 
 Option.find_or_create_by_option_name(:option_name=>"project_submission_agree_terms", :option_value=>"<p>Project Deadline: October 1</p>
         <p>Submit your project in the Best of Year 2013 competition.</p>

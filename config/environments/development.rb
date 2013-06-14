@@ -34,4 +34,13 @@ BestOfYearAwards::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+      :login    => ENV['AUTHORIZE_LOGIN_ID'],
+      :password => ENV['AUTHORIZE_TRANSACTION_KEY'],
+      :test     => true
+    )
+  end
 end

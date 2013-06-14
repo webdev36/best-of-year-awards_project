@@ -64,4 +64,12 @@ BestOfYearAwards::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login    => ENV['AUTHORIZE_LOGIN_ID'],
+      :password => ENV['AUTHORIZE_TRANSACTION_KEY'],
+      :test     => false
+    )
+  end
 end

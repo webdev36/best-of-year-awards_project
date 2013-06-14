@@ -1,0 +1,49 @@
+.row.input-card-info-page
+	.container
+		.row{:style=>"margin-left:0px;"}		
+			.span8.offset2
+				= render layout: 'form' do |f|
+					.row.submissions-info
+						%h5 Submissions: #{@order.submissions.map{|s| s.title}.join(", ")}
+						%h5 Submission total: $600
+					.row.input-box
+						=f.hidden_field :balance_amount, :value => "6"
+						.control-group
+							= f.label :shipping_first_name, "Name on Credit Card*:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_first_name, :class => 'text_field', :"data-required"=>"true", :placeholder =>"First Name"
+								%span -
+								= f.text_field :shipping_last_name, :class => 'text_field', :"data-required"=>"true", :placeholder =>"Last Name", :style=>"width: 170px;"
+						.control-group
+							%label.control-label Card Number:
+							.controls
+								= text_field_tag :card_number, nil, name: 'card_number', :placeholder=>"Credit Card Number", :value=>"4242424242424242"
+								%span CCV Number
+								= text_field_tag :card_code, nil, name: 'ccv_number', :placeholder=>"CCV Number", :value=>"123", :style=>"width: 100px;"
+						.control-group
+							%label.control-label Exp:
+							.controls
+								= select_month nil, {add_month_numbers_true: true}, {name: 'exp_month', id: "card_month", :style=>"width: 100px;"}
+								= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'exp_year', id: "card_year", :style=>"width: 100px;"}
+					.row.billing-address
+						.control-group
+							= f.label :shipping_address, "Billing Address1*:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_address, :class => 'text_field', :"data-required"=>"true", :placeholder =>"Address1"
+						.control-group
+							= f.label :shipping_optional_address, "Billing Address2:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_optional_address, :class => 'text_field', :placeholder =>"Address2"
+						.control-group
+							= f.label :shipping_country, "Country",:class => 'control-label'
+							.controls
+								= f.country_select :shipping_country, ["#{f.object.shipping_country}"]
+						.control-group
+							= f.label :shipping_state, "State:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_state, :class => 'text_field', :placeholder =>"State"
+						.control-group
+							= f.label :shipping_zip_code, "Zip Code:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_zip_code, :class => 'text_field', :placeholder =>"Zip Code"
+						

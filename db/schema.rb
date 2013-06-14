@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613045349) do
+ActiveRecord::Schema.define(:version => 20130613203220) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,62 @@ ActiveRecord::Schema.define(:version => 20130613045349) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "order_submissions", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "order_submissions", ["order_id"], :name => "index_order_submissions_on_order_id"
+  add_index "order_submissions", ["submission_id"], :name => "index_order_submissions_on_submission_id"
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "balance_amout"
+    t.string   "payment_option"
+    t.string   "shipping_first_name"
+    t.string   "shipping_last_name"
+    t.string   "shipping_address"
+    t.string   "shipping_optional_address"
+    t.string   "shipping_city"
+    t.string   "shipping_state"
+    t.string   "shipping_zip_code"
+    t.string   "shipping_country"
+    t.string   "shipping_method"
+    t.string   "email"
+    t.string   "token_key"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "order_id"
+    t.string   "transaction_id"
+    t.string   "refund_id"
+    t.string   "price_subtotal"
+    t.string   "price_tax"
+    t.string   "price_refund"
+    t.string   "price_total"
+    t.string   "status"
+    t.string   "ccard_last4"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "post_code"
+    t.string   "country"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "payments", ["order_id"], :name => "index_payments_on_order_id"
+  add_index "payments", ["user_id"], :name => "index_payments_on_user_id"
 
   create_table "pictures", :force => true do |t|
     t.string   "caption"

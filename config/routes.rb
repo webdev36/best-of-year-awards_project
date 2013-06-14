@@ -1,7 +1,9 @@
 BestOfYearAwards::Application.routes.draw do
   
   resources :submissions
+  
   resources :submission_step
+  resources :payment_process
   
   get "home/index"
   get "home/submission_landing"

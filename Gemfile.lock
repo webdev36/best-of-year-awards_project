@@ -43,6 +43,8 @@ GEM
     authlogic (3.3.0)
       activerecord (>= 3.2)
       activesupport (>= 3.2)
+    authorize-net (1.5.2)
+      nokogiri (~> 1.4)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -212,6 +214,7 @@ PLATFORMS
 DEPENDENCIES
   activemerchant
   authlogic
+  authorize-net
   better_errors
   binding_of_caller
   bootstrap-sass

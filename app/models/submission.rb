@@ -16,6 +16,10 @@ class Submission < ActiveRecord::Base
   has_many :submission_categories
   has_many :categories, :through => :submission_categories
 
+  STATUS = {:draft => "draft", :whole => "whole"}
+  scope :whole_submissions, where( :status => STATUS[:whole])
+
+
 	accepts_nested_attributes_for :product_spec, :allow_destroy=>true, :reject_if => :all_blank
 	accepts_nested_attributes_for :project_spec, :allow_destroy=>true, :reject_if => :all_blank	
   accepts_nested_attributes_for :company, :allow_destroy=>true, :reject_if => :all_blank

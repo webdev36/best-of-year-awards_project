@@ -43,6 +43,7 @@ gem 'authlogic'
 gem 'rails3-generators'
 gem 'dynamic_form'
 gem 'wicked'
+gem 'authorize-net'
 
 group :development do
   gem "html2haml"

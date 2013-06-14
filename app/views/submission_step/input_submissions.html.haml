@@ -81,7 +81,7 @@
 									%label.control-label #{session[:submission_type].to_s.humanize} Description *
 									.controls
 										= f.text_area :description, :"data-required"=>"true"	
-								=f.hidden_field :status, :value=>'finished'
+								=f.hidden_field :status, :value=>'whole'
 			.row.third-row.submission-imput-box
 				%fieldset.offset-by-one
 					%h4.offset1 #{session[:submission_type].to_s.humanize} Documentation:

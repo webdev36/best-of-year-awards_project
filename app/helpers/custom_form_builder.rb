@@ -6,13 +6,19 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     _for = "#{@object_name.gsub(/[\[\]]/,'_')}#{_id}"
     _for = _for.gsub('__','_')
     id = @object.send(_id)
-    value = @object.send(_value)
+    #value = @object.send(_value)
 
     args[0][:checked]=false
 
+
     if args[0][:saved_values][0]
       args[0][:saved_values][0].each do |sv|
-       args[0][:checked]=true and break if sv.send('category_id') == id
+        if sv.class.name == "SubmissionCategory"
+          send_id = 'category_id'
+        elsif sv.class.name == "OrderSubmission"
+          send_id = 'submission_id'
+        end
+       args[0][:checked]=true and break if sv.send(send_id) == id
       end
     end
 

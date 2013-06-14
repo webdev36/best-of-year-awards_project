@@ -1,4 +1,6 @@
 class SubmissionStepController < ApplicationController
+	before_filter :require_user
+
 	include Wicked::Wizard
 	steps :agree_terms, :select_categories, :input_submissions, :confirm_submissions
 
@@ -13,7 +15,6 @@ class SubmissionStepController < ApplicationController
 		elsif session[:submission_type] == "product"
 			@categories = Category::product_categories
 		end
-
 		
 		case step		
 		when :agree_terms
