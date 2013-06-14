@@ -53,6 +53,10 @@ GEM
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.0.4)
+    carmen (1.0.0.beta2)
+    carmen-rails (1.0.0.beta3)
+      carmen (~> 1.0.0.beta2)
+      rails
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -218,6 +222,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  carmen-rails
   coffee-rails (~> 3.2.1)
   colorbox-rails
   country_select

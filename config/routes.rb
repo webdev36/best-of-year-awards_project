@@ -1,5 +1,9 @@
 BestOfYearAwards::Application.routes.draw do
   
+  get "orders/success"
+
+  get "orders/failure"
+
   resources :submissions
   
   resources :submission_step

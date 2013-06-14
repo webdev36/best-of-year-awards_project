@@ -11,9 +11,9 @@
 		%h3.offset1 Checkout
 	= yield f
 	.row.actions{:style=>"text-align: center;"}
-		= link_to "Go Back", previous_wizard_path, :class=>"btn btn-primary"
+		
 		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
-		= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"
+		
 
 :javascript
 	$("input.accept-agree").click(function(){

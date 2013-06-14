@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.belongs_to :user
-      t.string :balance_amout
+      t.string :balance_amount
       t.string :payment_option
       t.string :shipping_first_name
       t.string :shipping_last_name

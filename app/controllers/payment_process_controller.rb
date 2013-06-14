@@ -2,7 +2,7 @@ class PaymentProcessController < ApplicationController
 	before_filter :require_user
 
 	include Wicked::Wizard
-	steps :select_submission, :input_card_info, :confirm
+	steps :select_submission, :input_card_info
 
 	def show
 		@order = current_order unless current_order.nil?
@@ -26,29 +26,51 @@ class PaymentProcessController < ApplicationController
 		when :select_submission
 			@order.attributes = params[:order]
 		when :input_card_info
-			render :text => params[:order][:shipping_first_name].inspect and return
-#			@order.attributes = params[:order]
+#			render :text => params.inspect and return
 
+			amount = params[:order][:balance_amount]
+			amount_in_cents = amount.to_f*100
 			credit_card = ActiveMerchant::Billing::CreditCard.new(
 				:number								=>params[:card_number],
-				:verification_value		=>params[:ccv_number],
+				:verification_value		=>params[:cvv_number],
 				:month								=>params[:exp_month],
 				:year									=>params[:exp_year],
 				:first_name						=>params[:order][:shipping_first_name],
 				:last_name						=>params[:order][:shipping_last_name]
 			)
-
-
 			if credit_card.valid?
-				gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new(
-					:login => ENV['AUTHORIZE_LOGIN_ID'],
-					:password => ENV['AUTHORIZE_TRANSACTION_KEY'],
-					:test=>true
-				)
+				#gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+				#	:login => ENV['AUTHORIZE_LOGIN_ID'],
+				#	:password => ENV['AUTHORIZE_TRANSACTION_KEY'],
+				#	:test=>true
+				#)
+				purchase_options=
+				{
+	        :ip => request.remote_ip,
+	        :billing_address => {	         
+	        	:company	=> current_user.company_name,
+	          :address1 => params[:order][:shipping_address],
+	          :city     => params[:order][:shipping_city],
+	          :state    => params[:order][:shipping_state],
+	          :country  => params[:order][:shipping_country],
+	          :zip      => params[:order][:shipping_zip_code]
+	        }
+	      }
+    
+				#response = GATEWAY.authorize(amount_in_cents, credit_card)
+				response = GATEWAY.purchase(amount_in_cents, credit_card, purchase_options)
+				if response.success?
+					@order.token_key = response.params["transaction_id"]
+					@order.attributes = params[:order]
+					if @order.save
+						@order.complete(params[:cvv_number])
+					end
+				else
+					raise StandardError, response.message
+				end
 
-				response = gateway.authorize()
 			else
-
+				render :text => credit_card.errors.full_messages.join('. ') and return
 			end
 		when :confirm
 			
@@ -58,6 +80,6 @@ class PaymentProcessController < ApplicationController
 	end
 	private
 		def redirect_to_finish_wizard
-			redirect_to root_url, notice: "Tanks you for create submission"
+			redirect_to root_url, notice: "Tanks you for pay transaction"
 		end
 end

@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'colorbox-rails'
 gem 'country_select'
+gem 'carmen-rails'
 gem 'haml-rails'
 gem 'parsley-rails'
 

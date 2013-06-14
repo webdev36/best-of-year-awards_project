@@ -18,8 +18,8 @@
 							%label.control-label Card Number:
 							.controls
 								= text_field_tag :card_number, nil, name: 'card_number', :placeholder=>"Credit Card Number", :value=>"4242424242424242"
-								%span CCV Number
-								= text_field_tag :card_code, nil, name: 'ccv_number', :placeholder=>"CCV Number", :value=>"123", :style=>"width: 100px;"
+								%span CVV Number
+								= text_field_tag :cvv_number, nil, name: 'cvv_number', :placeholder=>"CVV Number", :value=>"123", :style=>"width: 100px;"
 						.control-group
 							%label.control-label Exp:
 							.controls
@@ -37,7 +37,11 @@
 						.control-group
 							= f.label :shipping_country, "Country",:class => 'control-label'
 							.controls
-								= f.country_select :shipping_country, ["#{f.object.shipping_country}"]
+								= f.country_select :shipping_country, {:priority => %w(US CA)}, prompt: 'Please select a country'
+						.control-group
+							= f.label :shipping_city, "City:",:class => 'control-label'
+							.controls
+								= f.text_field :shipping_city, :class => 'text_field', :placeholder =>"City"
 						.control-group
 							= f.label :shipping_state, "State:",:class => 'control-label'
 							.controls

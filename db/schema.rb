@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.string   "balance_amout"
+    t.string   "balance_amount"
     t.string   "payment_option"
     t.string   "shipping_first_name"
     t.string   "shipping_last_name"
