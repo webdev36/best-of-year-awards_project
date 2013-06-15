@@ -12,12 +12,15 @@ class Submission < ActiveRecord::Base
   has_one :company, :dependent => :destroy
   has_one :contact, :dependent => :destroy
 
-  has_many :pictures, :as => :imageable, :dependent => :destroy
-
+  
   has_many :submission_categories
   has_many :categories, :through => :submission_categories
 
-  
+  has_many :order_submission
+  has_many :orders, :through => :order_submission
+
+  has_many :pictures, :as => :imageable, :dependent => :destroy
+
   
   scope :whole_submissions, where( :status => STATUS_KINDS[:whole])
 

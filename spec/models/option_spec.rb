@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: options
+#
+#  id         	:integer          not null, primary key
+#  option_name	:string(255)
+#  option_value	:text
+#  created_at 	:datetime         not null
+#  updated_at 	:datetime         not null
+
 require 'spec_helper'
 
 describe Option do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have fields" do
+		should respond_to(:option_name)
+		should respond_to(:option_value)
+	end
 end

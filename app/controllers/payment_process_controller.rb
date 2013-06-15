@@ -61,6 +61,7 @@ class PaymentProcessController < ApplicationController
 				response = GATEWAY.purchase(amount_in_cents, credit_card, purchase_options)
 				if response.success?
 					@order.token_key = response.params["transaction_id"]
+					@order.payment_option = 'card'
 					@order.attributes = params[:order]
 					if @order.save
 						@order.complete(params[:cvv_number])
