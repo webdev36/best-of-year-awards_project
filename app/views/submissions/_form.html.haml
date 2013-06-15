@@ -12,8 +12,9 @@
 	.row
 		.span2
 			%a.btn.btn-primary Continue
-		.span4
-			%a.btn.btn-primary Save and Resume Later
+		- if false # What are we saving if they have not done anything yet?
+			.span4
+				%a.btn.btn-primary Save and Resume Later
 .row.second-row
 	= form_for(@submission, :html => { :class => 'form-horizontal'}) do |f|	
 		.row.first-row.form-inputs

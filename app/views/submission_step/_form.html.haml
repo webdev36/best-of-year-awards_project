@@ -13,7 +13,8 @@
 	.row.actions{:style=>"text-align: center;"}
 		= link_to "Go Back", previous_wizard_path, :class=>"btn btn-primary"
 		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
-		= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"
+		- unless step == :agree_terms # What are we saving if they have not done anything yet?
+			= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"
 
 :javascript
 	$("input.accept-agree").click(function(){
