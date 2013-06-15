@@ -1,10 +1,21 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+require 'rubygems'
+require 'simplecov'
+
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+#   SimpleCov::Formatter::HTMLFormatter,
+#   # Coveralls::SimpleCov::Formatter
+# ]
+SimpleCov.start 'rails'
+
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
+
 
 Capybara.javascript_driver = :poltergeist
 # Requires supporting ruby files with custom matchers and macros, etc,

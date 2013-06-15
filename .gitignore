@@ -17,3 +17,9 @@ database.yml
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore simplecov
+coverage/
+
+# Ignore local assets
+public/assets
