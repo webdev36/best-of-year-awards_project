@@ -4,19 +4,19 @@
 #
 #  id         								:integer          not null, primary key
 #  user_id										:integer
-#  balance_amount							:string(255)
-#  payment_option							:string(255)
-#  shipping_first_name				:string(255)
-#  shipping_last_name					:string(255)
-#  shipping_address						:string(255)
-#  shipping_optional_address	:string(255)
-#  shipping_city							:string(255)
-#  shipping_state							:string(255)
-#  shipping_zip_code					:string(255)
-#  shipping_country						:string(255)
-#  shipping_method						:string(255)
-#  email											:string(255)
-#  token_key									:string(255)
+#  balance_amount							:string
+#  payment_option							:string
+#  shipping_first_name				:string
+#  shipping_last_name					:string
+#  shipping_address						:string
+#  shipping_optional_address	:string
+#  shipping_city							:string
+#  shipping_state							:string
+#  shipping_zip_code					:string
+#  shipping_country						:string
+#  shipping_method						:string
+#  email											:string
+#  token_key									:string
 #  created_at 								:datetime         not null
 #  updated_at 								:datetime         not null
 

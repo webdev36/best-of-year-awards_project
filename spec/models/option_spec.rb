@@ -3,7 +3,7 @@
 # Table name: options
 #
 #  id         	:integer          not null, primary key
-#  option_name	:string(255)
+#  option_name	:string
 #  option_value	:text
 #  created_at 	:datetime         not null
 #  updated_at 	:datetime         not null
