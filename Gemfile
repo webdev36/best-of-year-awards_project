@@ -52,11 +52,21 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'webrick'
-  gem "rspec-rails"
-  gem "factory_girl_rails"
 end
 
 group :test do
   gem 'sqlite3',                    '1.3.7'
   gem 'simplecov',                  '0.7.1',    :require => false
+end
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "capybara"
+  gem "factory_girl_rails"
+  gem "cucumber-rails", :require => false
+  gem "launchy" 
+  gem "capybara"
+end
+group :production do
+  gem 'pg'
 end

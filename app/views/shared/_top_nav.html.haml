@@ -26,7 +26,8 @@
 					%li= link_to "FAQ"
 					%li= link_to "Previos Honorees"
 					%li= link_to "About"
-					%li= link_to "My Account"
+					- if current_user
+						%li= link_to "My Account", edit_user_path(current_user)
 				.span2.search-box
 					.row
 						.span2

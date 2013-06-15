@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :submission do
     title "MyString"
     description "MyText"
-    status "MyString"
+    status "uncomplete"
     active false
   end
 end

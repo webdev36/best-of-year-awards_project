@@ -13,7 +13,7 @@
 							.control-group
 								= cm.label :country, "Country",:class => 'control-label'
 								.controls
-									= cm.country_select :country, ["#{cm.object.country}"]
+									= cm.country_select :country, {:priority => %w(US CA)}, prompt: 'Please select a country'
 							.control-group
 								= cm.label :phone, "Phone Number",:class => 'control-label'
 								.controls
@@ -46,35 +46,45 @@
 			.row.second-row.project-spec-input-box
 				%fieldset.offset-by-one
 					%h4.offset1 #{session[:submission_type].to_s.humanize} Information:
-					= f.fields_for :project_spec do |project|
-						.row
-							.span4
-								.control-group
-									= project.label :lead_designer, "Lead Designer *",:class => 'control-label'
-									.controls
-										= project.text_field :lead_designer, :class => 'text_field', :"data-required"=>"true"
-								.control-group
-									= project.label :architect, "Architect",:class => 'control-label'
-									.controls
-										= project.text_field :architect, :class => 'text_field'
-								.control-group
-									= project.label :additional_designers, "Additional Designers",:class => 'control-label'
-									.controls
-										= project.text_field :additional_designers, :class => 'text_field'
-								
-							.span4
-								.control-group
-									= project.label :other_resources, "Other Resources",:class => 'control-label'
-									.controls
-										= project.text_field :other_resources, :class => 'text_field'
-								.control-group
-									= project.label :othere_resources_title, "Other Resources Title",:class => 'control-label'
-									.controls
-										= project.text_field :othere_resources_title, :class => 'text_field'
-								.control-group
-									= project.label :square_footage, "SQuare footage of project*",:class => 'control-label'
-									.controls
-										= project.text_field :square_footage, :class => 'text_field', :"data-required"=>"true"
+					- if session[:submission_type] == Submission::TYPE[0]
+						= f.fields_for :project_spec do |project|
+							.row
+								.span4
+									.control-group
+										= project.label :lead_designer, "Lead Designer *",:class => 'control-label'
+										.controls
+											= project.text_field :lead_designer, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= project.label :architect, "Architect",:class => 'control-label'
+										.controls
+											= project.text_field :architect, :class => 'text_field'
+									.control-group
+										= project.label :additional_designers, "Additional Designers",:class => 'control-label'
+										.controls
+											= project.text_field :additional_designers, :class => 'text_field'
+									
+								.span4
+									.control-group
+										= project.label :other_resources, "Other Resources",:class => 'control-label'
+										.controls
+											= project.text_field :other_resources, :class => 'text_field'
+									.control-group
+										= project.label :othere_resources_title, "Other Resources Title",:class => 'control-label'
+										.controls
+											= project.text_field :othere_resources_title, :class => 'text_field'
+									.control-group
+										= project.label :square_footage, "SQuare footage of project*",:class => 'control-label'
+										.controls
+											= project.text_field :square_footage, :class => 'text_field', :"data-required"=>"true"
+					- elsif session[:submission_type] == Submission::TYPE[1]
+						= f.fields_for :product_spec do |product|
+							.row
+								.span4
+									.control-group
+										= product.label :introduction_date, :class => 'control-label'
+										.controls
+											= product.date_select :introduction_date, :class => 'text_field', :"data-required"=>"true"
+						
 						.row
 							.span10
 								.control-group

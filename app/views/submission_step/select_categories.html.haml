@@ -5,7 +5,7 @@
 				.control-group
 					= f.label :title, "Submission Name(for your own reference):",:class => 'control-label', :style=>"width: 300px;"
 					.controls
-						= f.text_field :title, :class => 'text_field'
+						= f.text_field :title, :class => 'text_field', :"data-required"=>"true"
 			.row.second-row
 				%p Project Category:
 				%label You can select multiple categories for a project if applicable. There is a $300 fee per entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)

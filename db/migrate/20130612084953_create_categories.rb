@@ -3,8 +3,8 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :name
       t.text :description
-      t.integer :kind
-      t.integer :sort_id
+      t.integer :kind,          :null => false, :default => 0
+      t.integer :sort_id,       :null => false, :default => 99
       t.references :parent
       t.timestamps
     end
