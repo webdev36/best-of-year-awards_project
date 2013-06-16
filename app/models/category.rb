@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  description  :text
+#  kind         :integer          not null    default value = 0     0 is project, 1 is product
+#  sort_id      :integer          not null    default value = 99
+#  parent_id    :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 class Category < ActiveRecord::Base
   attr_accessible :description, :kind, :name, :sort_id, :parent_id
 

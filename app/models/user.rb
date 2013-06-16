@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                         :integer          not null, primary key
+#  email                      :integer
+#  first_name                 :string
+#  last_name                  :string
+#  company_name               :string
+#  occupation_id              :integer
+#  crypted_password           :string
+#  password_salt              :string
+#  persistence_token          :string
+#  login_count                :string
+#  failed_login_count         :string
+#  last_request_at            :datetime
+#  current_login_at           :datetime
+#  last_login_at              :datetime
+#  current_login_ip           :string
+#  last_login_ip              :string
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
 class User < ActiveRecord::Base
   attr_accessible :company_name, :email, :first_name, :last_name, :occupation_id, :password, :password_confirmation  
   acts_as_authentic do |c|

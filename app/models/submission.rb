@@ -1,4 +1,15 @@
-class Submission < ActiveRecord::Base
+# == Schema Information
+#
+# Table name: submissions
+#
+#  id                   :integer          not null,  primary key, auto_increment
+#  title                :string
+#  description          :text
+#  status               :string
+#  active               :boolean
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not nullclass Submission < ActiveRecord::Base
+
   STATUS_KINDS = {:draft => "draft", :complete=>"complete", :whole => "whole"}
   TYPE = ['project', 'product']
   

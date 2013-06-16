@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id                         :integer          not null, primary key
+#  user_id                    :integer
+#  balance_amount             :string
+#  payment_option             :string
+#  shipping_first_name        :string
+#  shipping_last_name         :string
+#  shipping_address           :string
+#  shipping_optional_address  :string
+#  shipping_city              :string
+#  shipping_state             :string
+#  shipping_zip_code          :string
+#  shipping_country           :string
+#  shipping_method            :string
+#  email                      :string
+#  token_key                  :string
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+
 class Order < ActiveRecord::Base
   belongs_to :user 
   attr_accessible :balance_amount, :email, :token_key, :payment_option, :shipping_address, :shipping_city, 

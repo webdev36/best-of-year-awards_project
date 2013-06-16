@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: pictures
+#
+#  id           				:integer					not null,  primary key, auto_increment
+#  imageable_id  				:integer
+#  imageable_type       :string
+#  caption  						:string
+#  photographer			 		:string
+#  photographer_email		:string
+#  image_file_name			:string
+#  image_file_size			:integer
+#  image_content_type 	:string
+#  image_updated_at 		:datetime
+#  created_at 					:datetime         not null
+#  updated_at 					:datetime         not null
+
 class Picture < ActiveRecord::Base
   belongs_to :imageable, :polymorphic=>true
 	attr_accessible :caption, :photographer, :photographer_email, :image
