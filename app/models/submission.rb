@@ -10,6 +10,8 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not nullclass Submission < ActiveRecord::Base
 
+class Submission < ActiveRecord::Base
+  
   STATUS_KINDS = {:draft => "draft", :complete=>"complete", :whole => "whole"}
   TYPE = ['project', 'product']
   
