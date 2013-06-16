@@ -5,23 +5,17 @@ class SubmissionStepController < ApplicationController
 	steps :agree_terms, :select_categories, :input_submissions, :confirm_submissions
 
 	def show		
-		if session[:submission_type].nil?
-			redirect_to :home_submission_landing and return if params[:type].nil?
-			session[:submission_type] = params[:type]
-		end
-		
-		if session[:submission_type] == "project"
-			@categories = Category::project_categories
-		elsif session[:submission_type] == "product"
-			@categories = Category::product_categories
-		end
-		
 		case step		
-		when :agree_terms
-		
-			redirect_to :home_submission_landing and return if params[:type].nil?
+		when :agree_terms		
+			redirect_to :home_submission_landing and return if params[:type].nil? or !Submission::TYPE.include? params[:type]
 			session[:submission_type] = params[:type]
-		
+			
+			if session[:submission_type] == "project"
+				@categories = Category::project_categories
+			elsif session[:submission_type] == "product"
+				@categories = Category::product_categories
+			end
+			
 			if session[:submission_id].nil?
 				@submission = current_user.submissions.build :title=>"Please input name"
 				@submission.save
@@ -36,23 +30,11 @@ class SubmissionStepController < ApplicationController
 
 
 		when :select_categories			
-=begin
-			if session[:submission_id].nil?
-				@submission = current_user.submissions.build :title=>"Please input name"
-				@submission.save
-				session[:submission_id] = @submission.id
-			elsif current_submission && session[:submission_type] != current_submission.type
-				@submission = current_user.submissions.build :title=>"Please input name"
-				@submission.save
-				session[:submission_id] = @submission.id
-			else
-				@submission = current_submission
-			end
-=end
-
+			redirect_to :home_submission_landing and return unless current_submission 
 			@submission ||= current_submission
 			@submission.submission_categories.build if @submission.submission_categories.nil?
 		when :input_submissions
+			redirect_to :home_submission_landing and return unless current_submission 
 			@submission ||= current_submission
 			@submission.build_company if @submission.company.nil?
 			@submission.pictures.build

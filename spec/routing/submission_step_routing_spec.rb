@@ -7,7 +7,7 @@ describe SubmissionStepController do
     end
 
     it "routes to #agree_terms" do
-      get("/submission_step?type='project'").should route_to("submisson_step#agree_terms")
+      get("/submission_step/agree_terms?type='project'?type='project'").should route_to("submisson_step#agree_terms")
     end
 
     it "routes to #select_categories" do
