@@ -2,6 +2,14 @@
 body { padding-top: 160px; }
 @import "bootstrap-responsive";
 
+body{
+  a, p, span, label{
+    font-family: serif, arial, sans-serif, times !important; 
+  }
+}
+
+
+
 .nav-collapse{
   ul.nav{
     li.dropdown{

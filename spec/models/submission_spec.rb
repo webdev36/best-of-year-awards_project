@@ -54,6 +54,7 @@ describe Submission do
 		should respond_to(:title)
 		should respond_to(:description)
 		should respond_to(:status)
+		should respond_to(:submission_type)
 		should respond_to(:active)
 	end
 

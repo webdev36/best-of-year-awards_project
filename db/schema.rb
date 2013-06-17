@@ -174,13 +174,14 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
   add_index "submission_categories", ["submission_id"], :name => "index_submission_categories_on_submission_id"
 
   create_table "submissions", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "title"
+    t.integer  "user_id",                            :null => false
+    t.string   "title",                              :null => false
     t.text     "description"
-    t.string   "status"
-    t.boolean  "active"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "status",      :default => "editing", :null => false
+    t.string   "type",                               :null => false
+    t.boolean  "active",      :default => false,     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "user_sessions", :force => true do |t|

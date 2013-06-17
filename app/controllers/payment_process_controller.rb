@@ -11,7 +11,7 @@ class PaymentProcessController < ApplicationController
 		when :select_submission
 			@order = current_user.orders.build if current_order.nil?
 			@order.order_submissions.build
-			@order.save			
+			@order.save
 			session[:order_id] = @order.id
 		when :input_card_info	
 			@order ||= current_order
@@ -65,16 +65,17 @@ class PaymentProcessController < ApplicationController
 					@order.attributes = params[:order]
 					if @order.save
 						@order.complete(params[:cvv_number])
+						flash[:alert] = 'Successifuly paid'
 					end
 				else
 					raise StandardError, response.message
 				end
 
 			else
+				flash[:notice] = 'Please retry'
 				render :text => credit_card.errors.full_messages.join('. ') and return
 			end
-		when :confirm
-			
+			redirect_to root_url and return
 		end	
 		
 		render_wizard @order

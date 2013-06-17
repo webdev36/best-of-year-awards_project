@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
   end
   before_save { |user| user.email = email.downcase }
   has_many :submissions
-  has_many :draft_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'draft']
-  has_many :completed_submissions, :through=>:submissions, :source=>:user, :conditions =>['submissions.status=?', 'complete']
+
+  has_many :editing_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'editing']
+  has_many :whole_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'whole']
+  has_many :draft_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'draft']
+  has_many :completed_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'complete']
 
   has_many :orders
   has_many :payments

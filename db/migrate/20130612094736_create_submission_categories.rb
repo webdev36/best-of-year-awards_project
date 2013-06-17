@@ -1,8 +1,8 @@
 class CreateSubmissionCategories < ActiveRecord::Migration
   def change
     create_table :submission_categories do |t|
-      t.belongs_to :submission
-      t.belongs_to :category
+      t.belongs_to :submission,       :null => false
+      t.belongs_to :category,       	:null => false
 
       t.timestamps
     end

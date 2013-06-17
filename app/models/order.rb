@@ -37,7 +37,7 @@ class Order < ActiveRecord::Base
   
   def complete(cvv_number)
     payment_transaction = self.build_payment
-    payment_transaction.user_id = current.id
+    payment_transaction.user_id = self.user_id
     payment_transaction.ccard_last4 = cvv_number
     payment_transaction.first_name = self.shipping_first_name
     payment_transaction.last_name = self.shipping_last_name

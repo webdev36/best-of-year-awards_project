@@ -35,6 +35,12 @@ describe User do
 		t=User.reflect_on_association(:submissions)
 		t.macro.should == :has_many
 
+		t=User.reflect_on_association(:editing_submissions)
+		t.macro.should == :has_many
+	
+		t=User.reflect_on_association(:whole_submissions)
+		t.macro.should == :has_many
+
 		t=User.reflect_on_association(:draft_submissions)
 		t.macro.should == :has_many
 

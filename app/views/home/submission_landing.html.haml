@@ -11,9 +11,12 @@
 				%p
 					= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"btn btn-primary"
 			.span4.center-box
-				%h4 Resume an active submission:
-				%p
-					%a{:href=>"#"} Submission Name1
+				%h4 Editing an submission:
+				- @editing_submissions.each do |editing_submission|
+					%p
+						= link_to editing_submission.title, home_edit_submission_path.to_s + '?id='+ editing_submission.id.to_s
+			
+				%h4 Resume an active submission:			
 				%p
 					%a{:href=>"#"} Submission Name1
 				%p

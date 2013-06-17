@@ -1,20 +1,39 @@
 class HomeController < ApplicationController  
-	before_filter :require_user, :only => :submission_landing
+	before_filter :require_user, :only => [:submission_landing, :edit_submission]
 	
   def index
   	#render :text => ENV['AUTHORIZE_LOGIN_ID'] and return
   end
 
   def submission_landing  
+    @editing_submissions = current_user.editing_submissions
+    @draft_submissions = current_user.draft_submissions
+    @complete_submissions = current_user.completed_submissions    
   end
 
-  def search_submissions
+  def edit_submission
+    submission_id = params[:id]
+    redirect_to root_url and return unless submission_id
+    @submission=Submission.find(submission_id)
+    redirect_to root_url and return unless @submission and @submission.status=='editing'
+    session[:submission_type] = @submission.type
+    session[:submission_id] = @submission.id    
+    if @submission.submission_categories.blank?
+      
+    elsif @submission.submission_categories.blank?
+
+    end
+      
   end
 
-	def resume_later
-		@submission ||= current_submission
-		@submission.attributes = params[:submission] unless params[:submission].nil?
-		session[:submission_type] = session[:submission_id] = nil
+  def search_submissions  	
+  end
+
+  def resume_later    
+		@submission ||= current_submission    
+		@submission.attributes = params[:submission]    
+    @submission.save
+    session[:submission_type] = session[:submission_id] = nil
 		redirect_to :home_submission_landing and return
 	end
 end

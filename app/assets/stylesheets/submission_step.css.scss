@@ -9,6 +9,23 @@ form.edit_submission{
 		}
 	}
 }
+.submission-landing-page{
+	.btn{
+		color: white;
+	}
+	.center-box{
+		a{
+			color: #6a63f6;
+			font-size: 16px;
+			font-weight: bold;
+			text-decoration: none;
+			&:hover{
+				background-color: transparent;
+				color: blue;
+			}
+		}
+	}
+}
 .select-categories-page{
 		form.edit_submission{
 			.control-label{

@@ -14,7 +14,7 @@
 		= link_to "Go Back", previous_wizard_path, :class=>"btn btn-primary"
 		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
 		- unless step == :agree_terms # What are we saving if they have not done anything yet?
-			= link_to "Save and Resume Later", :home_resume_later, :class=>"btn btn-primary"
+			= link_to "Save and Resume Later", '#', :class=>"btn btn-primary btn_resume_later"
 
 :javascript
 	$("input.accept-agree").click(function(){
@@ -24,3 +24,8 @@
 			$(".btn-continue").attr("disabled","disabled");
 		}
 	});		
+	$('a.btn_resume_later').click(function(){
+		$('input[name=_method]').val('post');		
+		$('#edit_submission_#{@submission.id}').attr('action','/home/resume_later')
+		$('#edit_submission_#{@submission.id}').submit();
+	});

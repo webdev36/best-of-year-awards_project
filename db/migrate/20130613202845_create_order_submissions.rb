@@ -1,8 +1,8 @@
 class CreateOrderSubmissions < ActiveRecord::Migration
   def change
     create_table :order_submissions do |t|
-      t.belongs_to :order
-      t.belongs_to :submission
+      t.belongs_to :order,       			:null => false
+      t.belongs_to :submission,       :null => false
       
 
       t.timestamps

@@ -8,16 +8,10 @@ class SubmissionStepController < ApplicationController
 		case step		
 		when :agree_terms		
 			redirect_to :home_submission_landing and return if params[:type].nil? or !Submission::TYPE.include? params[:type]
-			session[:submission_type] = params[:type]
-			
-			if session[:submission_type] == "project"
-				@categories = Category::project_categories
-			elsif session[:submission_type] == "product"
-				@categories = Category::product_categories
-			end
+			session[:submission_type] = params[:type]		
 			
 			if session[:submission_id].nil?
-				@submission = current_user.submissions.build :title=>"Please input name"
+				@submission = current_user.submissions.build :title=>"Please input #{session[:submission_type]}", :status => 'editing', :submission_type =>session[:submission_type]
 				@submission.save
 				session[:submission_id] = @submission.id
 #			elsif current_submission && session[:submission_type] != current_submission.type
@@ -26,11 +20,20 @@ class SubmissionStepController < ApplicationController
 #				session[:submission_id] = @submission.id			
 			else
 				@submission = current_submission
+				if @submission.blank?
+					@submission = current_user.submissions.build :title=>"Please input #{session[:submission_type]} submission name", :status => 'editing', :submission_type =>session[:submission_type]
+					@submission.save
+					session[:submission_id] = @submission.id
+				end
+			end
+		when :select_categories			
+			if session[:submission_type] == "project"
+				@categories = Category::project_categories
+			elsif session[:submission_type] == "product"
+				@categories = Category::product_categories
 			end
 
-
-		when :select_categories			
-			redirect_to :home_submission_landing and return unless current_submission 
+			redirect_to :home_submission_landing and return unless current_submission
 			@submission ||= current_submission
 			@submission.submission_categories.build if @submission.submission_categories.nil?
 		when :input_submissions
@@ -45,6 +48,7 @@ class SubmissionStepController < ApplicationController
 			end
 		when :confirm_submissions	
 			@submission ||= current_submission
+			session[:submission_type] = session[:submission_id] = nil
 		end
 		render_wizard
 	end

@@ -6,6 +6,7 @@
 					= f.label :title, "Submission Name(for your own reference):",:class => 'control-label', :style=>"width: 300px;"
 					.controls
 						= f.text_field :title, :class => 'text_field', :"data-required"=>"true"
+			=f.hidden_field :status, :value=>'editing'
 			.row.second-row
 				%p Project Category:
 				%label You can select multiple categories for a project if applicable. There is a $300 fee per entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)
@@ -14,6 +15,7 @@
 						%label.checkbox
 							= submission_cat.check_box :category_id, {:saved_values => [f.object.submission_categories, ["id", "name"]]}, submission_cat.object.id, '-1'
 							= submission_cat.object.name
+
 :javascript
 	$('div.categories-box input[type="hidden"]').each(function(){
 		if($(this).val()!=-1){
