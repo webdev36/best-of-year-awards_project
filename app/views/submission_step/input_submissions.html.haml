@@ -85,13 +85,13 @@
 										.controls
 											= product.date_select :introduction_date, :class => 'text_field', :"data-required"=>"true"
 						
-						.row
-							.span10
-								.control-group
-									%label.control-label #{session[:submission_type].to_s.humanize} Description *
-									.controls
-										= f.text_area :description, :"data-required"=>"true"	
-								=f.hidden_field :status, :value=>'whole'
+			.row.submission-box
+				%fieldset.offset-by-one
+					.control-group
+						%label.control-label #{session[:submission_type].to_s.humanize} Description *
+						.controls
+							= f.text_area :description, :"data-required"=>"true"	
+					=f.hidden_field :status, :value=>'whole'
 			.row.third-row.submission-imput-box
 				%fieldset.offset-by-one
 					%h4.offset1 #{session[:submission_type].to_s.humanize} Documentation:

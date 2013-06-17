@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 
   def submission_landing  
     @editing_submissions = current_user.editing_submissions
+    @submited_submissions = current_user.whole_submissions
     @draft_submissions = current_user.draft_submissions
     @complete_submissions = current_user.completed_submissions    
   end
