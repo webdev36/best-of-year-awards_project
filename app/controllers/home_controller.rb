@@ -19,9 +19,11 @@ class HomeController < ApplicationController
     session[:submission_type] = @submission.type
     session[:submission_id] = @submission.id    
     if @submission.submission_categories.blank?
-      
-    elsif @submission.submission_categories.blank?
-
+      redirect_to '/submission_step/select_categories'
+    elsif @submission.submission_categories.present?
+      redirect_to '/submission_step/input_submissions'
+    else
+      redirect_to submission_step_index_path.to_s+'?type='+@submission.type
     end
       
   end
