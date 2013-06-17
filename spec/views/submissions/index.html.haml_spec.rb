@@ -7,13 +7,15 @@ describe "submissions/index" do
         :title => "Title",
         :description => "MyText",
         :status => "Status",
-        :active => false
+        :active => false,
+        :created_at =>'2012/5/10'
       ),
       stub_model(Submission,
         :title => "Title",
         :description => "MyText",
         :status => "Status",
-        :active => false
+        :active => false,
+        :created_at =>'2012/5/10'
       )
     ])
   end

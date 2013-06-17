@@ -78,7 +78,7 @@ class SubmissionsController < ApplicationController
     @submission.destroy
 
     respond_to do |format|
-      format.html { redirect_to submissions_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

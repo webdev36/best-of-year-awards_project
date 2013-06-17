@@ -20,6 +20,7 @@
 #  last_login_ip              :string
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
+
 class User < ActiveRecord::Base
   attr_accessible :company_name, :email, :first_name, :last_name, :occupation_id, :password, :password_confirmation  
   acts_as_authentic do |c|
