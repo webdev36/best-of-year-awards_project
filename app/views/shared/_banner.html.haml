@@ -1,3 +1,21 @@
 .row.banner-box
-	.span5.offset2
-		%h1 Banner
+	.container
+		.span5.offset1
+			%h1 Banner
+		.span5.search-box
+			.row
+				.span2
+					%form.navbar-search{"accept-charset" => "UTF-8", :action => "/home/search_submissions", :method => "get", :style => "margin-top:0px;"}
+						%div{:style => "margin:0;padding:0;display:inline"}
+							%input{:name => "utf8", :type => "hidden", :value => "✓"}/
+						%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:150px;padding-left:26px;border-radius:15px;", :type => "text"}/
+						.icon-search{:style => "position:absolute;top:7px;left:11px;cursor:pointer;"}
+				.span3
+					.span1
+						- if current_user
+							= link_to "Sign out", :logout
+						- else
+							= link_to "Sign in", :new_user_session
+					.span1
+						= link_to "Register", :new_user
+

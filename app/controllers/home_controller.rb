@@ -39,4 +39,17 @@ class HomeController < ApplicationController
     session[:submission_type] = session[:submission_id] = nil
 		redirect_to :home_submission_landing and return
 	end
+
+  def vote
+  end
+
+  def event
+  end
+
+  def faq
+  end
+
+  def interior_design
+  end
+  
 end

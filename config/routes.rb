@@ -14,6 +14,12 @@ BestOfYearAwards::Application.routes.draw do
   get "home/search_submissions"
   post 'home/resume_later'
   get 'home/edit_submission'
+
+  get 'home/vote'
+  get 'home/event'
+  get 'home/faq'
+  get 'home/interior_design'
+  
   resources :users
 
   resources :user_sessions

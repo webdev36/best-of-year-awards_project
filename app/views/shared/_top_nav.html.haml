@@ -3,15 +3,10 @@
 		.row.banner
 			= render "shared/banner"
 		.container
-			%a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-				%span.icon-bar
-				%span.icon-bar
-				%span.icon-bar
-			%a.brand{:href => root_path} Awards
 			.nav-collapse
 				%ul.nav
 					%li= link_to "Home", root_path
-					%li.dropdown					
+					%li.dropdown				
 						%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
 							Submit
 							%b.caret
@@ -21,26 +16,29 @@
 								= link_to "Product", submission_step_index_path.to_s+'?type=product'
 							%li
 								= link_to "Project", submission_step_index_path.to_s+'?type=project'
-					%li= link_to "Vote"
-					%li= link_to "Event"
-					%li= link_to "FAQ"
-					%li= link_to "Previos Honorees"
-					%li= link_to "About"
+					%li= link_to "Vote", home_vote_path
+					%li= link_to "Event", home_event_path
+					%li= link_to "FAQ", home_faq_path
+					%li
+						%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
+							Past Winners
+							%b.caret
+						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
+							- (Date.today.year.to_i-1..Date.today.year.to_i-8).each do |year|
+								%li = year							
+
 					- if current_user
 						%li= link_to "My Account", edit_user_path(current_user)
-				.span2.search-box
-					.row
-						.span2
-							%form.navbar-search{"accept-charset" => "UTF-8", :action => "/home/search_submissions", :method => "get", :style => "margin-top:0px;"}
-								%div{:style => "margin:0;padding:0;display:inline"}
-									%input{:name => "utf8", :type => "hidden", :value => "✓"}/
-								%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:150px;padding-left:26px;border-radius:15px;", :type => "text"}/
-								.icon-search{:style => "position:absolute;top:7px;left:11px;cursor:pointer;"}
-					.row
-						.span1
-							- if current_user
-								= link_to "Sign out", :logout
-							- else
-								= link_to "Sign in", :new_user_session
-						.span1
-							= link_to "Register", :new_user
+					%li= link_to "Interior Design"
+			.social-container{:style=>"float:right; margin-right: 0px; margin-top: 20px;"}
+				%a{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}
+					=image_tag("home_icons/twitter.png")
+				%a{:href=>"#{get_option(:facebook_link_url)}", :target => "_blank"}
+					=image_tag("home_icons/facebook_24x24.png")
+				%a{:href=>"#{get_option(:linkedin_link_url)}", :target => "_blank"}
+					=image_tag("home_icons/linkedin.png")
+				%a{:href=>"#{get_option(:tumblur_link_url)}", :rel=>"publisher", :target => "_blank"}	
+					=image_tag("home_icons/tumblr.png")
+				%a{:href=>"#{get_option(:newsleter_link_url)}", :target => "_blank"}					
+					=image_tag("home_icons/instagram_24x24.png")
+				
