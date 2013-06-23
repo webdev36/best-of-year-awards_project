@@ -2,5 +2,6 @@
 	.container
 		- model_class = User
 		.page-header
-			%h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+			%h1.page-title{:style=>'margin-top: 20px;'} PLEASE
+			%h1.page-title{:style=>'margin-left: 140px;'} REGISTER BELOW
 		= render :partial => "form"

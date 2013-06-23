@@ -2,11 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar-inner{
+	border: none;
+	[class*="span"]{
+    margin-left:0px;
+  }
+  .banner{
+  	margin-left: 0px;
+  }
 	.banner-box{
-		height: 100px; 
+		height: 160px; 
 		margin-left: 0px;
-		border: solid 1px;
 		margin-bottom: 5px;
+		margin-top: 10px;
 		.search-box{
 			float: right;
 			margin-top: 30px;
@@ -20,29 +27,199 @@
 			.span2{
 				width: 200px;
 			}
-			.span1{
-				a{
-					color: blue;
-					font-size: 14px;
-					font-weight: bold;
-					&:hover{
-						background-color: transparent;
+			
+			.span3{
+				margin-top: 5px;
+			}			
+			.search-form{
+				ul{
+					float: right;
+					li{
+						float:left;
+						list-style: none;
+						.out_avatar{
+							flaot: left;
+							margin-left: 10px;
+							width: 30px;
+							height: 30px;
+							background: url("stripe.png") repeat scroll -8px -6px transparent;
+						}
+						.in_avatar{
+							flaot: left;
+							margin-left: 10px;
+							width: 30px;
+							height: 30px;
+							background: url("stripe.png") repeat scroll -244px -8px transparent;
+						}
 					}
 				}
 			}
-			.span3{
-				margin-top: 5px;
+			.account-controls{
+				ul{
+					float: right;
+					li{
+						float: left;
+						list-style: none;
+						a{
+							color: black;
+							font-size: 12px;
+							font-weight: bold;
+							&:hover{
+								color: rgb(247, 151, 39);
+								text-decoration: none;
+							}
+						}
+					}
+					li.first:after{
+						content: "|";
+						margin-left: 5px;
+						margin-right: 5px;
+					}
+				}				
 			}
 		}
 	}
-	.nav-collapse{
-		ul.nav{
-			padding-top: 10px;
-			margin-bottom: 10px;
+	.nav-top-bar{
+		margin-left: 0px;
+		background-color: black;
+		height: 50px;
+		.nav-collapse{
+			background-color: black;
+			ul.nav{		
+				padding-top: 5px;
+				margin-bottom: 10px;
+				li{
+					a{
+						color: white;
+						padding-left: 5px;
+						padding-right: 5px;
+						&:hover{
+							color: #ffff00;
+							text-shadow: 0 1px 0 #ffff00;
+						}
+					}
+					ul.dropdown-menu:before{
+						display: none !important;
+					}
+					ul.dropdown-menu:after{
+						display: none !important;
+					}
+					ul.dropdown-menu{
+						border-radius: 0;
+						background-color: black;
+						postion: 30px;
+						color: white;
+						li{							
+							padding-left: 5px;
+							padding-right: 5px;
+							a{
+								background-color: transparent;
+								border-bottom: solid 1px #fff;
+								&:hover{
+									background-color: black;
+									background-image: none;
+									text-shadow: none;
+								}
+							}
+							&:hover{
+								background-color: black;
+							}
+						}
+						li.last{
+							a{
+								border-bottom: none;
+							}
+						}						
+					}
+				}
+			}
+			.search-box{
+				max-width: 200px;
+				min-width: 200px;
+			}
 		}
-		.search-box{
-			max-width: 200px;
-			min-width: 200px;
+		.social-container{
+			float:right; 
+			margin-right: 0px;
+			margin-top: 10px;
+			.social-icon{
+				div{
+					background: url('stripe.png');
+					float: left;			
+					width: 32px;
+					height: 32px;
+				}
+				.twitter{
+					background-position: -76px -3px;
+				}
+				.facebook{
+					background-position: -108px -3px;
+				}
+				.linkdin{
+					background-position: -140px -3px;
+				}
+				.tumblur{
+					background-position: -172px -3px;
+				}
+				.newsleter{
+					background-position: -206px -3px;
+				}
+			}			
+		}
+		
+	}
+	
+}
+
+.signin-page{	
+	.input-form{
+		margin-top: 80px;
+	}
+	.submit-control-box{
+		margin-top: 130px;
+		input{
+			float: right;
+		}
+	}
+}
+
+footer{
+	margin-top: 30px;
+	border-top: solid 1px black;
+	.footer-menu{
+		li{
+			list-style: none;
+			float: left;
+			a{
+				color: black;
+			}
+		}		
+	}
+	.footer-menu li:after{
+		content: "|";
+		margin-right: 3px;
+	}
+	.footer-menu li.last:after{
+		content: " ";
+	}
+}
+
+
+.home-page{
+	.home-content{
+		margin-top: 20px;
+		p{
+			color: rgb(247, 151, 39);
+			font-weight: bold;
+			font-size: 18px;
+			margin-botton: 3px;
+			span{
+				color: black;
+				font-weight: 100;				
+			}
+			strong{
+				color: black;
+			}
 		}
 	}
 }

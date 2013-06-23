@@ -2,43 +2,48 @@
 	.navbar-inner
 		.row.banner
 			= render "shared/banner"
-		.container
-			.nav-collapse
-				%ul.nav
-					%li= link_to "Home", root_path
-					%li.dropdown				
-						%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
-							Submit
-							%b.caret
+		.row.nav-top-bar
+			.container
+				.nav-collapse
+					%ul.nav
+						%li.dropdown				
+							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
+								SUBMIT
+								%b.caret
+							%ul.dropdown-menu{:role=>"menu"}
+								%li
+									= link_to "Product", submission_step_index_path.to_s+'?type=product'
+								%li.last
+									= link_to "Project", submission_step_index_path.to_s+'?type=project'
+						%li= link_to "VOTE", home_vote_path
+						%li= link_to "EVENT", home_event_path
+						%li= link_to "FAQ", home_faq_path
+						%li.dropdown
+							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
+								PREVIOUS HONOREES
+								%b.caret
+							%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
+								%li
+									= link_to Date.today.year.to_i-1, '#{year}'
+								%li
+									= link_to Date.today.year.to_i-2, '#{year}'
+								%li
+									= link_to Date.today.year.to_i-3, '#{year}'
+								%li.last
+									= link_to Date.today.year.to_i-4, '#{year}'
 
-						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
-							%li
-								= link_to "Product", submission_step_index_path.to_s+'?type=product'
-							%li
-								= link_to "Project", submission_step_index_path.to_s+'?type=project'
-					%li= link_to "Vote", home_vote_path
-					%li= link_to "Event", home_event_path
-					%li= link_to "FAQ", home_faq_path
-					%li
-						%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
-							Past Winners
-							%b.caret
-						%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
-							- (Date.today.year.to_i-1..Date.today.year.to_i-8).each do |year|
-								%li = year							
-
-					- if current_user
-						%li= link_to "My Account", edit_user_path(current_user)
-					%li= link_to "Interior Design"
-			.social-container{:style=>"float:right; margin-right: 0px; margin-top: 20px;"}
-				%a{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}
-					=image_tag("home_icons/twitter.png")
-				%a{:href=>"#{get_option(:facebook_link_url)}", :target => "_blank"}
-					=image_tag("home_icons/facebook_24x24.png")
-				%a{:href=>"#{get_option(:linkedin_link_url)}", :target => "_blank"}
-					=image_tag("home_icons/linkedin.png")
-				%a{:href=>"#{get_option(:tumblur_link_url)}", :rel=>"publisher", :target => "_blank"}	
-					=image_tag("home_icons/tumblr.png")
-				%a{:href=>"#{get_option(:newsleter_link_url)}", :target => "_blank"}					
-					=image_tag("home_icons/instagram_24x24.png")
-				
+						- if current_user
+							%li= link_to "MY ACCOUNT", edit_user_path(current_user)
+						%li= link_to "INTERIOR DESIGN MAGAZINE"
+				.social-container
+					%a.social-icon{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}						
+						.twitter
+					%a.social-icon{:href=>"#{get_option(:facebook_link_url)}", :target => "_blank"}
+						.facebook
+					%a.social-icon{:href=>"#{get_option(:linkedin_link_url)}", :target => "_blank"}
+						.linkdin
+					%a.social-icon{:href=>"#{get_option(:tumblur_link_url)}", :rel=>"publisher", :target => "_blank"}	
+						.tumblur
+					%a.social-icon{:href=>"#{get_option(:newsleter_link_url)}", :target => "_blank"}					
+						.newsleter
+					

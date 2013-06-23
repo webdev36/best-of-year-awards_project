@@ -1,18 +1,18 @@
-.row.agree-terms-page
-	.container
-		.row{:style=>"margin-left:0px;"}
-			.span8.offset2
-				= render layout: 'form' do |f|
-					.row
-						- if session[:submission_type] == 'project'
-							.span10= raw get_option(:project_submission_agree_terms)	
-						- else
-							.span10= raw get_option(:product_submission_agree_terms)	
-					.row
-						.span4
-							%label I have read and agree to the terms of this competition.
-						.span1
-							%label.checkbox
-								%input.accept-agree{:type=>"checkbox"} Yes
+.container.agree-terms-page
+	.row{:style=>"margin-left:0px;"}
+		= render layout: 'form' do |f|
+			.row
+				%strong Product Deadline: September 6, 11:59pm (EST)
+				- if session[:submission_type] == 'project'					
+					.span9= raw get_option(:project_submission_agree_terms)	
+				- else
+					.span9= raw get_option(:product_submission_agree_terms)	
+			.row
+				.span4
+					%label I have read and agree to the terms of this competition.
+				.span1
+					%label.checkbox
+						.accept-agree-check
+						%input.accept-agree{:style=>"display:none;", :type=>"checkbox"} Yes
 :javascript
 	$(".btn-continue").attr("disabled","disabled");

@@ -1,21 +1,41 @@
 .row.banner-box
 	.container
-		.span5.offset1
-			%h1 Banner
-		.span5.search-box
-			.row
-				.span2
-					%form.navbar-search{"accept-charset" => "UTF-8", :action => "/home/search_submissions", :method => "get", :style => "margin-top:0px;"}
-						%div{:style => "margin:0;padding:0;display:inline"}
-							%input{:name => "utf8", :type => "hidden", :value => "✓"}/
-						%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:150px;padding-left:26px;border-radius:15px;", :type => "text"}/
-						.icon-search{:style => "position:absolute;top:7px;left:11px;cursor:pointer;"}
-				.span3
-					.span1
+		.span4
+			=link_to image_tag('logo.png'), root_url
+		.span4.search-box
+			.row.search-form
+				%ul
+					%li				
+						%form.navbar-search{"accept-charset" => "UTF-8", :action => "/home/search_submissions", :method => "get", :style => "margin-top:0px;float: right;"}
+							%div{:style => "margin:0;padding:0;display:inline"}
+								%input{:name => "utf8", :type => "hidden", :value => "✓"}/
+							%input#search.search-query{:name => "search", :placeholder => "Keyword", :style => "width:0px;padding-left:26px;border-radius:15px;", :type => "text"}/
+							.icon-search{:style => "position:absolute;top:7px;left:11px;cursor:pointer;"}
+					%li
+						%a.account{:href=>"javascript://"}
+							- if current_user
+								.in_avatar
+							- else
+								.out_avatar
+			.row.account-controls
+				%ul
+					%li.first
 						- if current_user
-							= link_to "Sign out", :logout
+							= link_to "logout", :logout
 						- else
-							= link_to "Sign in", :new_user_session
-					.span1
-						= link_to "Register", :new_user
+							= link_to "login", :new_user_session
+					%li
+						= link_to "register", :new_user
 
+:javascript
+	$('div.icon-search').click(function(){
+		$('#search').animate({
+			width: 115
+		})
+		$('#search').focus();
+	})
+	$('#search').blur(function(){
+		$('#search').animate({
+			width: 0
+		})
+	})

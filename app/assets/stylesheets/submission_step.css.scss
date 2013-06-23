@@ -10,31 +10,58 @@ form.edit_submission{
 	}
 }
 .submission-landing-page{
-	.btn{
-		color: white;
-	}
-	.center-box{
-		a{
-			color: #6a63f6;
-			font-size: 16px;
-			font-weight: bold;
-			text-decoration: none;
-			&:hover{
-				background-color: transparent;
-				color: blue;
+	.second-row{
+		.span3{
+			width: 299px;
+			height: 530px;
+			background-color: #ffff00;
+		}
+		
+		.left-box{			
+			.left-box-content{
+				margin-left: 30px;
+				margin-top: 50px;
+				h4,h5{
+					margin-top: 80px;
+				}
+			}
+			a{
+				margin-left: 30px;
+			}
+		}
+		.center-box{
+			border-right: solid 1px;
+			border-left: solid 1px;
+			h5{
+				margin-top: 180px;
+			}
+			.center-box-content{
+				margin-left: 30px;
+			}
+			a{
+				color: #6a63f6;
+				font-size: 16px;
+				font-weight: bold;
+				text-decoration: none;
+				&:hover{
+					background-color: transparent;
+					color: blue;
+				}
+			}
+		}	
+		.right-box{
+			.right-box-content{
+				margin-left: 30px;
+				h5{
+					margin-top: 180px;
+				}
+			}			
+			a{
+				margin-left: 30px;
 			}
 		}
 	}
-}
-.select-categories-page{
-		form.edit_submission{
-			.control-label{
-				text-align: left;
-			}
-			.controls{
-				margin-left: 0px;
-			}
-		}
+	
 }
 
 .input-submission-info-page{
@@ -72,6 +99,49 @@ form.edit_submission{
 		text-align: center;
 		.btn{
 			color: white;
+		}
+	}
+}
+
+
+.agree-terms-page{
+	background-color: #ffff00;
+	padding-top: 50px;
+	padding-left: 30px;
+	h1{
+		color: black;
+		font-weight: 300;
+	}
+	.accept-agree-check{
+		background: url('stripe.png');
+		background-position: -277px -14px;
+		width:16px;
+		height: 16px;
+		float: left;
+		margin-right: 6px;
+    margin-top: 3px;
+    &:hover{
+    	background-position: -296px -14px;
+    }
+	}
+	.accept-agree-checked{
+		background-position: -296px -14px;
+	}
+}
+.select-categories-page{
+	padding-top: 50px;
+	padding-left: 30px;
+	background-color: #ffff00;
+	h1{
+		color: black;
+		font-weight: 300;
+	}	
+	form.edit_submission{
+		.control-label{
+			text-align: left;
+		}
+		.controls{
+			margin-left: 0px;
 		}
 	}
 }

@@ -1,29 +1,30 @@
 .row.submission-landing-page
 	.container
 		.row.first-row
-			.span4
-				%h3 Hi #{current_user.fullname}
-		.row.second-row
-			.span4.left-box
-				%h4 Start a new submission:
-				%p
-					= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"btn btn-primary"
-				%p
-					= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"btn btn-primary"
-			.span4.center-box
-				%h4 Editing an submission:
-				- @editing_submissions.each do |editing_submission|
-					%p
-						= link_to editing_submission.title, home_edit_submission_path.to_s + '?id='+ editing_submission.id.to_s
-			
-				%h4 Submited submission:			
-				- @submited_submissions.each do |submited_submission|
-					%p
-						= link_to submited_submission.title, payment_process_path
-			.span4.right-box
-				%h4 Your account:
-				%p
-					%a.btn.btn-primary{:href => "#"} Edit Information
-				%p
-					%a.btn.btn-primary{:href => "#"} View Finished Submissions
 
+		.row.second-row
+			.span3.left-box
+				.left-box-content
+					%h4 Hi #{current_user.fullname}
+					%h5 Start a new submission:
+				= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"c_btn lc_btn"
+				= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"c_btn lc_btn"
+			.span3.center-box
+				.center-box-content
+					%h5 Resume an active submission:
+					- @editing_submissions.each do |editing_submission|
+						%p
+							= link_to editing_submission.title, home_edit_submission_path.to_s + '?id='+ editing_submission.id.to_s
+
+			.span3.right-box
+				.right-box-content
+					%h5 Your account:
+				%a.c_btn.lc_btn{:href => "#"} Edit Information
+				%a.c_btn.lc_btn{:href => "#",:style=>"height: 80px;padding-top:16px;"} View &nbsp; Finished &nbsp; Submissions
+
+
+			
+/				%h4 Submited submission:			
+/				- @submited_submissions.each do |submited_submission|
+/					%p
+/						= link_to submited_submission.title, payment_process_path

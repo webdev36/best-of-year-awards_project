@@ -1,11 +1,85 @@
 @import "bootstrap";
-body { padding-top: 160px; }
+body { padding-top: 230px; }
 @import "bootstrap-responsive";
 
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{
+  width: 900px !important;
+}
+.row{
+  margin-left: 0px !important;
+}
+[class*="span"]{
+  margin-left:0px !important;
+}
 body{
   a, p, span, label{
     font-family: serif, arial, sans-serif, times !important; 
   }
+  .container{
+    input.c_btn{
+      background-color: black;
+      border-image: none;
+      border: none;
+      border-radius: 40px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-align: center;
+      vertical-align: middle;
+      width:75px;
+      height: 75px;
+      &:hover{
+        font-weight: bold;
+        color: rgb(247, 151, 39);
+        text-decoration: none;
+      }
+
+    }
+    input.lc_btn{
+      width: 94px;
+      height: 94px;
+      border-radius: 50px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    a.c_btn{
+      background-color: black;
+      border-image: none;
+      border: none;
+      border-radius: 40px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-align: center;
+      vertical-align: middle;
+      width:75px;
+      height: 47px;
+      padding-top: 28px;
+      &:hover{        
+        color: rgb(247, 151, 39);
+        text-decoration: none;
+        font-weight: bold;      
+      }
+      &:focus{
+        color: rgb(247, 151, 39);
+        text-decoration: none; 
+      }
+    }
+    a.lc_btn{
+      width: 94px;
+      height: 94px;
+      border-radius: 50px;
+      height: 68px;
+      padding-top: 26px;
+    }
+    h1.page-title{
+      color: #f79727;
+    }
+  }  
 }
 
 
@@ -82,3 +156,4 @@ body{
   .custom-radio label.focus {
     outline: 1px dotted #ccc;
   }
+
