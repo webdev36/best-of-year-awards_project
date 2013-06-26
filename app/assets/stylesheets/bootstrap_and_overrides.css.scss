@@ -1,9 +1,11 @@
 @import "bootstrap";
-body { padding-top: 230px; }
+body { padding-top: 0px; }
 @import "bootstrap-responsive";
+
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{
   width: 900px !important;
+
 }
 .row{
   margin-left: 0px !important;
@@ -13,7 +15,16 @@ body { padding-top: 230px; }
 }
 body{
   a, p, span, label{
-    font-family: serif, arial, sans-serif, times !important; 
+    font-family: helvetica, arial, sans-serif; 
+  }
+  .control-group{
+    .controls{
+      input{
+        border-color: black;
+        border-radius: 0px;
+        box-shadow: none;
+      }
+    }
   }
   .container{
     input.c_btn{
@@ -44,6 +55,21 @@ body{
       text-align: center;
       vertical-align: middle;
     }
+    input.yc_btn{
+      &:hover{
+        font-weight: bold;
+        color: #ffff00;
+        text-decoration: none;
+      }    
+    }
+    input.wc_btn{
+      &:hover{
+        font-weight: bold;
+        color: rgb(247, 151, 39);
+        text-decoration: none;
+      }    
+    }
+    
     a.c_btn{
       background-color: black;
       border-image: none;
@@ -68,6 +94,20 @@ body{
         color: rgb(247, 151, 39);
         text-decoration: none; 
       }
+    }
+    a.yc_btn{
+      &:hover{
+        font-weight: bold;
+        color: #ffff00;
+        text-decoration: none;
+      }    
+    }
+    a.wc_btn{
+      &:hover{
+        font-weight: bold;
+        color: rgb(247, 151, 39);
+        text-decoration: none;
+      }    
     }
     a.lc_btn{
       width: 94px;

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar-inner{
 	border: none;
+	position: relate;
 	[class*="span"]{
     margin-left:0px;
   }
@@ -43,13 +44,19 @@
 							width: 30px;
 							height: 30px;
 							background: url("stripe.png") repeat scroll -8px -6px transparent;
+							&:hover{
+								background: url("stripe.png") repeat scroll -244px -6px transparent;	
+							}
 						}
 						.in_avatar{
 							flaot: left;
 							margin-left: 10px;
 							width: 30px;
 							height: 30px;
-							background: url("stripe.png") repeat scroll -244px -8px transparent;
+							background: url("stripe.png") repeat scroll -8px -6px transparent;
+							&:hover{
+								background: url("stripe.png") repeat scroll -244px -6px transparent;	
+							}
 						}
 					}
 				}
@@ -93,10 +100,6 @@
 						color: white;
 						padding-left: 5px;
 						padding-right: 5px;
-						&:hover{
-							color: #ffff00;
-							text-shadow: 0 1px 0 #ffff00;
-						}
 					}
 					ul.dropdown-menu:before{
 						display: none !important;
@@ -115,6 +118,8 @@
 							a{
 								background-color: transparent;
 								border-bottom: solid 1px #fff;
+								padding-bottom: 10px;
+    						padding-top: 10px;
 								&:hover{
 									background-color: black;
 									background-image: none;
@@ -130,6 +135,146 @@
 								border-bottom: none;
 							}
 						}						
+					}
+				}
+				li.menu-submit{
+					a{
+						color: #ffff00;
+						text-shadow: none;
+						font-weight: bold;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #ffff00;
+							}
+						}
+					}
+				}
+				li.menu-vote{
+					a{
+						color: #f69826;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #f69826;
+							}
+						}
+					}
+				}
+				li.menu-event{
+					a{
+						color: #ff3300;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #ff3300;
+							}
+						}
+					}
+				}
+				li.menu-faq{
+					a{
+						color: #ff007c;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #ff007c;
+							}
+						}
+					}
+				}
+				li.menu-winner{
+					a{
+						color: #01fefc;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #01fefc;
+							}
+						}
+					}
+				}
+				li.menu-interior{
+					a{
+						color: #555;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #555;
+							}
+						}
+					}
+				}
+				li.menu-account{
+					a{
+						color: #00ff00;
+						font-weight: bold;
+						text-shadow: none;
+						&:hover{
+							color: white;
+						}
+					}
+					.dropdown-menu{
+						a{
+							color: white;							
+							text-shadow: none;
+							font-weight: bold;
+							&:hover{
+								color: #00ff00;
+							}
+						}
 					}
 				}
 			}
@@ -151,18 +296,33 @@
 				}
 				.twitter{
 					background-position: -76px -3px;
+					&:hover{
+						background-position: -312px -7px;
+					}
 				}
 				.facebook{
 					background-position: -108px -3px;
+					&:hover{
+						background-position: -344px -7px;
+					}
 				}
 				.linkdin{
 					background-position: -140px -3px;
+					&:hover{
+						background-position: -376px -7px;
+					}
 				}
 				.tumblur{
 					background-position: -172px -3px;
+					&:hover{
+						background-position: -408px -7px;
+					}
 				}
 				.newsleter{
 					background-position: -206px -3px;
+					&:hover{
+						background-position: -440px -7px;
+					}
 				}
 			}			
 		}

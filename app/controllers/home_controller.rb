@@ -1,5 +1,5 @@
 class HomeController < ApplicationController  
-	before_filter :require_user, :only => [:submission_landing, :edit_submission]
+	before_filter :require_user, :only => [:submission_landing, :edit_submission, :previous_submissions, :current_submissions]
 	
   def index
   	#render :text => ENV['AUTHORIZE_LOGIN_ID'] and return
@@ -28,6 +28,11 @@ class HomeController < ApplicationController
     end
       
   end
+  
+  def previous_submissions
+  end
+  def current_submissions
+  end
 
   def search_submissions  	
   end
@@ -52,4 +57,6 @@ class HomeController < ApplicationController
   def interior_design
   end
   
+  def contact_us
+  end
 end

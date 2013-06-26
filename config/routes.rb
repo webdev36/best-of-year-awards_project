@@ -14,7 +14,10 @@ BestOfYearAwards::Application.routes.draw do
   get "home/search_submissions"
   post 'home/resume_later'
   get 'home/edit_submission'
-
+  
+  get 'home/previous_submissions'
+  get 'home/current_submissions'
+  
   get 'home/vote'
   get 'home/event'
   get 'home/faq'

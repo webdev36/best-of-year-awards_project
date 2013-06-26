@@ -13,10 +13,10 @@
 	= yield f
 	.row.actions{:style=>"text-align: right;"}
 		.control-box{:style=>"margin-right: 50px;"}
-			= link_to "Go Back", previous_wizard_path, :class=>"c_btn"
-			= f.submit "Continue", :class=>"c_btn btn-continue"
+			= link_to "Go Back", previous_wizard_path, :class=>"c_btn yc_btn"
+			= f.submit "Continue", :class=>"c_btn btn-continue yc_btn"
 			- unless step == :agree_terms # What are we saving if they have not done anything yet?
-				= link_to "Save and Resume Later", '#', :class=>"c_btn btn_resume_later", :style=>"height: 65px;padding-top: 10px;"
+				= link_to "Save and Resume Later", '#', :class=>"c_btn btn_resume_later yc_btn", :style=>"height: 65px;padding-top: 10px;"
 
 :javascript
 	$("input.accept-agree").click(function(){

@@ -1,4 +1,4 @@
-.navbar.navbar-fixed-top
+.navbar.navbar-fixed-top{:style=>"position: relative;"}
 	.navbar-inner
 		.row.banner
 			= render "shared/banner"
@@ -6,22 +6,20 @@
 			.container
 				.nav-collapse
 					%ul.nav
-						%li.dropdown				
+						%li.dropdown.menu-submit				
 							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
 								SUBMIT
-								%b.caret
 							%ul.dropdown-menu{:role=>"menu"}
 								%li
 									= link_to "Product", submission_step_index_path.to_s+'?type=product'
 								%li.last
 									= link_to "Project", submission_step_index_path.to_s+'?type=project'
-						%li= link_to "VOTE", home_vote_path
-						%li= link_to "EVENT", home_event_path
-						%li= link_to "FAQ", home_faq_path
-						%li.dropdown
+						%li.menu-vote= link_to "VOTE", home_vote_path
+						%li.menu-event= link_to "EVENT", home_event_path
+						%li.menu-faq= link_to "FAQ", home_faq_path
+						%li.dropdown.menu-winner
 							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
-								PREVIOUS HONOREES
-								%b.caret
+								PAST WINNERS
 							%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 								%li
 									= link_to Date.today.year.to_i-1, '#{year}'
@@ -29,12 +27,24 @@
 									= link_to Date.today.year.to_i-2, '#{year}'
 								%li
 									= link_to Date.today.year.to_i-3, '#{year}'
-								%li.last
+								%li
 									= link_to Date.today.year.to_i-4, '#{year}'
-
+								%li
+									= link_to Date.today.year.to_i-5, '#{year}'
+								%li.last
+									= link_to Date.today.year.to_i-6, '#{year}'
 						- if current_user
-							%li= link_to "MY ACCOUNT", edit_user_path(current_user)
-						%li= link_to "INTERIOR DESIGN MAGAZINE"
+							%li.dropdown.menu-account
+								= link_to "MY ACCOUNT", edit_user_path(current_user), :class=>"dropdown-toggle", :role=>"button"
+								%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
+									%li
+										= link_to "edit my account", edit_user_path(current_user)
+									%li
+										= link_to "previous submissions", :home_previous_submissions
+									%li.last
+										= link_to "current submissions", :home_current_submissions
+
+						%li.menu-interior= link_to "INTERIOR DESIGN MAGAZINE"
 				.social-container
 					%a.social-icon{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}						
 						.twitter
