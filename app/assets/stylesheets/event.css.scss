@@ -1,0 +1,29 @@
+.event-page{
+	.content-page{
+		background-color: #ff3300;
+		color: white;
+		padding-left: 40px;
+		.first-row{
+			margin-top: 50px;
+
+		}
+		.second-row{
+			margin-top: 30px;
+			margin-bottom: 30px;
+			.video-content{
+				width: 820px;
+				height: 440px;
+				background-color: black;
+			}
+		}
+		.third-row{
+			p{
+				font-size: 16px;				
+			}
+			label.black{
+				color:black;
+				font-weight: bolder;
+			}
+		}
+	}
+}

@@ -7,7 +7,7 @@ describe "users/edit" do
       :first_name => "Jhone",
       :last_name => "Smith",
       :company_name => "Hi Tech",
-      :occupation_id => "0"
+      :occupation => "0"
     ))
   end
 
@@ -20,7 +20,7 @@ describe "users/edit" do
       assert_select "input#user_first_name[name=?]", "user[first_name]"
       assert_select "input#user_last_name[name=?]", "user[last_name]"
       assert_select "input#user_company_name[name=?]", "user[company_name]"
-      assert_select "input#user_occupation_id[name=?]", "user[occupation_id]"
+      assert_select "input#user_occupation[name=?]", "user[occupation]"
     end
   end
 end

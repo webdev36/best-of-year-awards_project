@@ -199,7 +199,7 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "company_name"
-    t.integer  "occupation_id"
+    t.integer  "occupation"
     t.string   "crypted_password",                  :null => false
     t.string   "password_salt",                     :null => false
     t.string   "persistence_token",                 :null => false

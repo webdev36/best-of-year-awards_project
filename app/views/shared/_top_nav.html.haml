@@ -33,8 +33,9 @@
 									= link_to Date.today.year.to_i-5, '#{year}'
 								%li.last
 									= link_to Date.today.year.to_i-6, '#{year}'
-						- if current_user
-							%li.dropdown.menu-account
+						
+						%li.dropdown.menu-account
+							- if current_user
 								= link_to "MY ACCOUNT", edit_user_path(current_user), :class=>"dropdown-toggle", :role=>"button"
 								%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 									%li
@@ -43,7 +44,8 @@
 										= link_to "previous submissions", :home_previous_submissions
 									%li.last
 										= link_to "current submissions", :home_current_submissions
-
+							- else
+								= link_to "MY ACCOUNT", :new_user_session, :class=>"dropdown-toggle", :role=>"button"
 						%li.menu-interior= link_to "INTERIOR DESIGN MAGAZINE"
 				.social-container
 					%a.social-icon{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}						

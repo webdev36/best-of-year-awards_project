@@ -7,7 +7,7 @@
 #  first_name                 :string
 #  last_name                  :string
 #  company_name               :string
-#  occupation_id              :integer
+#  occupation                 :string
 #  crypted_password           :string
 #  password_salt              :string
 #  persistence_token          :string
@@ -22,7 +22,7 @@
 #  updated_at                 :datetime         not null
 
 class User < ActiveRecord::Base
-  attr_accessible :company_name, :email, :first_name, :last_name, :occupation_id, :password, :password_confirmation  
+  attr_accessible :company_name, :email, :first_name, :last_name, :occupation, :password, :password_confirmation  
   acts_as_authentic do |c|
   	c.login_field = :email
   end

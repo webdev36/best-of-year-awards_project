@@ -25,9 +25,9 @@
 		.controls
 			= f.text_field :company_name, :class => 'text_field'
 	.control-group
-		= f.label :occupation_id, :class => 'control-label'
+		= f.label :occupation, :class => 'control-label'
 		.controls
-			= f.number_field :occupation_id, :class => 'number_field'
+			= f.text_field :occupation, :class => 'text_field'
 	
 	.form-actions{:style=>'float: right;'}
 		= f.submit 'Submit', :class => 'c_btn wc_btn'		

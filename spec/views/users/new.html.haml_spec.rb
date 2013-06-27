@@ -7,7 +7,7 @@ describe "users/new" do
       :first_name => "MyString",
       :last_name => "MyString",
       :company_name => "MyString",
-      :occupation_id => "MyString"
+      :occupation => "MyString"
     ).as_new_record)
   end
 
@@ -20,7 +20,7 @@ describe "users/new" do
       assert_select "input#user_first_name[name=?]", "user[first_name]"
       assert_select "input#user_last_name[name=?]", "user[last_name]"
       assert_select "input#user_company_name[name=?]", "user[company_name]"
-      assert_select "input#user_occupation_id[name=?]", "user[occupation_id]"
+      assert_select "input#user_occupation[name=?]", "user[occupation]"
     end
   end
 end

@@ -11,7 +11,7 @@ body { padding-top: 0px; }
   margin-left: 0px !important;
 }
 [class*="span"]{
-  margin-left:0px !important;
+  margin-left:0px;
 }
 body{
   a, p, span, label{
@@ -39,8 +39,10 @@ body{
       margin-bottom: 0;
       text-align: center;
       vertical-align: middle;
-      width:75px;
+      width:72px;
       height: 75px;
+      padding-left: 2px;
+      padding-right: 2px;
       &:hover{
         font-weight: bold;
         color: rgb(247, 151, 39);
@@ -54,6 +56,8 @@ body{
       border-radius: 50px;
       text-align: center;
       vertical-align: middle;
+      padding-left: 2px;
+      padding-right: 2px;
     }
     input.yc_btn{
       &:hover{
@@ -82,9 +86,11 @@ body{
       margin-bottom: 0;
       text-align: center;
       vertical-align: middle;
-      width:75px;
+      width:72px;
       height: 47px;
       padding-top: 28px;
+      padding-left: 2px;
+      padding-right: 2px;
       &:hover{        
         color: rgb(247, 151, 39);
         text-decoration: none;
@@ -110,11 +116,13 @@ body{
       }    
     }
     a.lc_btn{
-      width: 94px;
+      width: 90px;
       height: 94px;
       border-radius: 50px;
       height: 68px;
       padding-top: 26px;
+      padding-left: 2px;
+      padding-right: 2px;
     }
     h1.page-title{
       color: #f79727;

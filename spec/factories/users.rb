@@ -8,6 +8,6 @@ FactoryGirl.define do
     password "123456789"
     password_confirmation "123456789"
     company_name "Test company"
-    occupation_id "0"
+    occupation "0"
   end
 end

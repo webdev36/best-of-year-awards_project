@@ -8,14 +8,14 @@ describe "users/index" do
         :first_name => "First Name",
         :last_name => "Last Name",
         :company_name => "Company Name",
-        :occupation_id => "0"
+        :occupation => "0"
       ),
       stub_model(User,
         :email => "Email",
         :first_name => "First Name",
         :last_name => "Last Name",
         :company_name => "Company Name",
-        :occupation_id => "0"
+        :occupation => "0"
       )
     ])
   end

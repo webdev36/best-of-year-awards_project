@@ -7,7 +7,7 @@
 #  first_name									:string
 #  last_name									:string
 #  company_name								:string
-#  occupation_id							:integer
+#  occupation					  			:integer
 #  crypted_password						:string
 #  password_salt							:string
 #  persistence_token					:string
@@ -61,7 +61,7 @@ describe User do
 		should respond_to(:first_name)
 		should respond_to(:last_name)
 		should respond_to(:company_name)
-		should respond_to(:occupation_id)
+		should respond_to(:occupation)
 	end
 
 	describe "when first_name and last_name is not present" do

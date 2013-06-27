@@ -7,7 +7,7 @@ describe "users/show" do
       :first_name => "First Name",
       :last_name => "Last Name",
       :company_name => "Company Name",
-      :occupation_id => "Occupation"
+      :occupation => "Occupation"
     ))
   end
 

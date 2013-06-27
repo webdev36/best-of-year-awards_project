@@ -21,9 +21,9 @@
 			%br
 			= @user.company_name
 		%p
-			%strong= model_class.human_attribute_name(:occupation_id) + ':'
+			%strong= model_class.human_attribute_name(:occupation) + ':'
 			%br
-			= @user.occupation_id
+			= @user.occupation
 		.form-actions
 			= link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
 			= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(@user), :class => 'btn'
