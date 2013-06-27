@@ -2,25 +2,30 @@
 	.row{:style=>"text-align:center"}
 		%ul.footer-menu
 			%li
-				= link_to 'about us', 'about_us_path'
+				= link_to 'about us', 'http://interiordesign.net/info/aboutus.php'
 			%li
-				= link_to 'advertise in Interior Design', 'advertise_pat'
+				= link_to 'advertise in Interior Design', 'http://interiordesign.net/info/advertise.php'
 			%li
-				= link_to 'Site Map', 'site_map_path'
+				= link_to 'Site Map', 'http://interiordesign.net/sitemap.php'
 			%li
-				= link_to 'contact us', 'contact_us_path'
+				= link_to 'contact us', 'http://interiordesign.net/info/contactus.php'
 			%li
-				= link_to 'Industry Links', 'industry_links_path'
+				= link_to 'Industry Links', 'http://interiordesign.net/affiliate/'
 			%li
-				= link_to 'Subscriber Services', 'subscriber_services_path'
+				= link_to 'Subscriber Services', 'http://www.interiordesign.net/article/480187-subscriber_services.php'
 			%li
-				= link_to 'editiorial calendar & submissions', 'calendar_submissions_path'
+				= link_to 'editiorial calendar & submissions', 'http://interiordesign.net/info/editorialcalendar.php'
+			%li
+				= link_to 'RSS', 'http://interiordesign.net/rss/'
 			%li.last
-				= link_to 'RSS', 'rss_path'
+				= link_to 'media kit', 'http://www.interiordesignmediakit.net/r5/home.asp'
 	.row
 		.row{:style=>"text-align:center;padding-top: 20px;"}
-			@2013 Sandow Media LLC.All rights reserved.
+			&copy; #{Date.today.year} Sandow Media LLC. All rights reserved.
 		.row{:style=>"text-align:center"}
-			Use of this website is subject to its Terms of User Privacy Policy
+			Use of this website is subject to its
+			%a{:href => 'http://interiordesign.net/info/terms_and_conditions.php'} Terms of Use
+			\|
+			%a{:href => 'http://interiordesign.net/info/privacy_policy.php'} Privacy Policy
 
 

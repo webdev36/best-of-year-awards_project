@@ -70,3 +70,9 @@ end
 group :production do
   gem 'pg'
 end
+
+# MONITORING SERVICES
+group :development, :staging, :production do
+  gem 'airbrake',                   '3.1.12'
+  # gem 'errplane',                   '0.6.6'
+end

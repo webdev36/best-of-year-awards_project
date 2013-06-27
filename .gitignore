@@ -14,6 +14,7 @@
 /log/*.log
 /tmp
 database.yml
+airbrake.yml
 
 # Ignore application configuration
 /config/application.yml
@@ -23,3 +24,5 @@ coverage/
 
 # Ignore local assets
 public/assets
+
+.sass-cache/
