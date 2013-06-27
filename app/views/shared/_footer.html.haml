@@ -19,8 +19,11 @@
 				= link_to 'RSS', 'rss_path'
 	.row
 		.row{:style=>"text-align:center;padding-top: 20px;"}
-			@2013 Sandow Media LLC.All rights reserved.
+			&copy; #{Date.today.year} Sandow Media LLC. All rights reserved.
 		.row{:style=>"text-align:center"}
-			Use of this website is subject to its Terms of User Privacy Policy
+			Use of this website is subject to its
+			%a{:href => '#'} Terms of Use
+			\|
+			%a{:href => '#'} Privacy Policy
 
 
