@@ -5,7 +5,7 @@
 				%fieldset.offset-by-one				
 					%h4.offset1 Firm Information:
 					= f.fields_for :company do |cm|
-						.span4
+						.span4{:style=>"width:410px;"}
 							.control-group
 								= cm.label :name, "Firm Name *",:class => 'control-label'
 								.controls
@@ -22,7 +22,7 @@
 								= cm.label :website, "Website",:class => 'control-label'
 								.controls
 									= cm.text_field :website, :class => 'text_field'		
-						.span4
+						.span4{:style=>"width:410px;"}
 							.control-group
 								= cm.label :address1, "Address1 *",:class => 'control-label'
 								.controls
@@ -49,7 +49,7 @@
 					- if session[:submission_type] == Submission::TYPE[0]
 						= f.fields_for :project_spec do |project|
 							.row
-								.span4
+								.span4{:style=>"width:410px;"}
 									.control-group
 										= project.label :lead_designer, "Lead Designer *",:class => 'control-label'
 										.controls
@@ -63,7 +63,7 @@
 										.controls
 											= project.text_field :additional_designers, :class => 'text_field'
 									
-								.span4
+								.span4{:style=>"width:410px;"}
 									.control-group
 										= project.label :other_resources, "Other Resources",:class => 'control-label'
 										.controls
@@ -79,7 +79,7 @@
 					- elsif session[:submission_type] == Submission::TYPE[1]
 						= f.fields_for :product_spec do |product|
 							.row
-								.span4
+								.span4{:style=>"width:410px;"}
 									.control-group
 										= product.label :introduction_date, :class => 'control-label'
 										.controls

@@ -1,0 +1,63 @@
+/*	CSS for customized radio buttons and check boxes */
+
+/* page styles */
+	
+/*	wrapper divs */
+.custom-checkbox, .custom-radio { position: relative; }
+	
+/* input, label positioning */
+.custom-checkbox input, 
+.custom-radio input {
+	position: absolute !important;
+	left: 6px !important;
+	top: 11px !important;
+	margin: 0 !important;
+	z-index: 0 !important;
+	visibility: hidden;
+	display: none;
+}
+
+.custom-checkbox label, 
+.custom-radio label {
+	display: block;
+	position: relative;
+	z-index: 1;
+	font-size: 1.3em;
+	padding-right: 1em;
+	line-height: 1;
+	padding: .5em 0 .5em 30px;
+	margin: 0 0 .3em;
+	cursor: pointer;
+}
+
+	
+/* states */
+.custom-checkbox label { background: url(checkbox.png) no-repeat; }
+
+.custom-radio label { background: url(radiobutton.gif) no-repeat; }
+
+.custom-checkbox label, .custom-radio label {
+	background-position: -10px -9px;
+}
+
+.custom-checkbox label.hover,
+.custom-checkbox label.focus,
+.custom-radio label.hover,
+.custom-radio label.focus {
+	background-position: -10px -9px;
+}
+
+.custom-checkbox label.checked, 
+.custom-radio label.checked {
+	background-position: -12px -211px;
+}
+
+.custom-checkbox label.checkedHover, 
+.custom-checkbox label.checkedFocus {
+	background-position: -12px -310px;
+}
+
+.custom-checkbox label.focus, 
+.custom-radio label.focus {
+	outline: 1px dotted #ccc;
+}

@@ -13,11 +13,13 @@
 				=f.fields_for :submission_categories, @categories, :builder => CustomFormBuilder do |submission_cat|
 					%label.checkbox
 						= submission_cat.check_box :category_id, {:saved_values => [f.object.submission_categories, ["id", "name"]]}, submission_cat.object.id, '-1'
-						= submission_cat.object.name
-
+						%label= submission_cat.object.name
+			
 :javascript
 	$('div.categories-box input[type="hidden"]').each(function(){
 		if($(this).val()!=-1){
 			 $(this).remove();
 		}
 	})
+
+	$('input[type="checkbox"]').customInput();
