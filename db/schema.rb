@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613203220) do
+ActiveRecord::Schema.define(:version => 20130627074827) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -174,14 +174,14 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
   add_index "submission_categories", ["submission_id"], :name => "index_submission_categories_on_submission_id"
 
   create_table "submissions", :force => true do |t|
-    t.integer  "user_id",                            :null => false
-    t.string   "title",                              :null => false
+    t.integer  "user_id",                                              :null => false
+    t.string   "title",                                                :null => false
     t.text     "description"
-    t.string   "status",      :default => "editing", :null => false
-    t.string   "type",                               :null => false
-    t.boolean  "active",      :default => false,     :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "status",                        :default => "editing", :null => false
+    t.string   "submission_type", :limit => 55
+    t.boolean  "active",                        :default => false,     :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -199,7 +199,7 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "company_name"
-    t.integer  "occupation"
+    t.string   "occupation"
     t.string   "crypted_password",                  :null => false
     t.string   "password_salt",                     :null => false
     t.string   "persistence_token",                 :null => false
