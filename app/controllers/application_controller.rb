@@ -26,10 +26,10 @@ class ApplicationController < ActionController::Base
       case exception.class
         when ActiveRecord::RecordNotFound
           render_not_found
-        when BestOfYearAwards::Unauthorized
-          render_unauthorized
-        when BestOfYearAwards::ExpiredListing
-          render_expired
+        # when BestOfYearAwards::Unauthorized
+        #   render_unauthorized
+        # when BestOfYearAwards::ExpiredListing
+        #   render_expired
         else
           notify_error_service(exception) rescue nil
           render_error
@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
 
     def notify_error_service(e)
       # Airbrake
-      # notify_airbrake(e)
+      notify_airbrake(e)
 
       # Errplane
       # Errplane.transmit(e) rescue nil
