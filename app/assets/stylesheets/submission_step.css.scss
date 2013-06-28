@@ -8,6 +8,18 @@ form.edit_submission{
 			color: white;
 		}
 	}
+	.submission-product-page-title{
+		width: 500px;
+		height: 62px;
+		background: url("stripe.png") repeat scroll -6px -236px transparent;
+		margin-bottom:30px;
+	}
+	.submission-project-page-title{
+		width: 500px;
+		height: 62px;
+		background: url("stripe.png") repeat scroll -2px -156px transparent;
+		margin-bottom:30px;
+	}
 }
 .submission-landing-page{
 	.second-row{
@@ -114,18 +126,18 @@ form.edit_submission{
 	}
 	.accept-agree-check{
 		background: url('stripe.png');
-		background-position: -277px -14px;
+		background-position: -275px -14px;
 		width:16px;
 		height: 16px;
 		float: left;
 		margin-right: 6px;
     margin-top: 3px;
     &:hover{
-    	//background-position: -296px -14px;
+    	//background-position: -294px -14px;
     }
 	}
 	.accept-agree-checked{
-		background-position: -296px -14px;
+		background-position: -295px -14px;
 	}
 }
 .select-categories-page{

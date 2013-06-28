@@ -8,8 +8,11 @@
 				- @submission.errors.full_messages.each do |msg|
 					%li= msg
 	.row.first-row
-		%h1 #{session[:submission_type].to_s.upcase unless session[:submission_type].nil?} DESIGN
-		%h1{:style=>"margin-left: 350px;"} SUBMISSION
+		%a{:href=>"#", :style=>""} 
+			- if session[:submission_type]=='product'
+				.submission-product-page-title
+			- else
+				.submission-project-page-title
 	= yield f
 	.row.actions{:style=>"text-align: right;"}
 		.control-box{:style=>"margin-right: 50px;"}

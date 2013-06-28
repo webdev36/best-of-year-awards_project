@@ -14,6 +14,13 @@
 		.page-header{
 			margin: 0px;
 			border-bottom: none;
+			.register-title{
+				width: 432px;
+				height: 66px;
+				background: url("stripe.png") repeat scroll -6px -298px transparent;
+				margin-top: 50px;
+				margin-bottom: 40px;
+			}
 		}
 	}
 	.form-actions{

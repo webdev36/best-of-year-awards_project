@@ -5,7 +5,11 @@
 		padding-left: 40px;
 		.first-row{
 			margin-top: 50px;
-
+			.event-page-title{
+				height: 60px;
+				width: 190px;
+				background: url("stripe.png") repeat scroll -426px -84px transparent;
+			}
 		}
 		.second-row{
 			margin-top: 30px;

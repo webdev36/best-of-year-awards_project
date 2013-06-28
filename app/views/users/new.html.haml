@@ -2,6 +2,6 @@
 	.container
 		- model_class = User
 		.page-header
-			%h1.page-title{:style=>'margin-top: 20px;'} PLEASE
-			%h1.page-title{:style=>'margin-left: 140px;'} REGISTER BELOW
+			%a{:href=>"#", :style=>""} 
+				.register-title
 		= render :partial => "form"

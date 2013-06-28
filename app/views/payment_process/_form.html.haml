@@ -7,12 +7,10 @@
 			%ul
 				- @order.errors.full_messages.each do |msg|
 					%li= msg
-	.row.first-row
-		%h3.offset1 Checkout
 	= yield f
-	.row.actions{:style=>"text-align: center;"}
+	.row.actions{:style=>"text-align: right; padding-right: 50px;"}
 		
-		= f.submit "Continue", :class=>"btn btn-primary btn-continue"
+		= f.submit "Continue", :class=>"c_btn"
 		
 
 :javascript
