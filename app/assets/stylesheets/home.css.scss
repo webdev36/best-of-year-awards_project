@@ -60,6 +60,20 @@
 						}
 					}
 				}
+				.navbar-search{
+					.icon-search{
+						position:absolute;
+						top:0px;
+						left:6px;
+						cursor:pointer;
+						width: 26px;
+						height: 26px;
+						background: url("stripe.png") repeat scroll -475px -8px transparent;
+						&:hover{
+							background: url("stripe.png") repeat scroll -504px -8px transparent;
+						}
+					}
+				}
 			}
 			.account-controls{
 				ul{

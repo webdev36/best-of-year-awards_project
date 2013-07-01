@@ -1,1 +1,13 @@
-previous_submissions
+.row.previous-submission-page
+	.container
+		.span9.content-page
+			.row.first-row{:style=>"height: 150px;"}
+				%h1{:style=>"color: rgb(247, 151, 39);"} PREVIOUS
+				%h1{:style=>"margin-left: 150px; color: rgb(247, 151, 39);"} SUBMISSIONS PAGE
+			.row.second-row
+				%ul
+					-@complete_submissions.each do |submission|
+						%li
+							= link_to submission.title, '#'
+
+

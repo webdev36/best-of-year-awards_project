@@ -49,6 +49,10 @@ class Order < ActiveRecord::Base
     payment_transaction.country = self.shipping_country
     payment_transaction.transaction_id = self.token_key
     payment_transaction.save
+    self.submissions.each do |submission|
+      submission.status = Submission::STATUS_KINDS[:complete]
+      submission.save
+    end
   end
 
   def purchase

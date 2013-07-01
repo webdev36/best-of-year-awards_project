@@ -1,1 +1,18 @@
-current_submissions
+.row.current-submissions-page
+	.container
+		.span9.content-page
+			.row.first-row{:style=>"height: 150px;"}
+				%h1{:style=>"color: rgb(247, 151, 39);"} CURRENT
+				%h1{:style=>"margin-left: 150px; color: rgb(247, 151, 39);"}  SUBMISSIONS PAGE
+			.row-second-row	
+				%h3{:style=>"color: rgb(247, 151, 39);"} Editing Submissions
+				%ul
+					- @editing_submissions.each do |sub|
+						%li
+							= link_to sub.title, home_edit_submission_path+"?id="+sub.id.to_s
+				%h3{:style=>"color: rgb(247, 151, 39);"} Not Paid Submissions
+				%ul
+					- @submited_submissions.each do |sub|
+						%li
+							= link_to sub.title, payment_process_path
+

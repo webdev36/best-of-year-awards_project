@@ -64,7 +64,7 @@ class PaymentProcessController < ApplicationController
 					@order.payment_option = 'card'
 					@order.attributes = params[:order]
 					if @order.save
-						@order.complete(params[:cvv_number])
+						@order.complete(params[:cvv_number])						
 						flash[:alert] = 'Successifuly paid'
 					end
 				else
