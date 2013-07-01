@@ -12,8 +12,8 @@
 									= cm.text_field :name, :class => 'text_field', :"data-required"=>"true"
 							.control-group
 								= cm.label :country, "Country",:class => 'control-label'
-								.controls
-									= cm.country_select :country, {:priority => %w(US CA)}, prompt: 'Please select a country'
+								.controls.formRow.jqBigform
+									= cm.country_select :country, {:priority => %w(US CA)}, prompt: 'Please select a country', :style=>"width: 177px;"
 							.control-group
 								= cm.label :phone, "Phone Number",:class => 'control-label'
 								.controls
@@ -83,7 +83,7 @@
 									.control-group
 										= product.label :introduction_date, :class => 'control-label'
 										.controls
-											= product.date_select :introduction_date, :class => 'text_field', :"data-required"=>"true"
+											= product.text_field :introduction_date, :class => 'text_field', :"data-required"=>"true", :id=>"introduction_date"
 						
 			.row.submission-box
 				%fieldset.offset-by-one
@@ -102,4 +102,11 @@
 								.controls
 									= picture.file_field :image, :class => 'text_field', :"data-required"=>"true"
 
-						
+:javascript
+	$("#introduction_date").glDatePicker({
+		leftMargin: 10,
+		topMargin: -10
+	});							
+
+	$('.jqBigform').jqTransform(); 
+	

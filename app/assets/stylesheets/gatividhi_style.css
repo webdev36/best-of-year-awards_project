@@ -1,0 +1,104 @@
+
+/* icon css */
+.calIcon,.actiIcon,.assigIcon,.examIcon,.reportIcon,.awardIcon,.schoolIcon,.diarIcon,.teachIcon{ position:relative; width:72px; float:left; text-align:center; text-transform:uppercase; padding-bottom:7px;}
+.calIcon a,.actiIcon a,.assigIcon a,.examIcon a,.reportIcon a,.awardIcon a,.schoolIcon a,.diarIcon a,.teachIcon a{ width:68px; height:68px; display:block; box-shadow:1px 1px 2px #c4c6c5; margin:0 auto 5px auto;}
+.calIcon a:hover,.actiIcon a:hover,.assigIcon a:hover,.examIcon a:hover,.reportIcon a:hover,.awardIcon a:hover,.schoolIcon a:hover,.diarIcon a:hover,.teachIcon a:hover{box-shadow:1px 2px 3px #999;}
+.actiIcon,.reportIcon,.diarIcon{ padding:0 17px;}
+.actiIcon,.reportIcon,.diarIcon{}
+.schoolIcon,.diarIcon,.teachIcon{ padding-bottom:0px;}
+.calIcon a{ background-color:#baf5d5; background-position:16px 16px;}
+.calIcon a:hover{ background-position:-207px 16px; }	
+.actiIcon a{background-color:#dcc5df; background-position:-58px 21px;}
+.actiIcon a:hover{background-position:-281px 21px;}
+.assigIcon a{ background-color:#ffdfb6; background-position:-133px 15px;}
+.assigIcon a:hover{ background-position:-356px 15px;}
+.examIcon a{background-color:#bdc9f1; background-position:16px -46px;}
+.examIcon a:hover{background-position:-208px -46px;}
+.reportIcon a{background-color:#ffd1d1;  background-position:-58px -45px;}
+.reportIcon a:hover{background-position:-281px -45px;}
+.awardIcon a{background-color:#b6e192;  background-position:-132px -45px;}
+.awardIcon a:hover{background-position:-356px -45px;}
+.schoolIcon a{background-color:#fbf5b7; background-position:16px -107px;}
+.schoolIcon a:hover{background-position:-208px -107px;}
+.diarIcon a{background-color:#acf1f6; background-position:-58px -103px;}
+.diarIcon a:hover{background-position:-282px -103px;}
+.teachIcon a{background-color:#bed9f6; background-position:-133px -106px;}
+.teachIcon a:hover{background-position:-356px -106px;}
+
+.registerBox{ border-radius:10px; background:url(register_header.jpg) no-repeat left top #FFF; height:501px; padding:22px 22px 22px 556px; font-size:12px;}
+.registerBox h1{ font-size:29px; font-weight:400; color:#0d8d92; line-height:1; padding-bottom:30px;}
+.registerBox h2{font-size:18px; font-weight:600; line-height:1.2; }
+.RegiFormBox{ border-bottom:1px solid #a0a0a0; border-top:1px solid #a0a0a0; padding:10px 0px; margin-top:15px;}
+.RegiFormBox label{ width:100px; text-align:right; display:block; float:left; margin-right:10px; line-height:2.9;}
+.RegiFormBox input{ float:left; width:222px}
+.formRow{ padding:6px 0px;}
+.inputField{ background-color:#f4f4f4; color:#979797; padding:5px; border-radius:6px; border:1px solid #ccc; font:400 12px 'Open Sans', sans-serif;}
+.smallCheckbox,.actionPanel{ padding-left:110px; padding-top:20px;}
+.popActionBtn{padding-left:110px; padding-top:15px;}
+.popActionBtn input{ font-size:12px !important;}
+.errorMsg{ padding-left:110px; color:#F00; clear:both;}
+.errorMsgLeft{ clear: both;color: #FF0000;margin-left: 112px;}
+.smallCheckbox label{text-align:left; width:auto ; margin-left:8px !important; line-height:1.5 !important;}
+.actionPanel input{ float:none; width:auto;}
+
+/* jScroll css */
+.jspContainer { overflow: hidden; position: relative; }
+.jspPane { position: absolute; }
+.jspVerticalBar { position: absolute; top: 0; right: 0; width: 9px; height: 100%; background-color:transparent; margin-right:0px; }
+.formScroll .jspVerticalBar{ margin:0px;}
+.jspHorizontalBar { position: absolute; bottom: 0; left: 0; width: 100%; height: 9px;  background-color:transparent; }
+.jspVerticalBar *, .jspHorizontalBar * { margin: 0; padding: 0; }
+.jspCap { display: block; }
+.jspHorizontalBar .jspCap { float: left; }
+.jspTrack { background:none; position: relative; }
+.jspDrag { background: #bbd; position: relative; top: 0; left: 0; cursor: pointer; background-color:#000; opacity:0.4; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";  filter: alpha(opacity=40); border-radius:5px; }
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag { float: left; height: 100%; }
+.jspHorizontalBar .jspTrack { background:url(scroller-horizontal-bg.png) repeat-x left; position: relative; }
+.jspHorizontalBar .jspDrag { background: #bbd; position: relative; top: 0; left: 0; cursor: pointer; background:url(scroller-horizantal.png) repeat-x; }
+.jspArrow { background: #50506d; text-indent: -20000px; display: block; cursor: pointer; }
+.jspArrow.jspDisabled { cursor: default; background: #80808d; }
+.jspVerticalBar .jspArrow { height: 16px; }
+.jspHorizontalBar .jspArrow { width: 16px; float: left; height: 100%; }
+.jspVerticalBar .jspArrow:focus { outline: none; }
+.jspCorner { background-color:#e3e3da; float: left; height: 100%; }
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner { margin: 0 -3px 0 0; }
+
+/* Calendar container div */
+.dateBox{ background:url(calender-icon.png) no-repeat 95% 8px #F4F4F4; width:103px !important; padding:8px 5px 7px;}
+.dateBox:focus{ background:url(calender-icon.png) no-repeat 95% 7px #F4F4F4; padding:7px 4px 6px !important; }
+.showDate{ background:url(calender-icon.png) no-repeat 95% 5px #F4F4F4; width:80px; padding:8px 5px;}
+.showDateWeek{ background:url(calender-icon.png) no-repeat 95% 4px #F4F4F4; width:80px; padding:8px 5px;}
+/*
+.gldp-default { float:left; color:#282828; font-family: 'Open Sans', sans-serif !important; background:url(calendor-bg.gif) repeat-x bottom #fefefe; font-size:12px !important; padding:15px; -moz-box-shadow: 1px 1px 5px #000000; -webkit-box-shadow: 1px 1px 5px #000000; -khtml-box-shadow: 1px 1px 5px #000000; box-shadow: 1px 1px 5px #000000; border:1px solid #bbbbbb; z-index:99 !important; }
+ top Arrow */
+.calTopArrow { position:absolute; background:url(up-Arrow.png) no-repeat left top; width:39px; height:19px; margin-top:-34px; margin-left:130px; }
+/* Table style */
+.gldp-default table { border-collapse:collapse; border-bottom:1px solid #bbbbbb; }
+.gldp-default .calNavigation .prev{ border-radius:5px 0px 0px 5px;}
+.gldp-default .calNavigation .next{ border-radius:0px 5px 5px 0px;}
+.gldp-default .calNavigation td { padding:5px 0px 4px; background:#FFF !important;  }
+/* Default row height */
+.gldp-default tr { line-height:1; }
+/* Default style of cell */
+.gldp-default td { margin:0; padding:7px 8px; text-align:center; border:0px !important; background-color:#FFF !important; }
+.gldp-default th { padding:10px 0px 5px; font-size:11px; font-weight:normal; border:0px !important; border-bottom:1px solid #dad9d9 !important; border-top:1px solid #dad9d9 !important; text-align:center; background-color:#FFF !important; }
+/* Previous and Next arrows */
+.gldp-default-prevnext { font-family:"times new roman"; color:#222; cursor:pointer; font-weight:bold; }
+/* Month Year title */
+.gldp-default td.gldp-default-monyear { font-size:18px !important; width:auto; }
+/* Days of the week (Sun, Mon, ...) */
+.gldp-default-dow { font-size:0.8em !important; font-weight:bold; }
+/* Selectable days */
+.gldp-default-day { background-color:transparent; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; }
+td.gldp-default-day-hover { background-color:#e5e5e5 !important; cursor:pointer; font-weight:400; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; }
+/* Selected days */
+td.gldp-default-selected { background-color:#e5e5e5 !important; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px;}
+
+/* Today */
+.gldp-default td.gldp-default-today { background-color:#ceebe6 !important; font-weight:400; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; }
+.gldp-default td.gldp-default-today-hover { background-color:#5dbfab !important; cursor:pointer; font-weight:400; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; }
+/* Weekends */
+.gldp-default-sat, .gldp-default-sun { background-color:transparent; }
+td.gldp-default-sat-hover, td.gldp-default-sun-hover { background-color:#e5e5e5 !important; cursor:pointer; font-weight:400; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; }
+/* Non-selectable day.  Includes:previous/next month days and days that fall in the allowOld and endDate conditions */
