@@ -3,7 +3,7 @@
 		%a{:href=>"#", :style=>""} 
 			.faq-title
 	.row.second-row
-		%ul
+		%ul.menulist
 			%li
 				= link_to 'PRODUCT DESIGN', '#product_design'
 			%li
@@ -12,7 +12,7 @@
 				= link_to 'CONTACT US', '#contact_us'
 	.row.third-row
 		%h5#product_design PRODUCT DESIGN
-		%ul
+		%ul.menulist
 			%li
 				= link_to 'RULES & ELIGIBILITY', '#rule_eligibility'
 			%li
@@ -25,92 +25,103 @@
 		%p#rule_eligibility.sub-title RULES & ELIGIBILITY
 		%ul
 			%li Products must have been manufactured and introduced to the market between September 2012 and August 2013.
-			%li Due to the comprehensive nature of this competition, web *do* accept products that have been awarded and/or are prt of another competition.
+			%li Due to the comprehensive nature of this competition, we *do* accept products that have been awarded and/or are part of another competition.
 			%li There is no limit to the number of products entered to the competition.
-		%p Please note: product categories may be renamed, consolidated, or eliminated and products may be reassigned at the editors discretion.
-		%p Fees: $300/entry AND per category.(e. g. one product entered into two categories is $300 x 2 = 600$)
-
+		%p Please note: product categories may be renamed, consolidated, or eliminated and products may be reassigned at the editors' discretion.
+		%p Fees: $300/entry AND per category (e.g. one product entered into two categories is $300 x 2 = $600).
 		%p Best of Year Product Design finalists will be selected by interior designers and architects via an online vote in September.
 		%p Finalists will be posted on this site in November.
-		%p Winners will be chosen by editor in chief Cindy Allen and a jury of design leaders, and announced live December 6, 2013 during a celebration in New York City. Winners will be featured in the December issue of interior Design.
+		%p Winners will be chosen by Editor in Chief Cindy Allen and a jury of design leaders, and announced live December 5, 2013 during a celebration in New York City. Winners will be featured in the December issue of Interior Design.
 
 		%p#key_dates.sub-title KEY DATES
-		%p September 6: Deadline for product submissions
-		%p September 16-27: Designers will be invited to vote on their favorites during a two-week voting period
-		%p November: Finalists will be posted
-		%p December 6: Live Best of Year Awards event
+		%p
+			%strong September 6:
+			Deadline for product submissions at 11:59PM EST
+		%p
+			%strong September 16-27:
+			Designers will be invited to 
+			%a{:href => home_vote_path}vote on their favorites
+			during a two-week voting period
+		%p
+			%strong November:
+			Finalists will be posted
+		%p 
+			%strong December 5:
+			%a{:href => home_event_path} Live Best of Year Awards event
 
 		%p#product_categories.sub-title PRODUCT CATEGORIES
 		.row
 			.span5
-				%label Accessories
-				%label Accessories: Office
-				%label Accessories: Outdoor
-				%label Bath: Accessories and Hardware
-				%label Bath: Cabinetry
-				%label Bath: Fittings(faucets etc.)
-				%label Bath: fixtures(sinks, tubs etc.)
-				%label Architectural Products
-				%label Flooring: Carpet/Broadloom
-				%label Flooring: Carpet/Modular
-				%label Flooring: Carpet/Rugs
-				%label Flooring: Hard
-				%label Flooring: Healthcare
-				%label Flooring: Hospitality
-				%label Flooring: Tile and Stone
-				%label Furniture: Constract/Case Goods
-				%label Furniture: Contract/Desking
-				%label Furniture: Contract/Systems
-				%label Furniture: Contract/Tables
-				%label Furniture: Education
-				%label Furniture: Healthcare/Furniture and Seating
-				%label Furniture: Outdorr/Lounge
-				%label Furniture: Outdoor/Seating & Tables
-				%label Furniture: Partitions and Wall System
-				%label Furniture: Residential/Storage
-				%label Furniture: Residential/Dining Tables
-				%label Furniture: Residential/Occasional Tables
-				%label Furniture: Youth
-				%label Green Innovation
+				%ul.catlist
+					%li Accessories
+					%li Accessories: Office
+					%li Accessories: Outdoor
+					%li Bath: Accessories and Hardware
+					%li Bath: Cabinetry
+					%li Bath: Fittings (faucets etc.)
+					%li Bath: Fixtures (sinks, tubs etc.)
+					%li Architectural Products
+					%li Flooring: Carpet/Broadloom
+					%li Flooring: Carpet/Modular
+					%li Flooring: Carpet/Rugs
+					%li Flooring: Hard
+					%li Flooring: Healthcare
+					%li Flooring: Hospitality
+					%li Flooring: Tile and Stone
+					%li Furniture: Contract/Case Goods
+					%li Furniture: Contract/Desking
+					%li Furniture: Contract/Systems
+					%li Furniture: Contract/Tables
+					%li Furniture: Education
+					%li Furniture: Healthcare/Furniture and Seating
+					%li Furniture: Outdoor/Lounge
+					%li Furniture: Outdoor/Seating & Tables
+					%li Furniture: Partitions and Wall System
+					%li Furniture: Residential/Storage
+					%li Furniture: Residential/Dining Tables
+					%li Furniture: Residential/Occasional Tables
+					%li Furniture: Youth
+					%li Green Innovation
 			.span4
-				%label Hardware
-				%label Kitchen: Appliances
-				%label Kitchen: Cabinetry
-				%label Kitchen: Fittings
-				%label Kitchen: Fixtures
-				%label Lighting: Chandelier(multiple bulb)
-				%label Lighting: Architectural
-				%label Lighting: Pendant(single bulb)
-				%label Lighting: Floor and Sconce
-				%label Lighting: Table
-				%label Materials and Surfaces(including paneling)
-				%label Seating: Contract/Conference
-				%label Seating: Contract/Guest
-				%label Seating: Contract/Lounge
-				%label Seating: Contract/Task
-				%label Seating: Residential/Accent
-				%label Seating: Residential/Lounge
-				%label Seating: Residential/Sofa
-				%label Technology
-				%label Textiles: Contract
-				%label Textiles: Healthcare
-				%label Textiles: Hospitality
-				%label Textiles: Outdoor
-				%label Textiles: Residential
-				%label Wallcovering: Contract
-				%label Wallcovering: Fabric
-				%label Wallcovering: Treatments(including Tile and Stone)
-				%label Wallcovering: Paper			
-				%label Window Treatments
-		%p		
+				%ul.catlist
+					%li Hardware
+					%li Kitchen: Appliances
+					%li Kitchen: Cabinetry
+					%li Kitchen: Fittings
+					%li Kitchen: Fixtures
+					%li Lighting: Chandelier (multiple bulb)
+					%li Lighting: Architectural
+					%li Lighting: Pendant (single bulb)
+					%li Lighting: Floor and Sconce
+					%li Lighting: Table
+					%li Materials and Surfaces(including paneling)
+					%li Seating: Contract/Conference
+					%li Seating: Contract/Guest
+					%li Seating: Contract/Lounge
+					%li Seating: Contract/Task
+					%li Seating: Residential/Accent
+					%li Seating: Residential/Lounge
+					%li Seating: Residential/Sofa
+					%li Technology
+					%li Textiles: Contract
+					%li Textiles: Healthcare
+					%li Textiles: Hospitality
+					%li Textiles: Outdoor
+					%li Textiles: Residential
+					%li Wallcovering: Contract
+					%li Wallcovering: Fabric
+					%li Wallcovering: Treatments (including Tile and Stone)
+					%li Wallcovering: Paper
+					%li Window Treatments
+
 		%p Reminder: after you submit a product, the product categories may be renamed, consolidated, or eliminated and products may be reassigned at the editors' discretion. You will be notified directly if this pertains to one of your entries.
 		%p#pd_requirements.sub-title REQUIREMENTS	
-		%p Product entries must include a completed submission from, including a digital product image, submitted no later than 11:59px EST on September 6, 2013. You must upload a digital product image, 350dpi high resolution, .jpg or .tif file, for reproduction at 5" x 7" minimum, and smaller than 5MB.
+		%p Product entries must include a completed submission form, including a digital product image, submitted no later than 11:59PM EST on Friday, September 6, 2013. Digital product image must be 350dpi high resolution, .jpg or .tif file, for reproduction at 5" x 7" minimum, and smaller than 5MB.
 		%br/
 		%br/
 		%h5#project_design PROJECT DESIGN
 		.row
-			%ul
+			%ul.menulist
 				%li
 					= link_to 'RULES & ELIGIBILITY', '#pj_rule_eligibility'
 				%li
@@ -129,35 +140,43 @@
 		%p Fees: $300/entry AND per category. (e. g. one project entered into two categories is $300 x 2 = 600$ )
 		%p Best of Year: Project Design winners will be chosen by editor in chief Cindy Allen and a jury of design leaders and featured in the December issue of Interior Design.
 		%p Finalists will be posted on this site in November.
-		%p Winners will be announced live December 6, 2013, during a ceremony and celebration in New York City.
+		%p Winners will be announced live December 5, 2013, during a ceremony and celebration in New York City.
 
 		%p#pj_key_dates.sub-title KEY DATES
-		%p September 6: Deadline for project submissions
-		%p November: Finalists will be posted
-		%p December 6: Live Best of Year Awards event
+		%p
+			%strong September 6:
+			September 6: Deadline for product submissions at 11:59PM EST
+		%p
+			%strong November:
+			Finalists will be posted
+		%p
+			%strong December 5:
+			%a{:href => home_event_path} Live Best of Year Awards event
 
 		%p#pj_categories.sub-title PROJECT CATEGORIES
-		%p Beauty/Spa/Fitness
-		%p Eco
-		%p Education
-		%p Exhibit / Installation		
-		%p Healthcare
-		%p Hospitality: Hotel
-		%p Hospitality: Restaurant, Lounge, Bar
-		%p Institutional(cultural, government, religious)
-		%p Kitchen & Bath
-		%p Office: Large / > 50,000 SQ FT 
-		%p Office: Mid-Size / 10-50,000 SQ FT
-		%p OFFICE: Small / < 10,000 SQ FT
-		%p Public Spaces / Outdoor
-		%p Residence: Apartment/Loft/Multi-Unit Dwelling
-		%p Residence: House/Townhouse
-		%p Retail
-		%p Showroom
-		%p reminder: submission may be reassigned at the editors descretion
+		%ul.catlist
+			%li Beauty/Spa/Fitness
+			%li Eco
+			%li Education
+			%li Exhibit / Installation		
+			%li Healthcare
+			%li Hospitality: Hotel
+			%li Hospitality: Restaurant, Lounge, Bar
+			%li Institutional(cultural, government, religious)
+			%li Kitchen & Bath
+			%li Office: Large / &gt; 50,000 SQ FT 
+			%li Office: Mid-Size / 10-50,000 SQ FT
+			%li OFFICE: Small / &lt; 10,000 SQ FT
+			%li Public Spaces / Outdoor
+			%li Residence: Apartment/Loft/Multi-Unit Dwelling
+			%li Residence: House/Townhouse
+			%li Retail
+			%li Showroom
+		%p Reminder: after you submit a project, the project categories may be renamed, consolidated, or eliminated and projects may be reassigned at the editors' discretion. You will be notified directly if this pertains to one of your entries.
+
 		
 		%p#pj_requirements.sub-title REQUIREMENTS
-		%p Project entries must include a completed submission form, including a digital images, press release or other accompanying documentation, list of project team members, and list of primary sources, submitted no later than 11:59pm EST on September 6, 2013. You will need to upload a .zip file (max. size 20MB) containing all of the project images. Each images should be minimum of 350dpi high resolution, .jpg or .tif file size 9" x 11".
+		%p Project entries must include a completed submission form, including digital images, press release or other accompanying documentation, list of project team members, and list of primary sources, submitted no later than 11:59pm EST on Friday, September 6, 2013. Each image should be minimum of 350dpi high resolution, .jpg or .tif file size 9" x 11".
 
 		%br/
 		%br/

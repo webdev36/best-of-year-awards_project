@@ -2,7 +2,10 @@
 	.content-page{
 		background-color: #ff3300;
 		color: white;
-		padding-left: 40px;
+		width: 800px;
+		padding-left: 50px;
+		padding-right: 50px;
+    padding-bottom: 40px;
 		.first-row{
 			margin-top: 50px;
 			.event-page-title{
@@ -15,16 +18,19 @@
 			margin-top: 30px;
 			margin-bottom: 30px;
 			.video-content{
-				width: 820px;
-				height: 440px;
-				background-color: black;
+        text-align: center;
+        background: #000;
+        height: 593px;
+        overflow: hidden;
+        param {display: none;}
+        embed, object, video {margin: 0; padding: 0;}
 			}
 		}
 		.third-row{
 			p{
 				font-size: 16px;				
 			}
-			label.black{
+			label.black, p.black{
 				color:black;
 				font-weight: bolder;
 			}

@@ -15,7 +15,7 @@ body { padding-top: 0px; }
 }
 body{
   a, p, span, label{
-    font-family: helvetica, arial, sans-serif; 
+    font-family: arial, helvetica, sans-serif; 
   }
   .control-group{
     .controls{
@@ -134,10 +134,16 @@ body{
 
 .nav-collapse{
   ul.nav{
+    > li {
+      > a, > span {
+        text-transform: uppercase;
+      }
+    }
     li.dropdown{
       &:hover{
         .dropdown-menu{
           display: block;
+          text-transform: lowercase;
         }
       }
     }

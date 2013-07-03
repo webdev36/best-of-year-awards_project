@@ -15,6 +15,7 @@
 /tmp
 database.yml
 airbrake.yml
+gateway.yml
 
 # Ignore application configuration
 /config/application.yml

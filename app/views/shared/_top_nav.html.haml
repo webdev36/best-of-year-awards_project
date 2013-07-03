@@ -8,45 +8,45 @@
 					%ul.nav
 						%li.dropdown.menu-submit				
 							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
-								SUBMIT
+								Submit
 							%ul.dropdown-menu{:role=>"menu"}
 								%li
 									= link_to "Product", submission_step_index_path.to_s+'?type=product'
 								%li.last
 									= link_to "Project", submission_step_index_path.to_s+'?type=project'
-						%li.menu-vote= link_to "VOTE", home_vote_path
-						%li.menu-event= link_to "EVENT", home_event_path
+						%li.menu-vote= link_to "Vote", home_vote_path
+						%li.menu-event= link_to "Event", home_event_path
 						%li.menu-faq= link_to "FAQ", home_faq_path
 						%li.dropdown.menu-winner
 							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
-								PAST WINNERS
+								Past Winner
 							%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 								%li
 									= link_to Date.today.year.to_i-1, '#{year}'
 								%li
 									= link_to Date.today.year.to_i-2, '#{year}'
 								%li
-									= link_to Date.today.year.to_i-3, '#{year}'
+									= link_to Date.today.year.to_i-3, 'http://www.interiordesign.net/specialty/16-Best_of_Year_Awards.php?url=/BestofYear2010/531915-Best_of_Year_2010.php'
 								%li
-									= link_to Date.today.year.to_i-4, '#{year}'
+									= link_to Date.today.year.to_i-4, 'http://www.interiordesign.net/specialty/16-Best_of_Year_Awards.php?url=/BestofYear2010/532065-Best_of_Year_Awards_2009.php'
 								%li
-									= link_to Date.today.year.to_i-5, '#{year}'
+									= link_to Date.today.year.to_i-5, 'http://www.interiordesign.net/specialty/16-Best_of_Year_Awards.php?url=/BestofYear2010/532066-Best_of_Year_Awards_2008.php'
 								%li.last
-									= link_to Date.today.year.to_i-6, '#{year}'
+									= link_to Date.today.year.to_i-6, 'http://www.interiordesign.net/specialty/16-Best_of_Year_Awards.php?url=/BestofYear2010/532069-Best_of_Year_Awards_2007.php'
 						
 						%li.dropdown.menu-account
 							- if current_user
-								= link_to "MY ACCOUNT", edit_user_path(current_user), :class=>"dropdown-toggle", :role=>"button"
+								%span.dropdown-toggle My Account
 								%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 									%li
-										= link_to "edit my account", edit_user_path(current_user)
+										= link_to "Edit My Account", edit_user_path(current_user)
 									%li
-										= link_to "previous submissions", :home_previous_submissions
+										= link_to "Previous Submissions", :home_previous_submissions
 									%li.last
-										= link_to "current submissions", :home_current_submissions
+										= link_to "Current Submissions", :home_current_submissions
 							- else
-								= link_to "MY ACCOUNT", :new_user_session, :class=>"dropdown-toggle", :role=>"button"
-						%li.menu-interior= link_to "INTERIOR DESIGN MAGAZINE"
+								= link_to "My Account", :new_user_session, :class=>"dropdown-toggle", :role=>"button"
+						%li.menu-interior= link_to "Interior Design", :target => '_blank'
 				.social-container
 					%a.social-icon{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}						
 						.twitter
@@ -56,6 +56,6 @@
 						.linkdin
 					%a.social-icon{:href=>"#{get_option(:tumblur_link_url)}", :rel=>"publisher", :target => "_blank"}	
 						.tumblur
-					%a.social-icon{:href=>"#{get_option(:newsleter_link_url)}", :target => "_blank"}					
+					%a.social-icon{:href=>"mailto:boyawards@interiordesign.net"}
 						.newsleter
 					

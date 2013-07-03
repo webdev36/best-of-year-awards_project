@@ -14,7 +14,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'execjs', '1.4.0'
   gem 'therubyracer', :platforms => :ruby
 	gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass'
@@ -52,6 +52,11 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'webrick'
+
+  gem 'capistrano',                 '2.14.2'    # Cap is only run in dev on local side...
+  gem 'rvm-capistrano',             '1.2.7'
+  gem 'cap-recipes',                '0.3.39'
+  gem 'capistrano-ext',             '1.2.1'
 end
 
 group :test do
