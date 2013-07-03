@@ -36,7 +36,7 @@
 						
 						%li.dropdown.menu-account
 							- if current_user
-								= link_to "My Account", edit_user_path(current_user), :class=>"dropdown-toggle", :role=>"button"
+								%span.dropdown-toggle My Account
 								%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 									%li
 										= link_to "Edit My Account", edit_user_path(current_user)
@@ -56,6 +56,6 @@
 						.linkdin
 					%a.social-icon{:href=>"#{get_option(:tumblur_link_url)}", :rel=>"publisher", :target => "_blank"}	
 						.tumblur
-					%a.social-icon{:href=>"#{get_option(:newsleter_link_url)}", :target => "_blank"}					
+					%a.social-icon{:href=>"mailto:boyawards@interiordesign.net"}
 						.newsleter
 					

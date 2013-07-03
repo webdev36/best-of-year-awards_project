@@ -1,6 +1,6 @@
 .faq-page{
 	.first-row{
-		margin-top: 100px;
+		margin-top: 50px;
 		margin-bottom: 50px;
 		h1{
 			color: #ff007f;
@@ -79,11 +79,15 @@
 		ul{
 			margin-left: 15px;			
 		}
-		ul{
+    ul.catlist {
+      margin-left: 0;
+      list-style: none;
+    }
+		ul.menulist{
 			margin-left: 0px;
+      list-style: none;
 			li{
 				float: left;
-				list-style: none;
 				a{
 					color: #ff007f;
 					font-size: 16px;

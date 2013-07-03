@@ -134,10 +134,16 @@ body{
 
 .nav-collapse{
   ul.nav{
+    > li {
+      > a, > span {
+        text-transform: uppercase;
+      }
+    }
     li.dropdown{
       &:hover{
         .dropdown-menu{
           display: block;
+          text-transform: lowercase;
         }
       }
     }

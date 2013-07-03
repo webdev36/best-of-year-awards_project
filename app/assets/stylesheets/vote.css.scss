@@ -2,7 +2,10 @@
 	.content-page{
 		background-color: #ff8300;
 		color: white;
+		width: 800px;
 		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 40px;
 		.first-row{
 			margin-top: 50px;
 			h1{
@@ -16,7 +19,8 @@
 			}
 		}
 		.second-row{
-			height: 540px;
+			margin-bottom: 40px;
 		}
+
 	}
 }

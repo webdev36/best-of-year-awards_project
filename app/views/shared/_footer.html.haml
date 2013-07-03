@@ -1,31 +1,29 @@
-.container{:style=>"margin-top:20px;"}
-	.row{:style=>"text-align:center"}
+%footer.container
+	.row
 		%ul.footer-menu
 			%li
-				= link_to 'about us', 'http://interiordesign.net/info/aboutus.php'
+				= link_to 'about us', 'http://interiordesign.net/info/aboutus.php', :target => '_blank'
 			%li
-				= link_to 'advertise in Interior Design', 'http://interiordesign.net/info/advertise.php'
+				= link_to 'advertise in Interior Design', 'http://interiordesign.net/info/advertise.php', :target => '_blank'
 			%li
-				= link_to 'Site Map', 'http://interiordesign.net/sitemap.php'
+				= link_to 'site map', 'http://interiordesign.net/sitemap.php', :target => '_blank'
 			%li
-				= link_to 'contact us', 'http://interiordesign.net/info/contactus.php'
+				= link_to 'contact us', 'http://interiordesign.net/info/contactus.php', :target => '_blank'
 			%li
-				= link_to 'Industry Links', 'http://interiordesign.net/affiliate/'
+				= link_to 'industry links', 'http://interiordesign.net/affiliate/', :target => '_blank'
 			%li
-				= link_to 'Subscriber Services', 'http://www.interiordesign.net/article/480187-subscriber_services.php'
+				= link_to 'subscriber services', 'http://www.interiordesign.net/article/480187-subscriber_services.php', :target => '_blank'
 			%li
-				= link_to 'editiorial calendar & submissions', 'http://interiordesign.net/info/editorialcalendar.php'
+				= link_to 'editiorial calendar & submissions', 'http://interiordesign.net/info/editorialcalendar.php', :target => '_blank'
 			%li
-				= link_to 'RSS', 'http://interiordesign.net/rss/'
+				= link_to 'rss', 'http://interiordesign.net/rss/', :target => '_blank'
 			%li.last
-				= link_to 'media kit', 'http://www.interiordesignmediakit.net/r5/home.asp'
-	.row
-		.row{:style=>"text-align:center;padding-top: 20px;"}
+				= link_to 'media kit', 'http://www.interiordesignmediakit.net/r5/home.asp', :target => '_blank'
+	.row.details
+		.row
 			&copy; #{Date.today.year} Sandow Media LLC. All rights reserved.
-		.row{:style=>"text-align:center"}
+		.row
 			Use of this website is subject to its
-			%a{:href => 'http://interiordesign.net/info/terms_and_conditions.php'} Terms of Use
+			%a{:href => 'http://interiordesign.net/info/terms_and_conditions.php', :target => '_blank'} Terms of Use
 			\|
-			%a{:href => 'http://interiordesign.net/info/privacy_policy.php'} Privacy Policy
-
-
+			%a{:href => 'http://interiordesign.net/info/privacy_policy.php', :target => '_blank'} Privacy Policy
