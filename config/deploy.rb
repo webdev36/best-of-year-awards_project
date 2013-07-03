@@ -58,6 +58,7 @@ namespace :deploy do
     run <<-eos
       ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
       && ln -nfs #{shared_path}/config/airbrake.yml #{release_path}/config/airbrake.yml
+      && ln -nfs #{shared_path}/config/gateway.yml #{release_path}/config/gateway.yml
       && ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml
       && ln -nfs #{shared_path}/log #{release_path}/log
     eos
