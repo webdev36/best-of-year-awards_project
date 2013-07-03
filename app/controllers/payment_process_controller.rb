@@ -10,8 +10,8 @@ class PaymentProcessController < ApplicationController
 		case step
 		when :select_submission
 			@order = current_user.orders.build if current_order.nil?
-			@order.order_submissions.build
 			@order.save
+			@order.order_submissions.build			
 			session[:order_id] = @order.id
 		when :input_card_info	
 			@order ||= current_order
