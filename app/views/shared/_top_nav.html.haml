@@ -6,17 +6,17 @@
 			.container
 				.nav-collapse
 					%ul.nav
-						%li.dropdown.menu-submit				
-							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
+						%li.dropdown.menu-submit
+							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button", :class => selected_if_section?(:submission)} 
 								Submit
 							%ul.dropdown-menu{:role=>"menu"}
 								%li
 									= link_to "Product", submission_step_index_path.to_s+'?type=product'
 								%li.last
 									= link_to "Project", submission_step_index_path.to_s+'?type=project'
-						%li.menu-vote= link_to "Vote", home_vote_path
-						%li.menu-event= link_to "Event", home_event_path
-						%li.menu-faq= link_to "FAQ", home_faq_path
+						%li.menu-vote= link_to "Vote", home_vote_path, :class => selected_if_section?(:vote)
+						%li.menu-event= link_to "Event", home_event_path, :class => selected_if_section?(:event)
+						%li.menu-faq= link_to "FAQ", home_faq_path, :class => selected_if_section?(:faq)
 						%li.dropdown.menu-winner
 							%a.dropdown-toggle{:href=>home_submission_landing_path, :role=>"button"} 
 								Past Winner
@@ -36,16 +36,16 @@
 						
 						%li.dropdown.menu-account
 							- if current_user
-								%span.dropdown-toggle My Account
+								%span.dropdown-toggle{:class => selected_if_section?(:account)} My Account
 								%ul.dropdown-menu{:role=>"menu", :"aria-labelledby"=>"dropdown_profile_icon"}
 									%li
-										= link_to "Edit My Account", edit_user_path(current_user)
+										= link_to "Edit My Account", edit_user_path
 									%li
 										= link_to "Previous Submissions", :home_previous_submissions
 									%li.last
 										= link_to "Current Submissions", :home_current_submissions
 							- else
-								= link_to "My Account", :new_user_session, :class=>"dropdown-toggle", :role=>"button"
+								= link_to "My Account", :signup, :class=>"dropdown-toggle", :role=>"button"
 						%li.menu-interior= link_to "Interior Design", :target => '_blank'
 				.social-container
 					%a.social-icon{:href=>"#{get_option(:twitter_link_url)}", :target => "_blank"}						

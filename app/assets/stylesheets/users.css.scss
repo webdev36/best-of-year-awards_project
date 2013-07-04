@@ -10,6 +10,12 @@
 					text-align: left;
 				}
 			}
+      span.note {
+        display: inline-block;
+        font-size: 12px;
+        padding-top: 6px;
+        color: rgb(247, 151, 39);
+      }
 		}
 		.page-header{
 			margin: 0px;

@@ -63,6 +63,7 @@ group :development do
   gem 'rvm-capistrano',             '1.2.7'
   gem 'cap-recipes',                '0.3.39'
   gem 'capistrano-ext',             '1.2.1'
+  gem 'unicorn'
 end
 
 group :test do

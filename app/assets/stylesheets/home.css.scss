@@ -160,7 +160,7 @@
 						color: white;
 						text-shadow: none;
 						font-weight: bold;
-						&:hover, .current{
+						&:hover, &.current{
 							color: #ffff00;
 						}
 					}
@@ -169,7 +169,7 @@
 							color: white;
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #ffff00;
 							}
 						}
@@ -180,8 +180,8 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-						&:hover, .current{
-							color: #ff8300;
+						&:hover, &.current{
+							color: #ff8348;
 						}
 					}
 					.dropdown-menu{
@@ -189,7 +189,7 @@
 							color: white;
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #f69826;
 							}
 						}
@@ -200,7 +200,7 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-						&:hover, .current{
+						&:hover, &.current{
 							color: #ff3300;
 						}
 					}
@@ -209,7 +209,7 @@
 							color: white;							
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #ff3300;
 							}
 						}
@@ -220,7 +220,7 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-						&:hover, .current{
+						&:hover, &.current{
 							color: #ff007c;
 						}
 					}
@@ -229,7 +229,7 @@
 							color: white;							
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #ff007c;
 							}
 						}
@@ -240,7 +240,7 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-						&:hover, .current{
+						&:hover, &.current{
 							color: #01fefc;
 						}
 					}
@@ -249,7 +249,7 @@
 							color: white;							
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #01fefc;
 							}
 						}
@@ -260,7 +260,7 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-						&:hover, .current{
+						&:hover, &.current{
 							color: #555;
 						}
 					}
@@ -269,7 +269,7 @@
 							color: white;							
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #555;
 							}
 						}
@@ -280,7 +280,7 @@
 						color: white;
 						font-weight: bold;
 						text-shadow: none;
-            &:hover, .current {
+            &:hover, &.current {
               color: #00ff00;
             }
           }
@@ -289,7 +289,7 @@
 							color: white;							
 							text-shadow: none;
 							font-weight: bold;
-							&:hover{
+							&:hover, &.current {
 								color: #00ff00;
 							}
 						}
@@ -410,4 +410,9 @@ footer{
 			}
 		}
 	}
+}
+
+.form-actions{
+	border-top:none;
+	background: none !important;
 }
