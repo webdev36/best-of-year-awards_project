@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613203220) do
+ActiveRecord::Schema.define(:version => 20130704031148) do
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -150,11 +151,11 @@ ActiveRecord::Schema.define(:version => 20130613203220) do
     t.string   "name"
     t.string   "lead_designer"
     t.string   "architect"
-    t.string   "team_members"
+    t.text     "team_members"
     t.text     "description"
     t.date     "completion_date"
     t.string   "square_footage"
-    t.string   "primary_sources"
+    t.text     "primary_sources"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
