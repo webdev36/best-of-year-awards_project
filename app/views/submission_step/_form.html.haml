@@ -19,7 +19,7 @@
 			= link_to "Go Back", previous_wizard_path, :class=>"c_btn yc_btn"
 			= f.submit "Continue", :class=>"c_btn btn-continue yc_btn"
 			- unless step == :agree_terms # What are we saving if they have not done anything yet?
-				= link_to "Save and Resume Later", '#', :class=>"c_btn btn_resume_later yc_btn", :style=>"height: 65px;padding-top: 10px;"
+				= link_to "Save and Resume Later", "#", :class=>"c_btn btn_resume_later yc_btn", :style=>"height: 65px;padding-top: 10px;"
 
 :javascript
 	$("input.accept-agree").click(function(){
@@ -30,9 +30,15 @@
 			$(".btn-continue").attr("disabled","disabled");
 			$('div.accept-agree-check').removeClass("accept-agree-checked");			
 		}
-	});		
-	$('a.btn_resume_later').click(function(){
+	});	
+
+	$('a.btn_resume_later').click(function(){		
+		var action = $('form.edit_submission').attr('action')
 		$('input[name=_method]').val('post');		
-		$('#edit_submission_#{@submission.id}').attr('action','/home/resume_later')
-		$('#edit_submission_#{@submission.id}').submit();
+		$('form.edit_submission').attr('action','/home/resume_later?type=#{@submission.class.to_s}')
+		flag = $('form.edit_submission').submit();
+		if(flag != true){
+			$('input[name=_method]').val('put');
+			$('form.edit_submission').attr('action',action);
+		}
 	});

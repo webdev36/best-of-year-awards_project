@@ -57,7 +57,7 @@
 								.controls.file-upload-box
 									.row
 										.span3{:style=>"width: 220px;"}
-											%input.temp_path#path_one{:"data-required"=>"true"}
+											%input.temp_path#product_path_one{:"data-required"=>"true"}
 										.span2
 											%label.upload-btn 
 												select file
@@ -65,7 +65,7 @@
 													%input#product_spec_pictures_attributes_0_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"product_spec[pictures_attributes][0][image]"}
 									.row
 										.span3{:style=>"width: 220px;"}
-											%input.temp_path#path_two{:"data-required"=>"true"}
+											%input.temp_path#product_path_two{:"data-required"=>"true"}
 										.span2
 											%label.upload-btn 
 												select file
@@ -238,6 +238,15 @@
 	});
 
 	$('.jqBigform').jqTransform(); 
+
+	$("#product_spec_pictures_attributes_0_image").change(function(){
+		$("#product_path_one").val($(this).val());
+	});
+	$("#product_spec_pictures_attributes_1_image").change(function(){
+		$("#product_path_two").val($(this).val());
+	});
+
+
 	$("#project_spec_pictures_attributes_0_image").change(function(){
 		$("#path_one").val($(this).val());
 	});
@@ -251,6 +260,7 @@
 		$("#path_four").val($(this).val());
 	});
 
+	/*
 	$( "#project_spec_company_city" ).autocomplete({
 		source: function (request, response) {
 			$.ajax({
@@ -281,3 +291,4 @@
 		}
 		
 	});	
+	*/

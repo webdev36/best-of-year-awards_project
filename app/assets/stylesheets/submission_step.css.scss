@@ -266,6 +266,7 @@ form.edit_submission{
 	padding-top: 50px;
 	padding-left: 30px;
 	background-color: #ffff00;
+
 	h1{
 		color: black;
 		font-weight: 300;
@@ -276,6 +277,24 @@ form.edit_submission{
 		}
 		.controls{
 			margin-left: 0px;
+		}
+	}
+	.control-group{
+		.controls{
+			.parsley-error-list{
+				li{
+					list-style: none;
+					background-color: #fe63f5;
+			    border: 1px solid #dd;
+			    border-radius: 4px;
+			    margin-top: 5px;
+			    padding: 3px 0 3px 10px;
+			    width: 200px;
+			    position: absolute;
+			    margin-left: 500px;
+			    margin-top: -30px;
+				}
+			}
 		}
 	}
 }

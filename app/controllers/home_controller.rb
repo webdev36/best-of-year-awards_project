@@ -49,7 +49,8 @@ class HomeController < ApplicationController
     
 	end
 
-	def resume_later		
+	def resume_later
+		render :text=>params.inspect and return
 		@submission ||= current_submission
 		@submission.attributes = params[:submission]
 		@submission.save

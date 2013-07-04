@@ -7,7 +7,7 @@
 			.control-group
 				= f.label :title, "Submission Name (for your own reference):",:class => 'control-label', :style=>"width: 300px;"
 				.controls
-					= f.text_field :title, :class => 'text_field', :"data-required"=>"true", :style=>"background-color: transparent;"
+					= f.text_field :title, :class => 'text_field', :"data-required"=>"true", :style=>"background-color: transparent;", :value=>""
 		=f.hidden_field :status, :value=>'editing'
 		.row.second-row
 			%p Project Category:
