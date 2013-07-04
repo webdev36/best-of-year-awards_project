@@ -142,8 +142,8 @@ class ApplicationController < ActionController::Base
 			session[:return_to] = request.url
 		end
 
-		def redirect_back_or_default(default)
-			redirect_to(session[:return_to] || default)
+		def redirect_back_or_default(default=nil)
+			redirect_to(session[:return_to] || default || root_url)
 			session[:return_to] = nil
 		end
 end
