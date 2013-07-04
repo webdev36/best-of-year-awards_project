@@ -1,23 +1,16 @@
 class CreateContacts < ActiveRecord::Migration
   def change
     create_table :contacts do |t|
-      t.belongs_to :submission,       :null => false
-      t.string :first_name
-      t.string :last_name
-      t.string :phone
+      t.belongs_to :product_spec
+      t.belongs_to :project_spec
+      t.string :name
+      t.string :title_position
       t.string :email
-      t.string :job_title
-      t.string :company
-      t.string :street_address1
-      t.string :street_address2
-      t.string :city
-      t.string :state
-      t.string :zip
-      t.string :country
-      t.string :fax
+      t.string :phone
 
       t.timestamps
     end
-    add_index :contacts, :submission_id
+    add_index :contacts, :product_spec_id
+    add_index :contacts, :project_spec_id
   end
 end

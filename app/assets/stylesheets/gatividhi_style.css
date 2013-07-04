@@ -72,7 +72,7 @@
 /*
 .gldp-default { float:left; color:#282828; font-family: 'Open Sans', sans-serif !important; background:url(calendor-bg.gif) repeat-x bottom #fefefe; font-size:12px !important; padding:15px; -moz-box-shadow: 1px 1px 5px #000000; -webkit-box-shadow: 1px 1px 5px #000000; -khtml-box-shadow: 1px 1px 5px #000000; box-shadow: 1px 1px 5px #000000; border:1px solid #bbbbbb; z-index:99 !important; }
  top Arrow */
-.calTopArrow { position:absolute; background:url(up-Arrow.png) no-repeat left top; width:39px; height:19px; margin-top:-34px; margin-left:130px; }
+.calTopArrow { position:absolute; background:url(up-Arrow.png) no-repeat left top; width:39px; height:19px; margin-top:-10px; margin-left:160px; }
 /* Table style */
 .gldp-default table { border-collapse:collapse; border-bottom:1px solid #bbbbbb; }
 .gldp-default .calNavigation .prev{ border-radius:5px 0px 0px 5px;}

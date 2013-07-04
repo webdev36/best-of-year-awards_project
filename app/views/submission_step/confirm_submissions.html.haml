@@ -1,25 +1,49 @@
 .row.confirm-submission-info-page
-	.container	
-		.row.first-row
-			%h3.offset1 #{params[:type].humanize unless params[:type].nil? } Design Submission
-			%fieldset.offset-by-one
-				%h4.offset1 Project Infomation	
-				%h5 Project name: #{@submission.title}
-				%h5 Project Description:
-				%label= raw @submission.description
-			%fieldset.offset-by-one
-				%h4.offset1 Company Infomation
-				%h5 Company Name: #{@submission.company.name}
-				%h5 Company Address: #{@submission.company.country} #{@submission.company.address1} #{@submission.company.address2} #{@submission.company.city}
-				%h5 Company state: #{@submission.company.state} Zipcode: #{@submission.company.zip}
-				%h5 Company Phone number: #{@submission.company.phone}
-				%h5 Company Website: #{@submission.company.website}
-			%fieldset.offset-by-one
-				%h4.offset1 Project Document Infomation
-				.span2
-					%h5 Project Image
-				.span5
-					=image_tag @submission.last_image_url(:large)
-		.row.last-row
-			= link_to "Go Back", previous_wizard_path, :class=>"c_btn"
-			= link_to "Submit and Pay", payment_process_path, :class=>"c_btn"			
+	.container
+		.span9.content
+			.row.first-row
+				%a{:href=>"#", :style=>""} 
+					- if session[:submission_type]=='product'
+						.submission-product-page-title
+					- else
+						.submission-project-page-title
+			.row.second-row			
+				- if session[:submission_type]=='product'
+					- current_user.product_submissions.each do |submission|
+						.row.submission-box
+							%h3= submission.title
+							.span4
+								%h4 Manufacturer Information:
+								%p= submission.product_spec.manufacture_name
+								%p= submission.product_spec.manufacture_addr							
+								%h4 Manufacturer Contact:
+								%p= submission.product_spec.contact.name
+								%p= submission.product_spec.contact.title_position
+								%p= submission.product_spec.contact.email
+								%p= submission.product_spec.contact.phone
+							.span5
+								%h4 Product Information:
+								%p= submission.product_spec.name
+								%p= submission.product_spec.introduction_date
+								.product-description= markdown submission.product_spec.description
+				- elsif session[:submission_type]=='project'
+					- current_user.project_submissions.each do |submission|
+						.row.submission-box
+							%h3= submission.title
+							.span4
+								%h4 Firm Information:
+								%p= submission.project_spec.firm_name
+								%p= submission.project_spec.firm_address
+								%h4 Firm Contact:
+								%p= submission.project_spec.contact.name
+								%p= submission.project_spec.contact.title_position
+								%p= submission.project_spec.contact.email
+								%p= submission.project_spec.contact.phone
+							.span5
+								%h4 Project Information:
+								%p= submission.project_spec.name
+								%p= submission.project_spec.completion_date
+								.product-description= markdown submission.project_spec.description
+			.row.last-row{:style=>"margin-bottom: 30px;margin-right: 50px;margin-top: 10px;text-align: right;"}
+				= link_to "Go Back", previous_wizard_path, :class=>"c_btn yc_btn"
+				= link_to "Submit and Pay", payment_process_path, :class=>"c_btn yc_btn"			

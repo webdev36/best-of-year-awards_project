@@ -4,16 +4,17 @@
 			.control-group
 				= f.label :title, "Submission Name (for your own reference):",:class => 'control-label', :style=>"width: 300px;"
 				.controls
-					= f.text_field :title, :class => 'text_field', :"data-required"=>"true"
+					= f.text_field :title, :class => 'text_field', :"data-required"=>"true", :style=>"background-color: transparent;"
 		=f.hidden_field :status, :value=>'editing'
 		.row.second-row
 			%p Project Category:
 			%label You can select multiple categories for a project if applicable. There is a $300 fee per entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)
-			.span5.categories-box
+			.span9.categories-box
 				=f.fields_for :submission_categories, @categories, :builder => CustomFormBuilder do |submission_cat|
-					%label.checkbox
-						= submission_cat.check_box :category_id, {:saved_values => [f.object.submission_categories, ["id", "name"]]}, submission_cat.object.id, '-1'
-						%label= submission_cat.object.name
+					.span4
+						%label.checkbox
+							= submission_cat.check_box :category_id, {:saved_values => [f.object.submission_categories, ["id", "name"]]}, submission_cat.object.id, '-1'
+							%label= submission_cat.object.name
 			
 :javascript
 	$('div.categories-box input[type="hidden"]').each(function(){

@@ -1,112 +1,280 @@
 .row.input-submission-info-page
 	.container
-		= render layout: 'form' do |f|
-			.row.first-row.company-input-box			
-				%fieldset.offset-by-one				
-					%h4.offset1 Firm Information:
-					= f.fields_for :company do |cm|
-						.span4{:style=>"width:410px;"}
+		.span9.content
+			= render layout: 'form' do |f|
+				.row.first-row.project-spec-input-box
+					- if session[:submission_type] == Submission::TYPE[1]
+						.row.product-input-box
+							%h4 Manufacture Information:
 							.control-group
-								= cm.label :name, "Firm Name *",:class => 'control-label'
+								= f.label :manufacture_name, "Manufacturer Name*	",:class => 'control-label'
 								.controls
-									= cm.text_field :name, :class => 'text_field', :"data-required"=>"true"
+									= f.text_field :manufacture_name, :class => 'text_field', :"data-required"=>"true"
 							.control-group
-								= cm.label :country, "Country",:class => 'control-label'
-								.controls.formRow.jqBigform
-									= cm.country_select :country, {:priority => %w(US CA)}, prompt: 'Please select a country', :style=>"width: 177px;"
-							.control-group
-								= cm.label :phone, "Phone Number",:class => 'control-label'
+								= f.label :manufacture_addr, "Address of Manufacturer*	",:class => 'control-label'
 								.controls
-									= cm.text_field :phone, :class => 'text_field'
-							.control-group
-								= cm.label :website, "Website",:class => 'control-label'
-								.controls
-									= cm.text_field :website, :class => 'text_field'		
-						.span4{:style=>"width:410px;"}
-							.control-group
-								= cm.label :address1, "Address1 *",:class => 'control-label'
-								.controls
-									= cm.text_field :address1, :class => 'text_field', :"data-required"=>"true"
-							.control-group
-								= cm.label :address2, "Address2",:class => 'control-label'
-								.controls
-									= cm.text_field :address2, :class => 'text_field'
-							.control-group
-								= cm.label :city, "City *",:class => 'control-label'
-								.controls
-									= cm.text_field :city, :class => 'text_field', :"data-required"=>"true"
-							.control-group
-								= cm.label :state, "State",:class => 'control-label'
-								.controls
-									= cm.text_field :state, :class => 'text_field'
-							.control-group
-								= cm.label :zip, "Zip Code",:class => 'control-label'
-								.controls
-									= cm.text_field :zip, :class => 'text_field'
-			.row.second-row.project-spec-input-box
-				%fieldset.offset-by-one
-					%h4.offset1 #{session[:submission_type].to_s.humanize} Information:
-					- if session[:submission_type] == Submission::TYPE[0]
-						= f.fields_for :project_spec do |project|
-							.row
-								.span4{:style=>"width:410px;"}
-									.control-group
-										= project.label :lead_designer, "Lead Designer *",:class => 'control-label'
-										.controls
-											= project.text_field :lead_designer, :class => 'text_field', :"data-required"=>"true"
-									.control-group
-										= project.label :architect, "Architect",:class => 'control-label'
-										.controls
-											= project.text_field :architect, :class => 'text_field'
-									.control-group
-										= project.label :additional_designers, "Additional Designers",:class => 'control-label'
-										.controls
-											= project.text_field :additional_designers, :class => 'text_field'
-									
-								.span4{:style=>"width:410px;"}
-									.control-group
-										= project.label :other_resources, "Other Resources",:class => 'control-label'
-										.controls
-											= project.text_field :other_resources, :class => 'text_field'
-									.control-group
-										= project.label :othere_resources_title, "Other Resources Title",:class => 'control-label'
-										.controls
-											= project.text_field :othere_resources_title, :class => 'text_field'
-									.control-group
-										= project.label :square_footage, "SQuare footage of project*",:class => 'control-label'
-										.controls
-											= project.text_field :square_footage, :class => 'text_field', :"data-required"=>"true"
-					- elsif session[:submission_type] == Submission::TYPE[1]
-						= f.fields_for :product_spec do |product|
-							.row
-								.span4{:style=>"width:410px;"}
-									.control-group
-										= product.label :introduction_date, :class => 'control-label'
-										.controls
-											= product.text_field :introduction_date, :class => 'text_field', :"data-required"=>"true", :id=>"introduction_date"
-						
-			.row.submission-box
-				%fieldset.offset-by-one
-					.control-group
-						%label.control-label #{session[:submission_type].to_s.humanize} Description *
-						.controls
-							= f.text_area :description, :"data-required"=>"true"	
-					=f.hidden_field :status, :value=>'whole'
-			.row.third-row.submission-imput-box
-				%fieldset.offset-by-one
-					%h4.offset1 #{session[:submission_type].to_s.humanize} Documentation:
-					= f.fields_for :pictures do |picture|
+									= f.text_field :manufacture_addr, :class => 'text_field', :"data-required"=>"true"
 						.row
+							= f.fields_for :contact do |contact|
+								%h4 
+									Manufacture Contact 
+									%span (for Interior Design use):
+								.row
+									.control-group
+										= contact.label :name, "Contact Name*", :class => 'control-label'
+										.controls
+											= contact.text_field :name, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :title_position, "Title/Position*",:class => 'control-label'
+										.controls
+											= contact.text_field :title_position, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :email, "Email*",:class => 'control-label'
+										.controls
+											= contact.email_field :email, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :phone, "Phone number*",:class => 'control-label'
+										.controls
+											= contact.text_field :phone, :class => 'text_field', :"data-required"=>"true"
+						.row
+							%h4 Product Information:
 							.control-group
-								= picture.label :image, "#{session[:submission_type].to_s.humanize} Images *",:class => 'control-label'
+								= f.label :name, "Formal Product Name*",:class => 'control-label'
 								.controls
-									= picture.file_field :image, :class => 'text_field', :"data-required"=>"true"
+									= f.text_field :name, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= f.label :introduction_date, "Introduction date*",:class => 'control-label'
+								.controls
+									= f.text_field :introduction_date, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								%label Product Description*
+								=f.text_area :description, :"data-required"=>"true"
+							.control-group
+								%label.control-label{:style=>"height: 50px;"} Product image*								
+								.controls.file-upload-box
+									.row
+										.span3{:style=>"width: 220px;"}
+											%input.temp_path#path_one{:"data-required"=>"true"}
+										.span2
+											%label.upload-btn 
+												select file
+												%span
+													%input#product_spec_pictures_attributes_0_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"product_spec[pictures_attributes][0][image]"}
+									.row
+										.span3{:style=>"width: 220px;"}
+											%input.temp_path#path_two{:"data-required"=>"true"}
+										.span2
+											%label.upload-btn 
+												select file
+												%span
+													%input#product_spec_pictures_attributes_1_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"product_spec[pictures_attributes][1][image]"}
+								%p Provide up to 2 images. Please provide high-resolution images(350dpi, 6"x7", 5MB maximum).
+
+					- elsif session[:submission_type] == Submission::TYPE[0]
+						.row.project-input-box
+							%h4 Firm Information:
+							.control-group
+								= f.label :firm_name, "Firm Name*",:class => 'control-label'
+								.controls
+									= f.text_field :firm_name, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= f.label :firm_address, "Address of Firm*",:class => 'control-label'
+								.controls
+									= f.text_field :firm_address, :class => 'text_field', :"data-required"=>"true"
+						.row
+							= f.fields_for :contact do |contact|
+								%h4 
+									Manufacture Contact 
+									%span (for Interior Design use):
+								.row
+									.control-group
+										= contact.label :name, "Contact Name*", :class => 'control-label'
+										.controls
+											= contact.text_field :name, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :title_position, "Title/Position*",:class => 'control-label'
+										.controls
+											= contact.text_field :title_position, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :email, "Email*",:class => 'control-label'
+										.controls
+											= contact.email_field :email, :class => 'text_field', :"data-required"=>"true"
+									.control-group
+										= contact.label :phone, "Phone number*",:class => 'control-label'
+										.controls
+											= contact.text_field :phone, :class => 'text_field', :"data-required"=>"true"
+
+						.row
+							%h4 Project Information:
+							.control-group
+								= f.label :name, "Formal Project Name*",:class => 'control-label'
+								.controls
+									= f.text_field :name, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= f.label :lead_designer, "Lead Designer*",:class => 'control-label'
+								.controls
+									= f.text_field :lead_designer, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								= f.label :architect, "Architect",:class => 'control-label'
+								.controls
+									= f.text_field :architect, :class => 'text_field'
+							.control-group
+								%label List of complete project team members, including titles
+								=f.text_area :team_members
+							%br/
+							.control-group
+								%label Project Description*	
+								=f.text_area :description, :"data-required"=>"true"
+							%br/
+							.control-group
+								= f.label :completion_date, "Completion Date", :class => 'control-label', :style=>"height: 16px;"
+								.controls
+									= f.text_field :completion_date, :class => 'text_field'
+								%span (REMINDER: Project must have been completed between Septetmber 2013 and August 2013)
+							.control-group
+								= f.label :square_footage, "Square footage of project*",:class => 'control-label'
+								.controls
+									= f.text_field :square_footage, :class => 'text_field', :"data-required"=>"true"
+							.control-group
+								%label List of primary sources (manufacturer names for each product category)
+								=f.text_area :primary_sources
+
+						.row
+							%h4 Project Documentation:
+							%p Upload a press release or other accompanying documentation about the project(optional)-up to three documents:
+							.control-group
+								%label.control-label{:style=>"width: 60px;"} File 1
+								.controls.file-upload-box{:style=>"margin-left: 65px;"}
+									.row
+										.span3{:style=>"width: 320px;"}
+											%input.temp_path#path_one{:"data-required"=>"true", :style=>"width: 310px;"}
+										.span2
+											%label.upload-btn 
+												select file
+												%span
+													%input#project_spec_pictures_attributes_0_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"project_spec[pictures_attributes][0][image]"}
+							.control-group
+								%label.control-label{:style=>"width: 60px;"} File 1
+								.controls.file-upload-box{:style=>"margin-left: 65px;"}
+									.row
+										.span3{:style=>"width: 320px;"}
+											%input.temp_path#path_two{:"data-required"=>"true", :style=>"width: 310px;"}
+										.span2
+											%label.upload-btn 
+												select file
+												%span
+													%input#project_spec_pictures_attributes_1_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"project_spec[pictures_attributes][1][image]"}
+							.control-group
+								%label.control-label{:style=>"width: 60px;"} File 1
+								.controls.file-upload-box{:style=>"margin-left: 65px;"}
+									.row
+										.span3{:style=>"width: 320px;"}
+											%input.temp_path#path_three{:"data-required"=>"true", :style=>"width: 310px;"}
+										.span2
+											%label.upload-btn 
+												select file
+												%span
+													%input#project_spec_pictures_attributes_2_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"project_spec[pictures_attributes][1][image]"}
+							
+							.control-group
+								%label.control-label Project Images
+								.controls.file-upload-box{:style=>"margin-left: 65px;"}									
+									.span5
+										%input{:type=>"text", :style=>"width: 162px; float: left; margin-right: 10px;"}
+										%span{:style=>"float: left;font-size: 16px;margin-right: 10px;padding-top: 5px;"} OR
+										%input.temp_path#path_four{:style=>"width: 236px;"}
+									.span2
+										%label.upload-btn 
+											select file
+											%span
+												%input#project_spec_pictures_attributes_3_image.text_field.parsley-validated.file-upload-filed{:type=>"file", :name=>"project_spec[pictures_attributes][1][image]"}
+							%span There is a minimum of 5 to no maximum number of images.
+							%span Please provide high-resolution images(350dpi, 9"x11") in a zipped file (20MB maximum).
+						.row
+							= f.fields_for :company do |company|
+								%h5{:style=>"font-size: 16px;"}
+									For your submission you receive 1 complimentary year of Interior Design. Please provide address below:
+								.row
+									.control-group
+										= company.label :name, "Name", :class => 'control-label'
+										.controls
+											= company.text_field :name, :class => 'text_field'
+									.control-group
+										= company.label :title_position, "Title/Position",:class => 'control-label'
+										.controls
+											= company.text_field :title_position, :class => 'text_field'
+									.control-group
+										= company.label :address, "Address",:class => 'control-label'
+										.controls
+											= company.text_field :address, :class => 'text_field'
+									.control-group
+										= company.label :city, "City, State, Zip",:class => 'control-label'
+										.controls
+											= company.text_field :city, :class => 'text_field', :style=>"width: 150px;"
+											= company.text_field :state, :class => 'text_field', :style=>"width: 100px;"
+											= company.text_field :zip, :class => 'text_field', :style=>"width: 100px;"
+									.control-group
+										= company.label :email, "Email",:class => 'control-label'
+										.controls
+											= company.email_field :email, :class => 'text_field'
+									.control-group
+										= company.label :phone, "Phone number*",:class => 'control-label'
+										.controls
+											= company.text_field :phone, :class => 'text_field'
+
 
 :javascript
-	$("#introduction_date").glDatePicker({
-		leftMargin: 10,
+	$("#product_spec_introduction_date").glDatePicker({
+		leftMargin: 15,
 		topMargin: -10
-	});							
+	});
+
+	$("#project_spec_completion_date").glDatePicker({
+		leftMargin: 15,
+		topMargin: -10
+	});
 
 	$('.jqBigform').jqTransform(); 
-	
+	$("#project_spec_pictures_attributes_0_image").change(function(){
+		$("#path_one").val($(this).val());
+	});
+	$("#project_spec_pictures_attributes_1_image").change(function(){
+		$("#path_two").val($(this).val());
+	});
+	$("#project_spec_pictures_attributes_2_image").change(function(){
+		$("#path_three").val($(this).val());
+	});
+	$("#project_spec_pictures_attributes_3_image").change(function(){
+		$("#path_four").val($(this).val());
+	});
+
+	$( "#project_spec_company_city" ).autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: "http://ws.geonames.org/searchJSON?country=US",
+				dataType: "jsonp",
+				data: {
+					featureClass: "P",
+					style: "full",
+					maxRows: 12,
+					name_startsWith: request.term
+				},
+				success: function (data) {
+					response($.map(data.geonames, function (item) {
+						return {
+							label: item.name + (item.adminName1 ? ", " + item.adminName1 : ""),
+							value: item.name,
+							code: item.adminCode1
+						}
+					}));
+				}
+			});
+		},
+		minLength: 2,
+		select: function (event, ui) {
+			$("#project_spec_company_state").val(ui.item.code);
+			$("#project_spec_company_zip").val(ui.item.code);
+			$("#project_spec_company_email").focus();
+		}
+		
+	});	

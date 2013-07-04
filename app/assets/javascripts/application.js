@@ -14,5 +14,6 @@
 //= require parsley
 //= require parsley.extend
 //= require jquery_ujs
+//= require autocomplete-rails
 //= require twitter/bootstrap
 //= require_tree .

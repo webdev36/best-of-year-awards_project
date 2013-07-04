@@ -27,9 +27,9 @@ class Order < ActiveRecord::Base
                   :shipping_optional_address, :shipping_state, :shipping_zip_code, 
                   :order_submissions_attributes, :payment_attributes
 
-  has_many :order_submissions, :dependent => :destroy
+  has_many :order_submissions,    :dependent => :destroy
   has_many :submissions, :through => :order_submissions
-  has_one :payment
+  has_one :payment,               :dependent => :destroy
 
   accepts_nested_attributes_for :order_submissions, :allow_destroy=>true, :reject_if => proc{ |a| a['submission_id'] == '-1' }
   accepts_nested_attributes_for :payment, :allow_destroy=>true, :reject_if => :all_blank

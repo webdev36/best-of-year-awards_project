@@ -11,66 +11,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627074827) do
+ActiveRecord::Schema.define(:version => 20130613203220) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "kind"
-    t.integer  "sort_id"
+    t.integer  "kind",        :default => 0,  :null => false
+    t.integer  "sort_id",     :default => 99, :null => false
     t.integer  "parent_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "companies", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "project_spec_id", :null => false
     t.string   "name"
-    t.string   "address1"
-    t.string   "address2"
+    t.string   "title_position"
+    t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "country"
+    t.string   "email"
     t.string   "phone"
     t.string   "website"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "companies", ["submission_id"], :name => "index_companies_on_submission_id"
-
-  create_table "contacts", :force => true do |t|
-    t.integer  "submission_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "job_title"
-    t.string   "company"
-    t.string   "street_address1"
-    t.string   "street_address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "country"
-    t.string   "fax"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "contacts", ["submission_id"], :name => "index_contacts_on_submission_id"
+  add_index "companies", ["project_spec_id"], :name => "index_companies_on_project_spec_id"
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "product_spec_id"
+    t.integer  "project_spec_id"
+    t.string   "name"
+    t.string   "title_position"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "contacts", ["product_spec_id"], :name => "index_contacts_on_product_spec_id"
+  add_index "contacts", ["project_spec_id"], :name => "index_contacts_on_project_spec_id"
 
   create_table "options", :force => true do |t|
-    t.string   "option_name"
-    t.text     "option_value"
+    t.string   "option_name",  :null => false
+    t.text     "option_value", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "order_submissions", :force => true do |t|
-    t.integer  "order_id"
-    t.integer  "submission_id"
+    t.integer  "order_id",      :null => false
+    t.integer  "submission_id", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -79,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "order_submissions", ["submission_id"], :name => "index_order_submissions_on_submission_id"
 
   create_table "orders", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",                   :null => false
     t.string   "balance_amount"
     t.string   "payment_option"
     t.string   "shipping_first_name"
@@ -139,7 +132,11 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   end
 
   create_table "product_specs", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id",     :null => false
+    t.string   "manufacture_name"
+    t.string   "manufacture_addr"
+    t.string   "name"
+    t.text     "description"
     t.date     "introduction_date"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -148,24 +145,26 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "product_specs", ["submission_id"], :name => "index_product_specs_on_submission_id"
 
   create_table "project_specs", :force => true do |t|
-    t.integer  "submission_id"
-    t.string   "market_segments"
-    t.date     "completion_date"
+    t.integer  "submission_id",   :null => false
+    t.string   "firm_name"
+    t.string   "firm_address"
+    t.string   "name"
     t.string   "lead_designer"
     t.string   "architect"
-    t.string   "additional_designers"
-    t.string   "other_resources"
-    t.string   "othere_resources_title"
+    t.string   "team_members"
+    t.text     "description"
+    t.date     "completion_date"
     t.string   "square_footage"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.string   "primary_sources"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "project_specs", ["submission_id"], :name => "index_project_specs_on_submission_id"
 
   create_table "submission_categories", :force => true do |t|
-    t.integer  "submission_id"
-    t.integer  "category_id"
+    t.integer  "submission_id", :null => false
+    t.integer  "category_id",   :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -174,18 +173,18 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "submission_categories", ["submission_id"], :name => "index_submission_categories_on_submission_id"
 
   create_table "submissions", :force => true do |t|
-    t.integer  "user_id",                                              :null => false
-    t.string   "title",                                                :null => false
+    t.integer  "user_id",                                :null => false
+    t.string   "title",                                  :null => false
     t.text     "description"
-    t.string   "status",                        :default => "editing", :null => false
-    t.string   "submission_type", :limit => 55
-    t.boolean  "active",                        :default => false,     :null => false
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.string   "status",          :default => "editing", :null => false
+    t.string   "submission_type",                        :null => false
+    t.boolean  "active",          :default => false,     :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
-    t.string   "session_id"
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -69,8 +69,6 @@ Category.find_or_create_by_name(:name=>"Wallcovering: Fabric", :description=>"Wa
 Category.find_or_create_by_name(:name=>"Wallcovering: Treatments(including Tile and Stone)", :description=>"Wallcovering: Treatments(including Tile and Stone)", :parent_id=>pd.id, :kind=>0, :sort_id=>1)
 Category.find_or_create_by_name(:name=>"Wallcovering: Paper", :description=>"Wallcovering: Paper", :parent_id=>pd.id, :kind=>0, :sort_id=>1)
 Category.find_or_create_by_name(:name=>"Window Treatments", :description=>"Window Treatments", :parent_id=>pd.id, :kind=>0, :sort_id=>1)
-Category.find_or_create_by_name(:name=>"", :description=>"", :parent_id=>pd.id, :kind=>0, :sort_id=>1)
-
 
 pj = Category.find_or_create_by_name(:name=>"Project", :description=>"Project Type", :kind=>1, :sort_id=>1)
 puts "create project categories"

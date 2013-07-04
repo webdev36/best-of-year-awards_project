@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
   has_many :draft_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'draft']
   has_many :completed_submissions, :class_name=>"Submission", :conditions =>['submissions.status=?', 'complete']
 
+  has_many :product_submissions, :class_name=>"Submission", :conditions =>['submissions.status=? AND submissions.submission_type=?', 'whole', 'product']
+  has_many :project_submissions, :class_name=>"Submission", :conditions =>['submissions.status=? AND submissions.submission_type=?', 'whole', 'project']
+  
+
   has_many :orders
   has_many :payments
   

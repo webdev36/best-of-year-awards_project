@@ -12,10 +12,11 @@
 							%input#search.search-query{:name => "search", :placeholder => "", :style => "padding-left:20px;width:0px;border-radius:15px;float:right;", :type => "text"}/
 							.icon-search
 					%li
-						%a.account{:href=>"javascript://"}
-							- if current_user
+						- if current_user
+							%a.account{:href=> edit_user_path(current_user)}
 								.in_avatar
-							- else
+						- else
+							%a.account{:href=> new_user_session_path}
 								.out_avatar
 			.row.account-controls
 				%ul

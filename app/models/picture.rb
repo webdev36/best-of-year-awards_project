@@ -24,6 +24,6 @@ class Picture < ActiveRecord::Base
                     :path => ":rails_root/public/assets/pictures/:style/:basename.:extension"
 
   validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 10.megabytes
+  validates_attachment_size :image, :less_than => 6.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/tip']
 end

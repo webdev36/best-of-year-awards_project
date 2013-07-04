@@ -25,11 +25,17 @@ end
 gem 'simple_form'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'colorbox-rails'
 gem 'country_select'
 gem 'carmen-rails'
 gem 'haml-rails'
 gem 'parsley-rails'
+gem 'rails3-jquery-autocomplete'
+
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 
 gem "rmagick"

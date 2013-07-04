@@ -31,22 +31,13 @@ describe Submission do
 
 		t=Submission.reflect_on_association(:orders)
 		t.macro.should == :has_many
-
-		t=Submission.reflect_on_association(:pictures)
-		t.macro.should == :has_many
 	end
 
-	it "should have one payment" do
+	it "should have one product_spec and project_spec" do
 		t=Submission.reflect_on_association(:product_spec)
 		t.macro.should == :has_one
 		
 		t=Submission.reflect_on_association(:project_spec)
-		t.macro.should == :has_one
-		
-		t=Submission.reflect_on_association(:company)
-		t.macro.should == :has_one
-	
-		t=Submission.reflect_on_association(:contact)
 		t.macro.should == :has_one
 	end
 	

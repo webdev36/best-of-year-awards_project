@@ -8,10 +8,10 @@ class SubmissionStepController < ApplicationController
 		case step		
 		when :agree_terms		
 			redirect_to :home_submission_landing and return if params[:type].nil? or !Submission::TYPE.include? params[:type]
-			session[:submission_type] = params[:type]		
+			session[:submission_type] = params[:type]
 			
 			if session[:submission_id].nil?
-				@submission = current_user.submissions.build :title=>"Please input #{session[:submission_type]}", :status => 'editing', :submission_type =>session[:submission_type]
+				@submission = current_user.submissions.build :title=>"Input #{session[:submission_type]}", :status => 'editing', :submission_type =>params[:type]
 				@submission.save
 				session[:submission_id] = @submission.id
 #			elsif current_submission && session[:submission_type] != current_submission.type
@@ -21,7 +21,7 @@ class SubmissionStepController < ApplicationController
 			else
 				@submission = current_submission
 				if @submission.blank?
-					@submission = current_user.submissions.build :title=>"Please input #{session[:submission_type]} submission name", :status => 'editing', :submission_type =>session[:submission_type]
+					@submission = current_user.submissions.build :title=>"Input #{session[:submission_type]} submission name", :status => 'editing', :submission_type =>params[:type]
 					@submission.save
 					session[:submission_id] = @submission.id
 				end
@@ -39,16 +39,24 @@ class SubmissionStepController < ApplicationController
 		when :input_submissions
 			redirect_to :home_submission_landing and return unless current_submission 
 			@submission ||= current_submission
-			@submission.build_company if @submission.company.nil?
-			@submission.pictures.build
-			if session[:submission_type] == "product"				
-				@submission.build_product_spec if @submission.product_spec.nil?				
-			elsif session[:submission_type] == "project"				
-				@submission.build_project_spec if @submission.project_spec.nil?			
+			if session[:submission_type] == Submission::TYPE[1]
+				product = @submission.product_spec.nil? ? @submission.build_product_spec : @submission.product_spec
+				product.save
+				product.build_contact if product.contact.nil?
+				@submission = product
+			elsif session[:submission_type] == Submission::TYPE[0]
+				project = @submission.project_spec.nil? ? @submission.build_project_spec : @submission.project_spec
+				project.save
+				project.build_contact if project.contact.nil?
+				project.build_company if project.company.nil?
+				project.pictures.build
+				@submission = project
 			end
 		when :confirm_submissions	
-			@submission ||= current_submission
-			session[:submission_type] = session[:submission_id] = nil
+			redirect_to root_url and return unless current_submission
+			@submission = current_submission
+			#session[:submission_type] = session[:submission_id] = nil
+			session[:submission_id] = nil
 		end
 		render_wizard
 	end
@@ -59,8 +67,18 @@ class SubmissionStepController < ApplicationController
 		case step		
 		when :select_categories
 			@submission.attributes = params[:submission]
-		when :input_submissions
-			@submission.attributes = params[:submission]
+		when :input_submissions			
+			if session[:submission_type] == Submission::TYPE[1]
+				@submission.status = "whole"
+				product = @submission.product_spec				
+				product.attributes = params[:product_spec]
+				@submission.save
+			elsif session[:submission_type] == Submission::TYPE[0]
+				@submission.status = "whole"
+				project = @submission.project_spec
+				project.attributes = params[:project_spec]
+				@submission.save
+			end
 		end	
 		
 		render_wizard @submission

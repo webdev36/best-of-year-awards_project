@@ -77,6 +77,104 @@ form.edit_submission{
 }
 
 .input-submission-info-page{
+	.content{
+		background-color: #ffff00;
+		padding-top: 50px;
+		padding-left: 50px;
+		h4{
+			span{
+				font-weight: normal;
+			}
+		}
+		.control-group{
+			margin-bottom: 10px;
+			.file-upload-box{
+				.row{
+					height: 40px;
+					.parsley-error-list{
+						margin-left: 0px;
+						li{
+							position: absolute;
+							margin-top: 2px;
+							margin-left: 450px;
+						}
+					}
+				}
+
+			}
+
+			.control-label{
+				text-align: left;
+				font-size: 16px;
+				font-weight: 300;
+				width: 200px;
+			}
+			input{
+				background-color: transparent;
+				height: 18px;
+			}		
+			textarea{
+				background-color: transparent;
+				border: 1px solid black;
+				border-radius:0px; 
+				height: 50px;
+				width: 810px;
+				max-width: 810px;
+				min-width: 410px;
+				min-height: 50px;
+				&:hover{
+					box-shadow:none;
+				}
+				&:focus{
+					box-shadow:none;	
+				}
+			}
+			
+
+			.file-upload-filed{
+		    z-index: 999;
+		    line-height: 0;
+		    font-size: 30px;
+		    position: absolute;
+		    opacity: 0;
+		    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+		    cursor: pointer;
+		    _cursor: hand;
+		    margin: 0;
+		    padding:0;
+		    left:0;
+			}
+
+			.upload-btn{
+		    background-color: black;
+		    border-radius: 5px 5px 5px 5px;
+		    color: rgb(255, 255, 255);
+		    cursor: pointer;
+		    font-size: 16px;
+		    height: 30px;
+		    line-height: 30px;
+		    overflow: hidden;
+		    position: relative;
+		    text-align: center;
+		    width: 120px;
+			}
+			.temp_path{
+				border: 1px solid;
+		    float: left;
+		    height: 27px;
+		    margin-right: 10px;
+			}
+			#product_spec_introduction_date-gldp{
+				background-color: white;
+				border-radius: 5px;
+			}
+			#project_spec_completion_date-gldp{
+				background-color: white;
+				border-radius: 5px;
+			}
+		}
+	}
+	
 	.parsley-error-list{
 		li{
 			list-style: none;
@@ -107,6 +205,30 @@ form.edit_submission{
 
 
 .confirm-submission-info-page{
+	.content{
+		background-color: #ffff00;
+		padding-top: 50px;
+		padding-left: 50px;
+		.submission-product-page-title{
+			width: 500px;
+			height: 62px;
+			background: url("stripe.png") repeat scroll -6px -236px transparent;
+			margin-bottom:30px;
+		}
+		.submission-project-page-title{
+			width: 500px;
+			height: 62px;
+			background: url("stripe.png") repeat scroll -2px -156px transparent;
+			margin-bottom:30px;
+		}
+		.submission-box{
+			width: 97%;
+			&:hover{
+				cursor: pointer;
+				background-color: #ffff55;
+			}
+		}
+	}
 	.last-row{
 		text-align: center;
 		.btn{
@@ -157,3 +279,5 @@ form.edit_submission{
 		}
 	}
 }
+
+
