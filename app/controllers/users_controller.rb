@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	before_filter :require_user, :only => [:edit, :update]
   before_filter :require_no_user, :only => [:new]
+  # before_filter :require_admin_user, :only => [:index, :show]
 
   # GET /users
   # GET /users.json
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_url, notice: 'User was successfully created.' }
+        format.html { redirect_back_or_default } #, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

@@ -1,10 +1,9 @@
 BestOfYearAwards::Application.routes.draw do
   
   get "orders/success"
-
   get "orders/failure"
 
-  resources :submissions
+  resources :submissions, :only => [:show, :new, :create, :edit, :update]
   
   resources :submission_step
   resources :payment_process
@@ -22,14 +21,15 @@ BestOfYearAwards::Application.routes.draw do
   get 'event' => "home#event", :as => :home_event
   get 'faq' => "home#faq", :as => :home_faq
   
+  get 'signup' => "users#new", :as => :signup
+	post 'signup' => "users#create", :as => :signup
   resource :user, :only => [:edit, :update], :path => '/account'
   resources :users, :only => [:new,:create]
-
-  resources :user_sessions
   
-  match 'login' => "user_sessions#new",      :as => :login
+  get 'login' => "user_sessions#new", :as => :login
+	post 'login' => "user_sessions#create", :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
-  
+  resources :user_sessions, :only => [:new, :create, :destroy]
 
   root :to => 'home#index'
 

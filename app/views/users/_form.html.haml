@@ -1,13 +1,14 @@
-= form_for @user, :url => (@user.new_record? ? users_path : user_path), :method => (@user.new_record? ? :post : :put), :html => { :class => 'form-horizontal' } do |f|
+= form_for @user, :url => (@user.new_record? ? signup_path : user_path), :method => (@user.new_record? ? :post : :put), :html => { :class => 'form-horizontal' } do |f|
 	.control-group
 		= f.label :email, 'Email Address', :class => 'control-label'
 		.controls
 			= f.text_field :email, :class => 'text_field'
+			%br
+			%span.note (we'll send updates on your entry to this address)
 	.control-group
 		= f.label :password, :class => 'control-label'
 		.controls
 			= f.password_field :password, :class => 'text_field'
-			%span{:style=>"color: rgb(247, 151, 39);"} (we'll send updates on your entry to this address)
 	.control-group
 		= f.label "Retype Password", :class => 'control-label'
 		.controls

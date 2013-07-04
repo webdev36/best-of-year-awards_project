@@ -6,7 +6,6 @@
 		margin-top: 80px;
 	}
 	.submit-control-box{
-		margin-top: 130px;
 		input{
 			float: right;
 		}
@@ -18,4 +17,8 @@
 		margin-top: 50px;
 		margin-bottom: 40px;
 	}
+  
+  label.checkbox {
+    display: inline-block;
+  }
 }

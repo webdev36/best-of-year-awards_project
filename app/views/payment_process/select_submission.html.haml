@@ -1,3 +1,6 @@
+- @current_section = :submission
+
+
 .row.select-submission-page
 	.container
 		.row{:style=>"margin-left:0px;"}
@@ -17,6 +20,8 @@
 								%label.checkbox
 									= o_sub.check_box :submission_id, {:saved_values => [f.object.order_submissions, ["id", "title"]]}, o_sub.object.id, '-1'
 									%label= o_sub.object.title
+
+
 :javascript
 	$('div.submission-box input[type="hidden"]').each(function(){
 		if($(this).val()!=-1){

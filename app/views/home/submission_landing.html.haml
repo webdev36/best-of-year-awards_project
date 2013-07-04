@@ -1,3 +1,6 @@
+- @current_section = :submission
+
+
 .row.submission-landing-page
 	.container
 		.row.first-row
@@ -5,17 +8,19 @@
 		.row.second-row
 			.span3.left-box
 				.left-box-content
-					%h4 Hi #{current_user.fullname}
+					%h4 Hi #{current_user.fullname}!
 					%h5 Start a new submission:
 				= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"c_btn lc_btn"
 				= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"c_btn lc_btn"
 			.span3.center-box
 				.center-box-content
-					%h5 Resume an active submission:
-					- @editing_submissions.each do |editing_submission|
-						%p
-							= link_to editing_submission.title, home_edit_submission_path.to_s + '?id='+ editing_submission.id.to_s
-
+					- unless @editing_submissions.blank?
+						%h5 Resume an active submission:
+						- @editing_submissions.each do |editing_submission|
+							%p
+								= link_to editing_submission.title, home_edit_submission_path.to_s + '?id='+ editing_submission.id.to_s
+					- else
+						%p You have no open submissions.
 			.span3.right-box
 				.right-box-content
 					%h5 Your account:

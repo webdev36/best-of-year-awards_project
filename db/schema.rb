@@ -11,20 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627074827) do
+ActiveRecord::Schema.define(:version => 20130704031148) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "kind"
-    t.integer  "sort_id"
+    t.integer  "kind",        :default => 0,  :null => false
+    t.integer  "sort_id",     :default => 99, :null => false
     t.integer  "parent_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "companies", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id", :null => false
     t.string   "name"
     t.string   "address1"
     t.string   "address2"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "companies", ["submission_id"], :name => "index_companies_on_submission_id"
 
   create_table "contacts", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id",   :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
@@ -62,15 +62,15 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "contacts", ["submission_id"], :name => "index_contacts_on_submission_id"
 
   create_table "options", :force => true do |t|
-    t.string   "option_name"
-    t.text     "option_value"
+    t.string   "option_name",  :null => false
+    t.text     "option_value", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "order_submissions", :force => true do |t|
-    t.integer  "order_id"
-    t.integer  "submission_id"
+    t.integer  "order_id",      :null => false
+    t.integer  "submission_id", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "order_submissions", ["submission_id"], :name => "index_order_submissions_on_submission_id"
 
   create_table "orders", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",                   :null => false
     t.string   "balance_amount"
     t.string   "payment_option"
     t.string   "shipping_first_name"
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   end
 
   create_table "product_specs", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id",     :null => false
     t.date     "introduction_date"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "product_specs", ["submission_id"], :name => "index_product_specs_on_submission_id"
 
   create_table "project_specs", :force => true do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id",          :null => false
     t.string   "market_segments"
     t.date     "completion_date"
     t.string   "lead_designer"
@@ -164,8 +164,8 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "project_specs", ["submission_id"], :name => "index_project_specs_on_submission_id"
 
   create_table "submission_categories", :force => true do |t|
-    t.integer  "submission_id"
-    t.integer  "category_id"
+    t.integer  "submission_id", :null => false
+    t.integer  "category_id",   :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -174,18 +174,18 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
   add_index "submission_categories", ["submission_id"], :name => "index_submission_categories_on_submission_id"
 
   create_table "submissions", :force => true do |t|
-    t.integer  "user_id",                                              :null => false
-    t.string   "title",                                                :null => false
+    t.integer  "user_id",                                :null => false
+    t.string   "title",                                  :null => false
     t.text     "description"
-    t.string   "status",                        :default => "editing", :null => false
-    t.string   "submission_type", :limit => 55
-    t.boolean  "active",                        :default => false,     :null => false
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.string   "status",          :default => "editing", :null => false
+    t.string   "submission_type",                        :null => false
+    t.boolean  "active",          :default => false,     :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
-    t.string   "session_id"
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -200,18 +200,19 @@ ActiveRecord::Schema.define(:version => 20130627074827) do
     t.string   "last_name"
     t.string   "company_name"
     t.string   "occupation"
-    t.string   "crypted_password",                  :null => false
-    t.string   "password_salt",                     :null => false
-    t.string   "persistence_token",                 :null => false
-    t.integer  "login_count",        :default => 0, :null => false
-    t.integer  "failed_login_count", :default => 0, :null => false
+    t.string   "crypted_password",                      :null => false
+    t.string   "password_salt",                         :null => false
+    t.string   "persistence_token",                     :null => false
+    t.integer  "login_count",        :default => 0,     :null => false
+    t.integer  "failed_login_count", :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "admin",              :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

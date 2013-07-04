@@ -44,7 +44,6 @@ body{
       padding-left: 2px;
       padding-right: 2px;
       &:hover{
-        font-weight: bold;
         color: rgb(247, 151, 39);
         text-decoration: none;
       }
@@ -61,14 +60,12 @@ body{
     }
     input.yc_btn{
       &:hover{
-        font-weight: bold;
         color: #ffff00;
         text-decoration: none;
       }    
     }
     input.wc_btn{
       &:hover{
-        font-weight: bold;
         color: rgb(247, 151, 39);
         text-decoration: none;
       }    
@@ -94,7 +91,6 @@ body{
       &:hover{        
         color: rgb(247, 151, 39);
         text-decoration: none;
-        font-weight: bold;      
       }
       &:focus{
         color: rgb(247, 151, 39);
@@ -103,14 +99,12 @@ body{
     }
     a.yc_btn{
       &:hover{
-        font-weight: bold;
         color: #ffff00;
         text-decoration: none;
       }    
     }
     a.wc_btn{
       &:hover{
-        font-weight: bold;
         color: rgb(247, 151, 39);
         text-decoration: none;
       }    
@@ -125,7 +119,7 @@ body{
       padding-right: 2px;
     }
     h1.page-title{
-      color: #ff8300;
+      color: #ff8348;
     }
   }  
 }
