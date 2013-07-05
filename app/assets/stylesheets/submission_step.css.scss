@@ -222,11 +222,7 @@ form.edit_submission{
 			margin-bottom:30px;
 		}
 		.submission-box{
-			width: 97%;
-			&:hover{
-				cursor: pointer;
-				background-color: #ffff55;
-			}
+			max-width: 800px;
 		}
 	}
 	.last-row{

@@ -94,7 +94,7 @@ Category.find_or_create_by_name(:name=>"Showroom", :description=>"Showroom", :pa
 Option.find_or_create_by_option_name(:option_name=>"project_submission_agree_terms", :option_value=>"
         <p>Submit your project in the Best of Year 2013 competition.</p>
         <p>First some fine print(please read):</p>
-        <p>- Work must have been completed between September 2012 and Augsut 2013.</p>
+        <p>- Work must have been completed between September 2012 and August 2013.</p>
         <p>- Due to the comprehensive nature of this competition, we will accept work that has been published previously and/or was part of another competition</p>
         <p>- There is no limit to the number of projects that may be entered to the competition.</p>
         <p>- Fees: $300/entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)</p>
@@ -103,7 +103,7 @@ Option.find_or_create_by_option_name(:option_name=>"project_submission_agree_ter
 Option.find_or_create_by_option_name(:option_name=>"product_submission_agree_terms", :option_value=>"
         <p>Submit your project in the Best of Year 2013 competition.</p>
         <p>First some fine print(please read):</p>
-        <p>- Work must have been completed between September 2012 and Augsut 2013.</p>
+        <p>- Work must have been completed between September 2012 and August 2013.</p>
         <p>- Due to the comprehensive nature of this competition, we will accept work that has been published previously and/or was part of another competition</p>
         <p>- There is no limit to the number of projects that may be entered to the competition.</p>
         <p>- Fees: $300/entry AND per category.(e.g. one project entered into two categories is $300 x 2 = $600)</p>
