@@ -7,9 +7,31 @@
 	}
 }
 .input-card-info-page{
-	.btn{
-		color: white;
-	}
+	.content-page{
+		background-color: #ffff00;
+		padding-left: 40px;
+		.first-row{
+			margin-top: 50px;
+			margin-bottom: 40px;
+			.checkout-page-title{
+				width: 196px;
+				height: 34px;
+				background: url("stripe.png") repeat scroll -454px -328px transparent;
+			}				
+		}		
+		.control-group{
+			.controls{
+				input{
+					background-color: transparent;
+				}
+				select{
+					background-color: transparent;
+					border: solid 1px;
+					border-radius: 0px;
+				}
+			}
+		}
+	}	
 }
 .content-page{
 	background-color: #ffff00;

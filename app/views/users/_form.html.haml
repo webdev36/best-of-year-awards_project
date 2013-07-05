@@ -1,34 +1,34 @@
-= form_for @user, :url => (@user.new_record? ? signup_path : user_path), :method => (@user.new_record? ? :post : :put), :html => { :class => 'form-horizontal' } do |f|
+= form_for @user, :url => (@user.new_record? ? signup_path : user_path), :method => (@user.new_record? ? :post : :put), :html => { :class => 'form-horizontal', :"data-validate" => "parsley" } do |f|
 	.control-group
-		= f.label :email, 'Email Address', :class => 'control-label'
+		= f.label :email, 'Email Address*', :class => 'control-label'
 		.controls
-			= f.text_field :email, :class => 'text_field'
+			= f.text_field :email, :class => 'text_field', :"data-required"=>"true"
 			%br
 			%span.note (we'll send updates on your entry to this address)
 	.control-group
-		= f.label :password, :class => 'control-label'
+		= f.label "Password*", :class => 'control-label'
 		.controls
-			= f.password_field :password, :class => 'text_field'
+			= f.password_field :password, :class => 'text_field', :"data-required"=>"true"
 	.control-group
-		= f.label "Retype Password", :class => 'control-label'
+		= f.label "Retype Password*", :class => 'control-label'
 		.controls
-			= f.password_field :password_confirmation, :class => 'text_field'
+			= f.password_field :password_confirmation, :class => 'text_field', :"data-required"=>"true"
 	.control-group
-		= f.label :first_name, :class => 'control-label'
+		= f.label "First Name*", :class => 'control-label'
 		.controls
-			= f.text_field :first_name, :class => 'text_field'
+			= f.text_field :first_name, :class => 'text_field', :"data-required"=>"true"
 	.control-group
-		= f.label :last_name, :class => 'control-label'
+		= f.label "Last Name*", :class => 'control-label'
 		.controls
-			= f.text_field :last_name, :class => 'text_field'
+			= f.text_field :last_name, :class => 'text_field', :"data-required"=>"true"
 	.control-group
-		= f.label :company_name, :class => 'control-label'
+		= f.label "Company Name*", :class => 'control-label'
 		.controls
-			= f.text_field :company_name, :class => 'text_field'
+			= f.text_field :company_name, :class => 'text_field', :"data-required"=>"true"
 	.control-group
-		= f.label :occupation, :class => 'control-label'
+		= f.label "Occupation*", :class => 'control-label'
 		.controls
-			= f.text_field :occupation, :class => 'text_field'
+			= f.text_field :occupation, :class => 'text_field', :"data-required"=>"true"
 	
 	.form-actions{:style=>'float: right;'}
 		= f.submit 'Submit', :class => 'c_btn wc_btn'		
