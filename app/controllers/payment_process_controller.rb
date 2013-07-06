@@ -65,7 +65,7 @@ class PaymentProcessController < ApplicationController
 					@order.attributes = params[:order]
 					if @order.save
 						@order.complete(params[:cvv_number])						
-						flash[:alert] = 'Successifuly paid'
+						flash[:alert] = 'Thnk you for your submission. You will receive a payment confirmation email shortly.'
 					end
 				else
 					raise StandardError, response.message
