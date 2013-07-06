@@ -1,6 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#flash-banner {
+  //#notice-message, #alert-message,
+  .flash.notice, .flash.alert {
+    z-index: 999;
+    left:10px;
+    -moz-border-radius : 4px;
+    border-radius : 4px;
+    padding: 5px 8px;
+    margin: 0 auto 10px;
+    text-align:center;
+  }
+
+  //#notice-message,
+  .flash.notice {
+    background-color: #CCFFCC;
+    border: 1px solid #66CC66;
+    left: 19%;
+    width: 60%;
+    z-index: 9999;
+  }
+
+
+  #alert-message,
+  .flash.alert {
+    background-color: #FCC;
+    border: solid 1px #C66;
+  }
+}
+
+
+
 .navbar-inner{
 	border: none;
 	position: relate;

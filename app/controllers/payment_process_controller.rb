@@ -72,8 +72,8 @@ class PaymentProcessController < ApplicationController
 				end
 
 			else
-				flash[:notice] = 'Please retry'
-				render :text => credit_card.errors.full_messages.join('. ') and return
+				flash[:notice] = credit_card.errors.full_messages.join('. ')
+				redirect_to :back and return
 			end
 			redirect_to root_url and return
 		end	

@@ -57,3 +57,33 @@
 								.controls
 									= f.text_field :shipping_zip_code, :class => 'text_field', :placeholder =>"Zip Code"
 							
+:javascript
+	$( "#order_shipping_city" ).autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: "http://ws.geonames.org/searchJSON?country=US",
+				dataType: "jsonp",
+				data: {
+					featureClass: "P",
+					style: "full",
+					maxRows: 12,
+					name_startsWith: request.term
+				},
+				success: function (data) {
+					response($.map(data.geonames, function (item) {
+						return {
+							label: item.name + (item.adminName1 ? ", " + item.adminName1 : ""),
+							value: item.name,
+							state: item.adminCode1,
+							code: item.adminCode2
+						}
+					}));
+				}
+			});
+		},
+		minLength: 2,
+		select: function (event, ui) {
+			$("#order_shipping_state").val(ui.item.state);
+			$("#order_shipping_zip_code").val(ui.item.code);
+		}		
+	});	

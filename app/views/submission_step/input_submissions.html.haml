@@ -260,8 +260,8 @@
 		$("#path_four").val($(this).val());
 	});
 
-	/*
-	$( "#project_spec_company_city" ).autocomplete({
+	
+	$( "#project_spec_company_attributes_city" ).autocomplete({
 		source: function (request, response) {
 			$.ajax({
 				url: "http://ws.geonames.org/searchJSON?country=US",
@@ -277,7 +277,8 @@
 						return {
 							label: item.name + (item.adminName1 ? ", " + item.adminName1 : ""),
 							value: item.name,
-							code: item.adminCode1
+							state: item.adminCode1,
+							code: item.adminCode2
 						}
 					}));
 				}
@@ -285,10 +286,10 @@
 		},
 		minLength: 2,
 		select: function (event, ui) {
-			$("#project_spec_company_state").val(ui.item.code);
-			$("#project_spec_company_zip").val(ui.item.code);
-			$("#project_spec_company_email").focus();
+			$("#project_spec_company_attributes_state").val(ui.item.state);
+			$("#project_spec_company_attributes_zip").val(ui.item.code);
+			$("#project_spec_company_attributes_email").focus();
 		}
 		
 	});	
-	*/
+	

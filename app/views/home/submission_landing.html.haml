@@ -10,8 +10,8 @@
 				.left-box-content
 					%h4 Hi #{current_user.fullname}!
 					%h5 Start a new submission:
-				= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"c_btn lc_btn"
-				= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"c_btn lc_btn"
+				= link_to "Submit Project", submission_step_index_path.to_s+'?type=project', :class=>"c_btn lc_btn yc_btn"
+				= link_to "Submit Product", submission_step_index_path.to_s+'?type=product', :class=>"c_btn lc_btn yc_btn"
 			.span3.center-box
 				.center-box-content
 					- unless @editing_submissions.blank?
@@ -24,8 +24,8 @@
 			.span3.right-box
 				.right-box-content
 					%h5 Your account:
-				%a.c_btn.lc_btn{:href => "#"} Edit Information
-				%a.c_btn.lc_btn{:href => "#",:style=>"height: 80px;padding-top:16px;"} View &nbsp; Finished &nbsp; Submissions
+				%a.c_btn.yc_btn.lc_btn{:href => "#"} Edit Information
+				%a.c_btn.yc_btn.lc_btn{:href => "#",:style=>"height: 80px;padding-top:16px;"} View &nbsp; Finished &nbsp; Submissions
 
 
 			
